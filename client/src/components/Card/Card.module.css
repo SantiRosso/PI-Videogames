@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid white; */
+    background-color: rgba(0, 0, 0, 0.785);
+    border-radius: 20px;
+    margin: 10px;
+    align-items: center;
+}
+
+.img{
+    border-radius: 20px;
+    height: 280px;
+    width: 250px;
+    margin-top: 5px;
+    object-fit: cover;
+}
+
+.name{
+    text-align: center;
+}

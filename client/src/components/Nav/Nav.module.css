@@ -1,0 +1,34 @@
+.container{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.boton{
+    background-color: white;
+    font-family: 'Silkscreen', cursive;
+    color: black;
+    height: 50px;
+    width: 200px;
+    font-size: larger;
+    border-radius: 20px;
+    border: none;
+    transition: background-color .5s;
+}
+
+.boton:hover{
+    color:white;
+    background-color: rgb(34, 34, 34) ;
+    cursor: pointer;
+}
+
+.home{
+    border: 2px solid white;
+    border-radius: 20px;
+}
