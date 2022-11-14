@@ -33,7 +33,6 @@ const getHome = async () => {
         },
       },
     });
-    console.log(videogamesDb);
     videogamesDb = videogamesDb?.map((e) => {
       return {
         id: e.id,
@@ -44,6 +43,7 @@ const getHome = async () => {
         rating: e.rating,
         description: e.description,
         genres: e.genres?.map((e) => e.name),
+        created: e.created,
       };
     });
 
@@ -103,16 +103,17 @@ const getById = async (id) => {
 };
 
 const getGameByIdFromDb = async (id) => {
-  const result = await Videogame.findByPk(id, {
-    include: {
-      model: Genre,
-      attributes: ["name"],
-      through: {
-        attributes: [],
-      },
+  let videogameDb = await Videogame.findOne({
+    where: {
+      id: id,
     },
+    include: Genre,
   });
-  return result;
+  console.log(videogameDb);
+  videogameDb.dataValues.genres = videogameDb.dataValues.genres.map(
+    (e) => e.name
+  );
+  return videogameDb.dataValues;
 };
 
 const getGenres = async () => {

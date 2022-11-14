@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    
+    height: 100%;
 }
 
 .containerGrid{
@@ -11,10 +11,20 @@
     background-color: rgba(0, 0, 0, 0.833);
     background-size: cover;
     padding-top: 70px;
+    height: 100%;
 }
 
 .grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin: 20px;
+}
+
+.loader{
+    background-color: rgba(0, 0, 0, 0.833);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

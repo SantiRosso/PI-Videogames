@@ -12,7 +12,7 @@ const Card = ({ name, img, genres, id }) => {
                 <h3 className={s.name}>{name}</h3>
             </Link>
             <div> 
-                { genres?.map((e) => (<p>{e}</p>)) } 
+                { genres?.map((e) => (<p key={e+id}>{e}</p>)) } 
             </div>    
         </div>
     )

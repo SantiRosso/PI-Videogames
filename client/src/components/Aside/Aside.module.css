@@ -1,0 +1,23 @@
+.genres{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.genre{
+    background-color: white;
+    font-family: 'Silkscreen', cursive;
+    color: black;
+    height: 40px;
+    width: 150px;
+    font-size: smaller;
+    border-radius: 20px;
+    border: none;
+    transition: background-color .5s;
+}
+
+.genre:hover{
+    color:white;
+    background-color: rgb(34, 34, 34) ;
+    cursor: pointer;
+}

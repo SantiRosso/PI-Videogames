@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { getHome, getFilQuery } = require("./controllers");
+const { getHome, getFilQuery /* getGamesDb */ } = require("./controllers");
 const { Videogame, Genre } = require("../db.js");
 const router = Router();
 
@@ -8,7 +8,6 @@ router.get("/", async (req, res) => {
   try {
     if (name) {
       const resp = await getFilQuery(name);
-      console.log(resp);
       res.send(resp);
     } else {
       const result = await getHome();

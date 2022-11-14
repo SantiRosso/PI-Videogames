@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './Create.module.css';
 import Nav from '../Nav/Nav';
 import { useState } from 'react';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { getGenres } from '../../redux/actions';
 
 const Create = () => {
+
+    const genres = useSelector((state) => state.genres)
+    const dispatch = useDispatch();
+
+    useEffect(()=> {
+        dispatch(getGenres())
+    },[dispatch])
 
     const [form, setForm] = useState({
         name: '',
         released: '',
         description: '',
-        genres: '',
+        genres: [],
         platforms: '',
         img: '',
         rating: 0,
@@ -24,8 +33,22 @@ const Create = () => {
     }
 
     function handleSubmit (e) {
-        e.preventDefault();
         axios.post("http://localhost:3001/videogames", form)
+        alert('Game created!')
+    }
+
+    function handleSelect (e) {
+        setForm({
+            ...form,
+            genres: [...form.genres, e.target.value]
+        })
+    }
+
+    function handleDelete (event) {
+        setForm({
+            ...form,
+            genres: form.genres.filter(e => e !== event.target.value)
+        })
     }
 
     return (
@@ -48,9 +71,20 @@ const Create = () => {
                     <input type='text' name='rating' onChange={handleChange} className={s.input} required></input>
                     <label>Image: </label>
                     <input type='text' name='img' onChange={handleChange} className={s.input} required></input>
-                    <button type='submit' className={s.boton}>Create</button>
                     <label>Genres: </label>
-                    <input type='text' name='genres' onChange={handleChange} className={s.input} required></input>
+                    <select name='genres' onChange={handleSelect}>
+                        {genres?.map((e) => {return(<option>{e.name}</option>)})}
+                    </select>
+                    <div>
+                        {
+                        form.genres?.map((e) => {
+                            return(
+                                <span className={s.genre}>{e}<button value={e} onClick={handleDelete} className={s.btnx}>X</button></span>
+                            )
+                        })
+                        }
+                    </div>
+                    <button type='submit' className={s.boton}>Create</button>
                 </form>
             </div>
             
