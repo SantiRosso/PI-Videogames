@@ -36,7 +36,6 @@ const rootReducer = (state = initialState, action) => {
     case GET_BY_NAME:
       return {
         ...state,
-        // videogames: action.payload,
         filtered: action.payload,
       };
     case GET_BY_GENRE:

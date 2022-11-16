@@ -8,7 +8,7 @@
 .containerGrid{
     display: grid;
     grid-template-columns: 3fr 1fr;
-    background-color: rgba(0, 0, 0, 0.833);
+    /* background-color: rgba(0, 0, 0, 0.833); */
     background-size: cover;
     padding-top: 70px;
     height: 100%;
@@ -21,7 +21,7 @@
 }
 
 .loader{
-    background-color: rgba(0, 0, 0, 0.833);
+    /* background-color: rgba(0, 0, 0, 0.833); */
     height: 100vh;
     width: 100%;
     display: flex;

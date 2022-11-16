@@ -81,7 +81,6 @@ const getFilQuery = async (name) => {
 };
 
 const getById = async (id) => {
-  // try {
   let game = await axios.get(
     `https://api.rawg.io/api/games/${id}?key=${APIKEY}`
   );
@@ -97,9 +96,6 @@ const getById = async (id) => {
     description: game.description,
   };
   return gameOk;
-  // } catch (error) {
-  //   throw new Error("Game not found.");
-  // }
 };
 
 const getGameByIdFromDb = async (id) => {
