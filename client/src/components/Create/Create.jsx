@@ -33,7 +33,7 @@ const Create = () => {
     }
 
     function handleSubmit (e) {
-        axios.post("http://localhost:3001/videogames", form)
+        axios.post("http://localhost:3001/videogames", form) 
         alert('Game created!')
     }
 

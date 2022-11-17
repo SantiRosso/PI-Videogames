@@ -39,8 +39,6 @@ router.post("/", async (req, res) => {
         },
       });
 
-      console.log(db);
-
       await juego.addGenre(db);
 
       res.status(201).send("Juego creado exitosamente.");

@@ -5,6 +5,8 @@ import {
   GET_BY_NAME,
   GET_BY_GENRE,
   GET_GAMES_DBORAPI,
+  GET_SORT,
+  GET_RATING,
 } from "./actions.js";
 
 const initialState = {
@@ -18,10 +20,11 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_VIDEOGAMES:
+      const a = [...action.payload];
       return {
         ...state,
         videogames: action.payload,
-        filtered: action.payload,
+        filtered: a,
       };
     case GET_DETAIL:
       return {
@@ -53,6 +56,34 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: action.payload === "api" ? Api : Db,
+      };
+    case GET_SORT:
+      const sort =
+        action.payload === "asc"
+          ? state.filtered.sort((a, b) => {
+              if (a.name > b.name) return 1;
+              if (a.name < b.name) return -1;
+              return 0;
+            })
+          : state.filtered.sort((a, b) => {
+              if (a.name < b.name) return 1;
+              if (a.name > b.name) return -1;
+              return 0;
+            });
+      return {
+        ...state,
+        filtered: sort,
+      };
+    case GET_RATING:
+      let rating =
+        action.payload === "men"
+          ? state.filtered.sort((a, b) => a.rating - b.rating)
+          : action.payload === "may"
+          ? state.filtered.sort((a, b) => b.rating - a.rating)
+          : state.filtered;
+      return {
+        ...state,
+        filtered: rating,
       };
     default:
       return { ...state };

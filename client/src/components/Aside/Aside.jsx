@@ -38,10 +38,6 @@ const Aside = () => {
                 <button onClick={handleClickSwitch} value='api'>Api</button>
                 <button onClick={handleClickSwitch} value='db'>DB</button>
             </div>
-            <div>
-                <button>Previous</button>
-                <button>Next</button>
-            </div>
         </div>
     )
 }

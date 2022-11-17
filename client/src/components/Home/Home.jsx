@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import s from './Home.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllVideogames } from '../../redux/actions';
+import { getAllVideogames, getRating, getSort } from '../../redux/actions';
 import Card from '../Card/Card';
 import Aside from '../Aside/Aside';
 import Nav from '../Nav/Nav';
+import Pagination from '../Pagination/Pagination';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -13,6 +14,25 @@ const Home = () => {
     useEffect(()=> {
         dispatch(getAllVideogames());
     },[dispatch]);
+
+    //PAGINATION 
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(15);
+
+    let max = Math.ceil(videogames.length / perPage);
+
+    //OrderBy
+    const [order, setOrder] = useState(true)
+
+    const handleSort = (e) => {
+        dispatch(getSort(e.target.value))
+        setOrder(!order)
+    }
+
+    const handleRating = (e) => {
+        dispatch(getRating(e.target.value))
+        setOrder(!order)
+    }
     
     return (
         <div className={s.home}>
@@ -24,7 +44,8 @@ const Home = () => {
                     <div className={s.grid}>
                     {   
                         // videogames.length ?
-                        videogames?.map((e) => {
+                        videogames?.slice((page -1) * perPage, (page -1) * perPage + perPage)
+                        .map((e) => {
                             return(
                                 <Card key={e.id} id={e.id} name={e.name} img={e.img} genres={e.genres}/>
                             )
@@ -34,7 +55,22 @@ const Home = () => {
 
                     }
                     </div>
+                    <div>
                     <Aside/>
+                    <Pagination page={page} setPage={setPage} max={max}/>
+                    <div>
+                        <select name="Sort" onChange={handleSort}>
+                            <option value="sort">Sort</option>
+                            <option value="asc">A-Z</option>
+                            <option value="des">Z-A</option>
+                        </select>
+                        <select name="Rating" onChange={handleRating}>
+                            <option value="rating">Rating</option>
+                            <option value="men">Menor-Mayor</option>
+                            <option value="may">Mayor-Menor</option>
+                        </select>
+                    </div>
+                    </div>
                 </div>
 
                 : <div className={s.loader}>
