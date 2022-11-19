@@ -27,16 +27,16 @@ const Aside = () => {
             <h1 className={s.container}>Aside</h1>
             <div className={s.genres}>
                 {
-                    genres?.map((e) => {
+                    genres?.map((e,i) => {
                         return(
-                            <button className={s.genre} value={e.name} onClick={handleClick}>{e.name}</button>
+                            <button key={i} className={s.genre} value={e.name} onClick={handleClick}>{e.name}</button>                           
                         )
                     })
                 }
             </div>
-            <div>
-                <button onClick={handleClickSwitch} value='api'>Api</button>
-                <button onClick={handleClickSwitch} value='db'>DB</button>
+            <div className={s.divApidb}>
+                <button onClick={handleClickSwitch} className={s.apidb} value='api'>Games API</button>
+                <button onClick={handleClickSwitch} className={s.apidb} value='db'>Created games</button>
             </div>
         </div>
     )

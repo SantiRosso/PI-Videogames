@@ -38,6 +38,7 @@ const Create = () => {
     }
 
     function handleSelect (e) {
+        if(e.target.value !== 'genres')
         setForm({
             ...form,
             genres: [...form.genres, e.target.value]
@@ -73,6 +74,7 @@ const Create = () => {
                     <input type='text' name='img' onChange={handleChange} className={s.input} required></input>
                     <label>Genres: </label>
                     <select name='genres' onChange={handleSelect}>
+                        <option value='genres'>Genres</option>
                         {genres?.map((e) => {return(<option>{e.name}</option>)})}
                     </select>
                     <div>

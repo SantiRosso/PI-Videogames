@@ -14,6 +14,7 @@ const initialState = {
   filtered: [],
   genres: [],
   videogameDetail: {},
+  filtered2: [],
   // loader: false,
 };
 
@@ -25,6 +26,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         videogames: action.payload,
         filtered: a,
+        filtered2: a,
       };
     case GET_DETAIL:
       return {
@@ -40,6 +42,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: action.payload,
+        filtered2: action.payload,
       };
     case GET_BY_GENRE:
       let av = [...state.videogames];
@@ -49,10 +52,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: gf,
+        filtered2: gf,
       };
     case GET_GAMES_DBORAPI:
-      let Api = state.videogames.filter((e) => !e.created);
-      let Db = state.videogames.filter((e) => e.created === true);
+      let Api = state.filtered2.filter((e) => !e.created);
+      let Db = state.filtered2.filter((e) => e.created === true);
       return {
         ...state,
         filtered: action.payload === "api" ? Api : Db,
@@ -73,6 +77,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: sort,
+        filtered2: sort,
       };
     case GET_RATING:
       let rating =
@@ -84,6 +89,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: rating,
+        filtered2: rating,
       };
     default:
       return { ...state };

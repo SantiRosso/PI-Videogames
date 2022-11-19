@@ -17,7 +17,7 @@ const Home = () => {
 
     //PAGINATION 
     const [page, setPage] = useState(1);
-    const [perPage, setPerPage] = useState(15);
+    const [perPage] = useState(15);
 
     let max = Math.ceil(videogames.length / perPage);
 
@@ -57,7 +57,6 @@ const Home = () => {
                     </div>
                     <div>
                     <Aside/>
-                    <Pagination page={page} setPage={setPage} max={max}/>
                     <div>
                         <select name="Sort" onChange={handleSort}>
                             <option value="sort">Sort</option>
@@ -70,6 +69,7 @@ const Home = () => {
                             <option value="may">Mayor-Menor</option>
                         </select>
                     </div>
+                    <Pagination page={page} setPage={setPage} max={max}/>
                     </div>
                 </div>
 

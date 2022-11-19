@@ -1,5 +1,6 @@
 require("dotenv").config();
 const axios = require("axios");
+const { Op } = require("sequelize");
 const { APIKEY } = process.env;
 const { Genre, Videogame } = require("../db.js");
 
@@ -74,10 +75,40 @@ const getFilQuery = async (name) => {
         description: e.description,
       };
     });
+
+    let db = await Videogame.findAll({
+      where: {
+        name: {
+          [Op.iLike]: `%${name}%`,
+        },
+      },
+      include: {
+        model: Genre,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
+      },
+    });
+
+    db = db.map((e) => {
+      return {
+        id: e.id,
+        name: e.name,
+        genres: e.genres?.map((e) => e.name),
+        platforms: e.platforms,
+        released: e.released,
+        img: e.background_image,
+        rating: e.rating,
+        description: e.description,
+      };
+    });
+
+    let result = [...api, ...db];
+    return result;
   } else {
     throw new Error("Game not found.");
   }
-  return api;
 };
 
 const getById = async (id) => {

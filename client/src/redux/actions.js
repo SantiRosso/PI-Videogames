@@ -30,7 +30,7 @@ export const getDetail = (id) => {
 
 export const getGenres = () => {
   return async (dispatch) => {
-    return axios.get("http://localhost:3001/genres").then((response) => {
+    return await axios.get("http://localhost:3001/genres").then((response) => {
       dispatch({ type: GET_GENRES, payload: response.data });
     });
   };
