@@ -7,6 +7,7 @@ export const GET_BY_GENRE = "GET_BY_GENRE";
 export const GET_GAMES_DBORAPI = "GET_GAMES_DBORAPI";
 export const GET_SORT = "GET_SORT";
 export const GET_RATING = "GET_RATING";
+export const ERROR = "ERROR";
 
 export const getAllVideogames = () => {
   return async (dispatch) => {
@@ -36,13 +37,26 @@ export const getGenres = () => {
   };
 };
 
+// export const getByName = (name) => {
+//   return async (dispatch) => {
+//       return await axios
+//         .get(`http://localhost:3001/videogames?name=${name}`)
+//         .then((response) => {
+//           dispatch({ type: GET_BY_NAME, payload: response.data });
+//         });
+//   };
+// };
+
 export const getByName = (name) => {
   return async (dispatch) => {
-    return await axios
-      .get(`http://localhost:3001/videogames?name=${name}`)
-      .then((response) => {
-        dispatch({ type: GET_BY_NAME, payload: response.data });
-      });
+    let result = await axios.get(
+      `http://localhost:3001/videogames?name=${name}`
+    );
+    if (result.data) {
+      return dispatch({ type: GET_BY_NAME, payload: result.data });
+    } else {
+      return dispatch({ type: ERROR });
+    }
   };
 };
 
@@ -65,6 +79,11 @@ export const getSort = (payload) => {
 export const getRating = (payload) => {
   return (dispatch) => dispatch({ type: GET_RATING, payload });
 };
+
+export const setError = () => {
+  return (dispatch) => dispatch({ type: ERROR });
+};
+
 // export const setLoader = () => {
 
 // }

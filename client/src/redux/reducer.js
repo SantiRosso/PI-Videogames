@@ -7,6 +7,7 @@ import {
   GET_GAMES_DBORAPI,
   GET_SORT,
   GET_RATING,
+  ERROR,
 } from "./actions.js";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   genres: [],
   videogameDetail: {},
   filtered2: [],
+  error: false,
   // loader: false,
 };
 
@@ -90,6 +92,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         filtered: rating,
         filtered2: rating,
+      };
+    case ERROR:
+      return {
+        error: !state.error,
+        filtered: [],
       };
     default:
       return { ...state };

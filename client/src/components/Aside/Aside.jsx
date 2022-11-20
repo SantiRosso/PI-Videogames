@@ -24,7 +24,8 @@ const Aside = () => {
 
     return(
         <div>
-            <h1 className={s.container}>Aside</h1>
+            <h1 className={s.title}>Filter by</h1>
+            <h3 className={s.container}>Genres</h3>
             <div className={s.genres}>
                 {
                     genres?.map((e,i) => {
@@ -35,8 +36,11 @@ const Aside = () => {
                 }
             </div>
             <div className={s.divApidb}>
+                <h3 className={s.title}>API/DATABASE</h3>
+                <div className={s.subDiv}>
                 <button onClick={handleClickSwitch} className={s.apidb} value='api'>Games API</button>
                 <button onClick={handleClickSwitch} className={s.apidb} value='db'>Created games</button>
+                </div>
             </div>
         </div>
     )

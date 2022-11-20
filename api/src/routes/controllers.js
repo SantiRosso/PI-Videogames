@@ -57,24 +57,26 @@ const getHome = async () => {
 };
 
 const getFilQuery = async (name) => {
-  let api = await axios.get(
-    `https://api.rawg.io/api/games?search=${name}&key=${APIKEY}`
-  );
-  api = api.data.results;
-  if (api.length) {
-    api = api.splice(0, 15);
-    api = api?.map((e) => {
-      return {
-        id: e.id,
-        name: e.name,
-        genres: e.genres?.map((e) => e.name),
-        platforms: e.platforms?.map((e) => e.platform.name),
-        released: e.released,
-        img: e.background_image,
-        rating: e.rating,
-        description: e.description,
-      };
-    });
+  try {
+    let api = await axios.get(
+      `https://api.rawg.io/api/games?search=${name}&key=${APIKEY}`
+    );
+    api = api.data.results;
+    if (api.length) {
+      api = api.splice(0, 15);
+      api = api?.map((e) => {
+        return {
+          id: e.id,
+          name: e.name,
+          genres: e.genres?.map((e) => e.name),
+          platforms: e.platforms?.map((e) => e.platform.name),
+          released: e.released,
+          img: e.background_image,
+          rating: e.rating,
+          description: e.description,
+        };
+      });
+    }
 
     let db = await Videogame.findAll({
       where: {
@@ -91,56 +93,67 @@ const getFilQuery = async (name) => {
       },
     });
 
-    db = db.map((e) => {
-      return {
-        id: e.id,
-        name: e.name,
-        genres: e.genres?.map((e) => e.name),
-        platforms: e.platforms,
-        released: e.released,
-        img: e.background_image,
-        rating: e.rating,
-        description: e.description,
-      };
-    });
+    if (db.length) {
+      db = db.map((e) => {
+        return {
+          id: e.id,
+          name: e.name,
+          genres: e.genres?.map((e) => e.name),
+          platforms: e.platforms,
+          released: e.released,
+          img: e.background_image,
+          rating: e.rating,
+          description: e.description,
+        };
+      });
+    }
 
     let result = [...api, ...db];
-    return result;
-  } else {
-    throw new Error("Game not found.");
+
+    if (result.length) return result;
+  } catch (error) {
+    throw new Error(error);
   }
 };
 
 const getById = async (id) => {
-  let game = await axios.get(
-    `https://api.rawg.io/api/games/${id}?key=${APIKEY}`
-  );
-  game = game.data;
-  let gameOk = {
-    id: game.id,
-    name: game.name,
-    genres: game.genres?.map((e) => e.name),
-    platforms: game.platforms?.map((e) => e.platform.name),
-    released: game.released,
-    img: game.background_image,
-    rating: game.rating,
-    description: game.description,
-  };
-  return gameOk;
+  try {
+    let game = await axios.get(
+      `https://api.rawg.io/api/games/${id}?key=${APIKEY}`
+    );
+    game = game.data;
+    let gameOk = {
+      id: game.id,
+      name: game.name,
+      genres: game.genres?.map((e) => e.name),
+      platforms: game.platforms?.map((e) => e.platform.name),
+      released: game.released,
+      img: game.background_image,
+      rating: game.rating,
+      description: game.description,
+    };
+    return gameOk;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 const getGameByIdFromDb = async (id) => {
-  let videogameDb = await Videogame.findOne({
-    where: {
-      id: id,
-    },
-    include: Genre,
-  });
-  console.log(videogameDb);
-  videogameDb.dataValues.genres = videogameDb.dataValues.genres.map(
-    (e) => e.name
-  );
-  return videogameDb.dataValues;
+  try {
+    let videogameDb = await Videogame.findOne({
+      where: {
+        id: id,
+      },
+      include: Genre,
+    });
+    console.log(videogameDb);
+    videogameDb.dataValues.genres = videogameDb.dataValues.genres.map(
+      (e) => e.name
+    );
+    return videogameDb.dataValues;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 const getGenres = async () => {

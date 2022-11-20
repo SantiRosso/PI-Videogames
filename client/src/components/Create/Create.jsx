@@ -32,7 +32,30 @@ const Create = () => {
         })
     }
 
+    const validate = (form) => {
+        let errors = {};
+        if (form.name.length < 2) {
+            errors.name = '-Game Name must have at least 2 characters';
+        }
+        if (form.description.length < 15) {
+            errors.description = '-Description must have at least 15 characters'
+        }
+        if (form.rating < 1 || form.rating > 5) {
+            errors.rating = '-Rating must be between 1 and 5';
+        }
+        return errors;
+    }
+
     function handleSubmit (e) {
+        let result = validate(form);
+        if(Object.values(result).length){
+            e.preventDefault()
+            return alert(Object.values(result).join('\n'));
+        }
+        if (form.genres.length < 1) {
+            e.preventDefault()
+            return alert('-Genres is required');
+        }
         axios.post("http://localhost:3001/videogames", form) 
         alert('Game created!')
     }

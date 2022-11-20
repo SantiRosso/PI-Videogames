@@ -1,0 +1,66 @@
+.button{
+    background-color: black;
+    font-family: 'Silkscreen', cursive;
+    color: white;
+    height: 40px;
+    width: 75px;
+    font-size: smaller;
+    border-radius: 20px;
+    border: none;
+    transition: background-color .5s;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.button:hover{
+    color:white;
+    background-color: rgb(34, 34, 34) ;
+    cursor: pointer;
+}
+
+.input{
+    padding: 0;
+    background-color: black;
+    font-family: 'Silkscreen', cursive;
+    color: white;
+    height: 40px;
+    width: 75px;
+    font-size: medium;
+    border-radius: 20px;
+    border: none;
+    transition: background-color .5s;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.input:hover{
+
+}
+
+.div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.p{
+    background-color: black;
+    font-family: 'Silkscreen', cursive;
+    color: white;
+    height: 30px;
+    width: 75px;
+    font-size: medium;
+    border-radius: 20px;
+    border: none;
+    transition: background-color .5s;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 0;
+    padding-top: 10px;
+}
+
+.title{
+    color: rgba(0, 0, 0, 0.407);
+    text-align: center;
+}

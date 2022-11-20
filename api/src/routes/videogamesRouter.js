@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
   const { name, description, released, rating, platforms, genres, img } =
     req.body;
 
-  if (name && description && released && rating && platforms && genres && img)
+  if (name && description && released && rating && platforms && genres && img) {
     try {
       let juego = await Videogame.create({
         name,
@@ -45,6 +45,7 @@ router.post("/", async (req, res) => {
     } catch (error) {
       res.status(400).send(error);
     }
+  }
 });
 
 module.exports = router;

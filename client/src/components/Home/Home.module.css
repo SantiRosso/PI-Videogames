@@ -20,11 +20,33 @@
     margin: 20px;
 }
 
-.loader{
-    /* background-color: rgba(0, 0, 0, 0.833); */
+.order{
+    color: rgba(0, 0, 0, 0.407);
+    text-align: center;
+}
+
+.aside{
+    background-color: gray;
     height: 100vh;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.orderDiv{
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+
+.select{
+    background-color: white;
+    font-family: 'Silkscreen', cursive;
+    color: black;
+    height: 40px;
+    width: 150px;
+    font-size: smaller;
+    /* border-radius: 20px; */
+    border: none;
+    transition: background-color .5s;
+    margin-right: 20px;
 }

@@ -6,10 +6,13 @@ import Card from '../Card/Card';
 import Aside from '../Aside/Aside';
 import Nav from '../Nav/Nav';
 import Pagination from '../Pagination/Pagination';
+import Error from '../Error/Error';
+import Loader from '../Loader/Loader';
 
 const Home = () => {
     const dispatch = useDispatch();
     const videogames = useSelector(state => state.filtered);
+    const error = useSelector(state => state.error);
 
     useEffect(()=> {
         dispatch(getAllVideogames());
@@ -27,6 +30,7 @@ const Home = () => {
     const handleSort = (e) => {
         dispatch(getSort(e.target.value))
         setOrder(!order)
+        
     }
 
     const handleRating = (e) => {
@@ -43,45 +47,34 @@ const Home = () => {
                 <div className={s.containerGrid}>
                     <div className={s.grid}>
                     {   
-                        // videogames.length ?
                         videogames?.slice((page -1) * perPage, (page -1) * perPage + perPage)
                         .map((e) => {
                             return(
                                 <Card key={e.id} id={e.id} name={e.name} img={e.img} genres={e.genres}/>
                             )
-                        }) /* : <div className={s.loader}>
-                            <img src='https://i.pinimg.com/originals/e1/06/64/e1066408f6758f1da75cfde0ad8823f0.gif' alt='Loading'/>
-                        </div> */
-
+                        }) 
                     }
                     </div>
-                    <div>
-                    <Aside/>
-                    <div>
-                        <select name="Sort" onChange={handleSort}>
-                            <option value="sort">Sort</option>
-                            <option value="asc">A-Z</option>
-                            <option value="des">Z-A</option>
-                        </select>
-                        <select name="Rating" onChange={handleRating}>
-                            <option value="rating">Rating</option>
-                            <option value="men">Menor-Mayor</option>
-                            <option value="may">Mayor-Menor</option>
-                        </select>
-                    </div>
-                    <Pagination page={page} setPage={setPage} max={max}/>
+                    <div className={s.aside}>
+                        <Aside/>
+                        <h3 className={s.order}>Order by</h3>
+                        <div className={s.orderDiv}>
+                            <select className={s.select} name="Sort" onChange={handleSort}>
+                                <option value="sort">Alphabetical order</option>
+                                <option value="asc">A-Z</option>
+                                <option value="des">Z-A</option>
+                            </select>
+                            <select className={s.select} name="Rating" onChange={handleRating}>
+                                <option value="rating">Rating</option>
+                                <option value="men">Minor-Major</option>
+                                <option value="may">Major-Minor</option>
+                            </select>
+                        </div>
+                        <Pagination page={page} setPage={setPage} max={max}/>
                     </div>
                 </div>
 
-                : <div className={s.loader}>
-                    <div>
-                        <img 
-                        className={s.loader} 
-                        src='https://i.pinimg.com/originals/e1/06/64/e1066408f6758f1da75cfde0ad8823f0.gif' 
-                        alt='Loading'
-                        />
-                    </div>
-                </div>
+                : error ? <Error/> : <Loader/>
 
             }
             
