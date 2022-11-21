@@ -17,9 +17,9 @@ const Error = () => {
     return(
         <div className={s.error}>
         <Nav/>
-        {/* <Link to={'/videogames'}> */}
+        <Link to={'/videogames'}>
         <button onClick={handleClick}>{'<'}</button>
-        {/* </Link> */}
+        </Link>
         <h1>404 NOT FOUND.</h1>
         </div>
     )

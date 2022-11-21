@@ -52,7 +52,7 @@ const getHome = async () => {
 
     return api;
   } catch (error) {
-    throw new Error("Cannot get videogames.");
+    throw new Error(error);
   }
 };
 
@@ -177,7 +177,7 @@ const getGenres = async () => {
     let genresDb = await Genre.findAll();
     return genresDb;
   } catch (error) {
-    throw new Error("Cannot get genres.");
+    throw new Error(error);
   }
 };
 

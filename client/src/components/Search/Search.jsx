@@ -1,8 +1,9 @@
 import React from 'react';
 import s from './Search.module.css';
 import { useState } from 'react';
-import { getByName } from '../../redux/actions';
+import { getAllVideogames, getByName } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Search = () => {
 

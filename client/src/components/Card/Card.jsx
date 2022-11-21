@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom';
 const Card = ({ name, img, genres, id }) => {
 
     return (
-        <div className={s.container}>
-            <img src={img} alt={name} className={s.img}/>
-            <Link to={`/details/${id}`}>
-                <h3 className={s.name}>{name}</h3>
-            </Link>
-            <div> 
-                { genres?.map((e) => (<p key={e+id}>{e}</p>)) } 
-            </div>    
-        </div>
+        <Link to={`/details/${id}`}>
+            <div className={s.container}>
+                <img src={img} alt={name} className={s.img}/>
+                    <h3 className={s.name}>{name}</h3>
+                <div> 
+                    { genres?.map((e) => (<p className={s.genres} key={e+id}>{e}</p>)) } 
+                </div>    
+            </div>
+        </Link>
     )
 }
 

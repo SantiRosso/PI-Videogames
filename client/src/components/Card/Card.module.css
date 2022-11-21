@@ -6,6 +6,14 @@
     border-radius: 20px;
     margin: 10px;
     align-items: center;
+    /* transition: .5s; */
+    height: 510px;
+    border: 2px solid rgba(0, 0, 0, 0.785)
+}
+
+.container:hover{
+    background-color: rgb(50, 50, 50);
+    border: 2px solid white;
 }
 
 .img{
@@ -18,4 +26,8 @@
 
 .name{
     text-align: center;
+}
+
+.genres{
+    color: gray;
 }

@@ -17,7 +17,6 @@ const initialState = {
   videogameDetail: {},
   filtered2: [],
   error: false,
-  // loader: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -51,10 +50,12 @@ const rootReducer = (state = initialState, action) => {
       let gf = av?.filter((e) => {
         return e.genres.includes(action.payload) && e;
       });
+      let err = !gf.length && true;
       return {
         ...state,
         filtered: gf,
         filtered2: gf,
+        error: err ? !state.error : state.error,
       };
     case GET_GAMES_DBORAPI:
       let Api = state.filtered2.filter((e) => !e.created);

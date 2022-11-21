@@ -4,7 +4,7 @@
     color: white;
     height: 40px;
     width: 75px;
-    font-size: smaller;
+    font-size: larger;
     border-radius: 20px;
     border: none;
     transition: background-color .5s;
@@ -20,9 +20,9 @@
 
 .input{
     padding: 0;
-    background-color: black;
+    background-color: white;
     font-family: 'Silkscreen', cursive;
-    color: white;
+    color: black;
     height: 40px;
     width: 75px;
     font-size: medium;
@@ -45,9 +45,9 @@
 }
 
 .p{
-    background-color: black;
+    background-color: white;
     font-family: 'Silkscreen', cursive;
-    color: white;
+    color: black;
     height: 30px;
     width: 75px;
     font-size: medium;

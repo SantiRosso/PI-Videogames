@@ -52,7 +52,7 @@ const Home = () => {
                             return(
                                 <Card key={e.id} id={e.id} name={e.name} img={e.img} genres={e.genres}/>
                             )
-                        }) 
+                        })
                     }
                     </div>
                     <div className={s.aside}>

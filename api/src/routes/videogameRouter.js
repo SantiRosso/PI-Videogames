@@ -14,7 +14,7 @@ router.get("/:idVideogame", async (req, res) => {
       return res.send(result);
     }
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(404).send(error);
   }
 });
 

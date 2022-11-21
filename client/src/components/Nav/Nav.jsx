@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import s from './Nav.module.css';
 import Search from '../Search/Search';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getAllVideogames } from '../../redux/actions';
 
 const Nav  = () => {

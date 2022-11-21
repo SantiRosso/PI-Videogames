@@ -1,6 +1,6 @@
 .container{
     /* background-color: rgba(0, 0, 0, 0.833); */
-    height: 100vh;
+    height: 80vh;
     background-size: cover;
 }
 
@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .form{
     display: flex;
     flex-direction: column;
@@ -40,7 +41,7 @@
     cursor: pointer;
 }
 
-.genre{
+.genrePlatf{
     border: 1px solid white;
     border-radius: 5px;
 }
@@ -59,4 +60,29 @@
     color:white;
     background-color: rgb(34, 34, 34) ;
     cursor: pointer;
+}
+
+.nav{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 80px;
+}
+
+.home{
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.div1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
 }

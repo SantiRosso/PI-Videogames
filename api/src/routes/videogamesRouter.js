@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
       res.send(result);
     }
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(404).send(error);
   }
 });
 
@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
         description,
         released,
         rating,
-        platforms: platforms.split(" "),
+        platforms /* : platforms.split(" ") */,
         img,
       });
 
@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
 
       await juego.addGenre(db);
 
-      res.status(201).send("Juego creado exitosamente.");
+      res.status(201);
     } catch (error) {
       res.status(400).send(error);
     }
