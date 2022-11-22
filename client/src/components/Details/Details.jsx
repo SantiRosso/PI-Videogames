@@ -9,11 +9,11 @@ const Details = (props) => {
     const {id} = useParams();
     const dispatch = useDispatch();
     const videogameDetail = useSelector(state => state.videogameDetail)
-
+    
     useEffect(() => {
         dispatch(getDetail(id))
     },[dispatch, id])
-    
+
     return (  
         <div className={s.container}>
             <Nav/> 

@@ -33,13 +33,13 @@ router.post("/", async (req, res) => {
         img,
       });
 
-      let db = await Genre.findAll({
+      let genreDb = await Genre.findAll({
         where: {
           name: genres,
         },
       });
 
-      await juego.addGenre(db);
+      await juego.addGenre(genreDb);
 
       res.status(201);
     } catch (error) {

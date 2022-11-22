@@ -57,12 +57,17 @@ const Create = () => {
             e.preventDefault()
             return alert('-Genres is required');
         }
-        axios.post("http://localhost:3001/videogames", form) 
-        alert('Game created!')
+        try {
+            axios.post("http://localhost:3001/videogames", form) 
+            alert('Game created!') 
+        } catch (error) {
+            
+        }
+        
     }
 
     function handleSelectG (e) {
-        if(e.target.value !== 'genres')
+        if(e.target.value !== 'genres' && !form.genres.includes(e.target.value))
         setForm({
             ...form,
             genres: [...form.genres, e.target.value]
@@ -70,7 +75,7 @@ const Create = () => {
     }
     
     function handleSelectP (e) {
-        if(e.target.value !== 'platforms')
+        if(e.target.value !== 'platforms' && !form.platforms.includes(e.target.value))
         setForm({
             ...form,
             platforms: [...form.platforms, e.target.value]
