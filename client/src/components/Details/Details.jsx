@@ -3,19 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from './Details.module.css';
 import Nav from '../Nav/Nav';
 import { getDetail } from '../../redux/actions';
+import { useParams } from 'react-router-dom';
 
 const Details = (props) => {
+    const {id} = useParams();
     const dispatch = useDispatch();
-    const id = props.match.params.id;
-
     const videogameDetail = useSelector(state => state.videogameDetail)
-    console.log(videogameDetail)
 
     useEffect(() => {
         dispatch(getDetail(id))
     },[dispatch, id])
     
-    return (
+    return (  
         <div className={s.container}>
             <Nav/> 
             <h1 className={s.title}>Details</h1>
@@ -50,7 +49,7 @@ const Details = (props) => {
             .join(' ')
             .split('<br />')
             .join('\n')
-            }</h4> 
+            }</h4>  
         </div>
     )
 }

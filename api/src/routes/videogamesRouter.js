@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
         description,
         released,
         rating,
-        platforms /* : platforms.split(" ") */,
+        platforms,
         img,
       });
 

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import s from './Create.module.css';
-import Nav from '../Nav/Nav';
 import { useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';

@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllVideogames, setError } from "../../redux/actions";
-import Nav from "../Nav/Nav";
 import s from "./Error.module.css";
+import img from "./Error-404.jpg"
 
 const Error = () => {
 
@@ -15,12 +15,15 @@ const Error = () => {
     }
 
     return(
-        <div className={s.error}>
-        <Nav/>
-        <Link to={'/videogames'}>
-        <button onClick={handleClick}>{'<'}</button>
-        </Link>
-        <h1>404 NOT FOUND.</h1>
+        <div className={s.container}>
+            <div className={s.divButton}>
+            <Link to={'/videogames'}>
+                <button className={s.button} onClick={handleClick}>BACK</button>
+            </Link>
+            </div>
+            <div className={s.error}>
+                <img src={img} alt="error 404 not found"/>
+            </div>
         </div>
     )
 }

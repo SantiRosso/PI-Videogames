@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import s from './Nav.module.css';
 import Search from '../Search/Search';
 import { useDispatch } from 'react-redux';
-import { getAllVideogames } from '../../redux/actions';
+import { getAllVideogames, setError } from '../../redux/actions';
 
 const Nav  = () => {
 
@@ -11,6 +11,7 @@ const Nav  = () => {
 
     const handleClick = () => {
         dispatch(getAllVideogames());
+        dispatch(setError())
     }
 
     return (

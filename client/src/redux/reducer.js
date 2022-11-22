@@ -8,14 +8,15 @@ import {
   GET_SORT,
   GET_RATING,
   ERROR,
+  CLOSE_ERROR,
 } from "./actions.js";
 
 const initialState = {
   videogames: [],
   filtered: [],
+  filtered2: [],
   genres: [],
   videogameDetail: {},
-  filtered2: [],
   error: false,
 };
 
@@ -72,11 +73,13 @@ const rootReducer = (state = initialState, action) => {
               if (a.name < b.name) return -1;
               return 0;
             })
-          : state.filtered.sort((a, b) => {
+          : action.payload === "des"
+          ? state.filtered.sort((a, b) => {
               if (a.name < b.name) return 1;
               if (a.name > b.name) return -1;
               return 0;
-            });
+            })
+          : [...state.videogames];
       return {
         ...state,
         filtered: sort,
@@ -88,7 +91,7 @@ const rootReducer = (state = initialState, action) => {
           ? state.filtered.sort((a, b) => a.rating - b.rating)
           : action.payload === "may"
           ? state.filtered.sort((a, b) => b.rating - a.rating)
-          : state.filtered;
+          : [...state.videogames];
       return {
         ...state,
         filtered: rating,
@@ -96,8 +99,14 @@ const rootReducer = (state = initialState, action) => {
       };
     case ERROR:
       return {
-        error: !state.error,
+        ...state,
+        error: true,
         filtered: [],
+      };
+    case CLOSE_ERROR:
+      return {
+        ...state,
+        error: false,
       };
     default:
       return { ...state };

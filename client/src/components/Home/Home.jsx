@@ -30,7 +30,6 @@ const Home = () => {
     const handleSort = (e) => {
         dispatch(getSort(e.target.value))
         setOrder(!order)
-        
     }
 
     const handleRating = (e) => {
@@ -40,10 +39,10 @@ const Home = () => {
     
     return (
         <div className={s.home}>
-            <Nav/> 
+            <Nav/>
             {
                 videogames.length ?
-            
+                
                 <div className={s.containerGrid}>
                     <div className={s.grid}>
                     {   
@@ -60,7 +59,7 @@ const Home = () => {
                         <h3 className={s.order}>Order by</h3>
                         <div className={s.orderDiv}>
                             <select className={s.select} name="Sort" onChange={handleSort}>
-                                <option value="sort">Alphabetical order</option>
+                                <option value="sort">Alphabet</option>
                                 <option value="asc">A-Z</option>
                                 <option value="des">Z-A</option>
                             </select>
@@ -73,11 +72,9 @@ const Home = () => {
                         <Pagination page={page} setPage={setPage} max={max}/>
                     </div>
                 </div>
-
+                
                 : error ? <Error/> : <Loader/>
-
             }
-            
         </div>
     )
 }
