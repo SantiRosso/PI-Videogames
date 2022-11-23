@@ -28,7 +28,7 @@ const Home = () => {
     const [order, setOrder] = useState(true)
 
     const handleSort = (e) => {
-        dispatch(getSort(e.target.value))
+        dispatch(getSort(e.target.value)) 
         setOrder(!order)
     }
 
