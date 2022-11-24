@@ -11,8 +11,9 @@ const Aside = () => {
     
 
     useEffect(() => {
+        if(!genres.length)
         dispatch(getGenres())
-    },[dispatch])
+    },[dispatch, genres])
 
     function handleClickSwitch(e) {
         dispatch(getGamesDbOrApi(e.target.value))

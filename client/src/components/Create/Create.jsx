@@ -112,13 +112,13 @@ const Create = () => {
                     <label>Name: </label>
                     <input type='text' name='name' onChange={handleChange} className={s.input} required></input>
                     <label>Released: </label>
-                    <input type='text' name='released' onChange={handleChange} className={s.input} required></input>
+                    <input type='text' name='released' onChange={handleChange} className={s.input} placeholder='dd/mm/yy' required></input>
                     <label>Description: </label>
                     <input type='text' name='description' onChange={handleChange} className={s.input} required></input>
                     <label>Rating: </label>
-                    <input type='text' name='rating' onChange={handleChange} className={s.input} required></input>
+                    <input type='text' name='rating' onChange={handleChange} className={s.input} placeholder='1-5' required></input>
                     <label>Image: </label>
-                    <input type='text' name='img' onChange={handleChange} className={s.input} required></input>
+                    <input type='text' name='img' onChange={handleChange} className={s.input} placeholder='url...' required></input>
                     
                     <label>Genres: </label>
                     <select name='genres' onChange={handleSelectG}>

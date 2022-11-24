@@ -72,7 +72,7 @@ const rootReducer = (state = initialState, action) => {
               if (a.name > b.name) return -1;
               return 0;
             })
-          : [...state.videogames];
+          : [...state.filtered2];
       return {
         ...state,
         filtered: sort,
@@ -84,7 +84,7 @@ const rootReducer = (state = initialState, action) => {
           ? state.filtered.sort((a, b) => a.rating - b.rating)
           : action.payload === "may"
           ? state.filtered.sort((a, b) => b.rating - a.rating)
-          : [...state.videogames];
+          : [...state.filtered2];
       return {
         ...state,
         filtered: rating,
@@ -93,8 +93,8 @@ const rootReducer = (state = initialState, action) => {
     case ERROR:
       return {
         ...state,
-        error: true,
         filtered: [],
+        error: true,
       };
     case CLOSE_ERROR:
       return {

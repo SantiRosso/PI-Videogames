@@ -15,6 +15,7 @@ const Home = () => {
     const error = useSelector(state => state.error);
 
     useEffect(()=> {
+        if(!videogames.length)
         dispatch(getAllVideogames());
     },[dispatch]);
 
