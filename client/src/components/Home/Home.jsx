@@ -12,7 +12,6 @@ import Loader from '../Loader/Loader';
 const Home = () => {
     const dispatch = useDispatch();
     const videogames = useSelector(state => state.filtered);
-    const AllVideogames = useSelector(state => state.videogames);
     const error = useSelector(state => state.error);
 
     useEffect(()=> {
