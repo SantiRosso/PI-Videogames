@@ -48,26 +48,26 @@ const Create = () => {
     }
 
     async function handleSubmit (e) {
+        e.preventDefault()
         let result = validate(form);
         if(Object.values(result).length){
-            e.preventDefault()
             return alert(Object.values(result).join('\n'));
         }
         if (form.genres.length < 1) {
-            e.preventDefault()
             return alert('-Genres is required');
         }
         if (form.platforms.length < 1) {
-            e.preventDefault()
             return alert('-Platforms is required');
         }
-        // try {
-            await axios.post("http://localhost:3001/videogames", form) 
-            alert('Game created!') 
-        // } catch (error) {
-        //     alert('puto el que lee');
-        // }
         
+        let asd = await axios.post("http://localhost:3001/videogames", form) 
+        
+        if(asd.data.message === 'error'){
+            alert('This name is already used.')
+        } else {
+            window.location.reload()
+            alert('Game created!') 
+        } 
     }
 
     function handleSelectG (e) {
@@ -115,26 +115,26 @@ const Create = () => {
             <div className={s.div}>
                 <form onSubmit={handleSubmit} className={s.form}>
                     <label>Name: </label>
-                    <input type='text' name='name' onChange={handleChange} className={s.input} required></input>
+                    <input type='text' name='name' onChange={handleChange} className={s.input} autoComplete='off' required></input>
                     <label>Released: </label>
-                    <input type='text' name='released' onChange={handleChange} className={s.input} placeholder='dd/mm/yy' required></input>
+                    <input type='text' name='released' onChange={handleChange} className={s.input} autoComplete='off' placeholder='dd/mm/yy' required></input>
                     <label>Description: </label>
-                    <input type='text' name='description' onChange={handleChange} className={s.input} required></input>
+                    <input type='text' name='description' onChange={handleChange} className={s.input} autoComplete='off' required></input>
                     <label>Rating: </label>
-                    <input type='text' name='rating' onChange={handleChange} className={s.input} placeholder='1-5' required></input>
+                    <input type='text' name='rating' onChange={handleChange} className={s.input} autoComplete='off' placeholder='1-5' required></input>
                     <label>Image: </label>
-                    <input type='text' name='img' onChange={handleChange} className={s.input} placeholder='url...' required></input>
+                    <input type='text' name='img' onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' required></input>
                     
                     <label>Genres: </label>
                     <select name='genres' onChange={handleSelectG}>
                         <option value='genres'>Genres</option>
-                        {genres?.map((e) => {return(<option>{e.name}</option>)})}
+                        {genres?.map((e, i) => {return(<option key={i}>{e.name}</option>)})}
                     </select>
                     <div>
                         {
-                        form.genres?.map((e) => {
+                        form.genres?.map((e, i) => {
                             return(
-                                <span className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteG} className={s.btnx}>X</button></span>
+                                <span key={i} className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteG} className={s.btnx}>X</button></span>
                             )
                         })
                         }
@@ -143,13 +143,13 @@ const Create = () => {
                     <label>Platforms: </label>
                     <select name='platforms' onChange={handleSelectP}>
                         <option value='platforms'>Platforms</option>
-                        {platf?.map((e) => {return(<option>{e}</option>)})}
+                        {platf?.map((e, i) => {return(<option key={i}>{e}</option>)})}
                     </select>
                     <div>
                         {
-                        form.platforms?.map((e) => {
+                        form.platforms?.map((e, i) => {
                             return(
-                                <span className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteP} className={s.btnx}>X</button></span>
+                                <span key={i} className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteP} className={s.btnx}>X</button></span>
                             )
                         })
                         }

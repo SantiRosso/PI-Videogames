@@ -23,44 +23,38 @@ router.post("/", async (req, res) => {
   const { name, description, released, rating, platforms, genres, img } =
     req.body;
 
-  if (name && description && released && rating && platforms && genres && img) {
-    try {
-      // const asdasd = await Videogame.findOne({
-      //   where: {
-      //     name: {
-      //       [Op.iLike]: `%${name}%`,
-      //     },
-      //   },
-      // });
-      // console.log(asdasd);
-      // if (asdasd) {
-      //   if (asdasd.dataValues?.name === name) {
-      //     // console.log("entro al if");
-      //     throw new Error("error");
-      //   }
-      // }
-
-      let juego = await Videogame.create({
+  try {
+    let [juego, boolean] = await Videogame.findOrCreate({
+      where: {
+        name: {
+          [Op.iLike]: `%${name}%`,
+        },
+      },
+      defaults: {
         name,
         description,
         released,
         rating,
         platforms,
         img,
-      });
+      },
+    });
 
-      let genreDb = await Genre.findAll({
-        where: {
-          name: genres,
-        },
-      });
-
-      await juego.addGenre(genreDb);
-
-      res.status(201);
-    } catch (error) {
-      res.status(400).send(error.message);
+    if (!boolean) {
+      return res.json({ message: "error" });
     }
+
+    let genreDb = await Genre.findAll({
+      where: {
+        name: genres,
+      },
+    });
+
+    juego.addGenre(genreDb);
+
+    res.status(201).send("ok");
+  } catch (error) {
+    res.status(400).send(error);
   }
 });
 
