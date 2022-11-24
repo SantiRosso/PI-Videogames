@@ -45,7 +45,7 @@ const Create = () => {
             errors.rating = '-Rating must be between 1 and 5';
         }
         return errors;
-    }
+    }   
 
     async function handleSubmit (e) {
         e.preventDefault()
