@@ -8,6 +8,7 @@ import {
   GET_RATING,
   ERROR,
   CLOSE_ERROR,
+  RESET_HOME,
 } from "./actions.js";
 
 const initialState = {
@@ -100,6 +101,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         error: false,
+      };
+    case RESET_HOME:
+      return {
+        ...state,
+        filtered: state.videogames,
       };
     default:
       return { ...state };

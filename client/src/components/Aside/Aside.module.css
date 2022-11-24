@@ -11,24 +11,6 @@
     padding-right: 10px;
 }
 
-.genre{
-    background-color: white;
-    font-family: 'Silkscreen', cursive;
-    color: black;
-    height: 40px;
-    width: 150px;
-    font-size: smaller;
-    border-radius: 20px;
-    border: none;
-    transition: background-color .5s;
-}
-
-.genre:hover{
-    color:white;
-    background-color: rgb(34, 34, 34) ;
-    cursor: pointer;
-}
-
 .divApidb{
     margin-top: 20px;
 }

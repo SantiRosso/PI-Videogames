@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { getHome, getFilQuery /* getGamesDb */ } = require("./controllers");
 const { Videogame, Genre } = require("../db.js");
 const router = Router();
+const { Op } = require("sequelize");
 
 router.get("/", async (req, res) => {
   const { name } = req.query;
@@ -24,6 +25,21 @@ router.post("/", async (req, res) => {
 
   if (name && description && released && rating && platforms && genres && img) {
     try {
+      // const asdasd = await Videogame.findOne({
+      //   where: {
+      //     name: {
+      //       [Op.iLike]: `%${name}%`,
+      //     },
+      //   },
+      // });
+      // console.log(asdasd);
+      // if (asdasd) {
+      //   if (asdasd.dataValues?.name === name) {
+      //     // console.log("entro al if");
+      //     throw new Error("error");
+      //   }
+      // }
+
       let juego = await Videogame.create({
         name,
         description,
@@ -43,7 +59,7 @@ router.post("/", async (req, res) => {
 
       res.status(201);
     } catch (error) {
-      res.status(400).send(error);
+      res.status(400).send(error.message);
     }
   }
 });

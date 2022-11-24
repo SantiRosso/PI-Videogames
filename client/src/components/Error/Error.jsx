@@ -1,17 +1,18 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllVideogames, setError } from "../../redux/actions";
+import { resetHome, setError } from "../../redux/actions";
 import s from "./Error.module.css";
 import img from "./Error-404.jpg"
 
-const Error = () => {
+const Error = ({ genreA, setGenreA}) => {
 
     const dispatch = useDispatch();
 
     const handleClick = () => {
         dispatch(setError())
-        dispatch(getAllVideogames())
+        dispatch(resetHome())
+        setGenreA("")
     }
 
     return(

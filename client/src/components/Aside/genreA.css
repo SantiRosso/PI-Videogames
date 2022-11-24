@@ -1,0 +1,35 @@
+.genreA{
+    background-color: black;
+    font-family: 'Silkscreen', cursive;
+    color: white;
+    height: 40px;
+    width: 150px;
+    font-size: smaller;
+    border-radius: 20px;
+    border: none;
+    transition: background-color .5s;
+}
+
+.genreA:hover{
+    color:black;
+    background-color: rgb(34, 34, 34) ;
+    cursor: pointer;
+}
+
+.genre{
+    background-color: white;
+    font-family: 'Silkscreen', cursive;
+    color: black;
+    height: 40px;
+    width: 150px;
+    font-size: smaller;
+    border-radius: 20px;
+    border: none;
+    transition: background-color .5s;
+}
+
+.genre:hover{
+    color:white;
+    background-color: rgb(34, 34, 34) ;
+    cursor: pointer;
+}

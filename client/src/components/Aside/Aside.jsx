@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getByGenre, getGenres, getGamesDbOrApi } from '../../redux/actions';
 import s from './Aside.module.css'; 
+import './genreA.css'
 
-const Aside = () => {
+const Aside = ({genreA, setGenreA}) => {
 
     const dispatch = useDispatch();
-    const genres = useSelector(state => state.genres);
-
-    
+    const genres = useSelector(state => state.genres);    
 
     useEffect(() => {
         if(!genres.length)
@@ -21,6 +20,7 @@ const Aside = () => {
 
     function handleClick(e) {
         dispatch(getByGenre(e.target.value))
+        setGenreA(e.target.value)
     }
 
     return(
@@ -31,7 +31,7 @@ const Aside = () => {
                 {
                     genres?.map((e,i) => {
                         return(
-                            <button key={i} className={s.genre} value={e.name} onClick={handleClick}>{e.name}</button>                           
+                            <button key={i} className={e.name === genreA ? 'genreA' : 'genre'} value={e.name} onClick={handleClick}>{e.name}</button>                           
                         )
                     })
                 }

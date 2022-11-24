@@ -8,6 +8,7 @@ export const GET_SORT = "GET_SORT";
 export const GET_RATING = "GET_RATING";
 export const ERROR = "ERROR";
 export const CLOSE_ERROR = "CLOSE_ERROR";
+export const RESET_HOME = "RESET_HOME";
 
 export const getAllVideogames = () => {
   return async (dispatch) => {
@@ -58,4 +59,8 @@ export const getRating = (payload) => {
 
 export const setError = () => {
   return { type: CLOSE_ERROR };
+};
+
+export const resetHome = () => {
+  return { type: RESET_HOME };
 };

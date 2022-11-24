@@ -47,7 +47,7 @@ const Create = () => {
         return errors;
     }
 
-    function handleSubmit (e) {
+    async function handleSubmit (e) {
         let result = validate(form);
         if(Object.values(result).length){
             e.preventDefault()
@@ -61,8 +61,13 @@ const Create = () => {
             e.preventDefault()
             return alert('-Platforms is required');
         }
-        axios.post("http://localhost:3001/videogames", form) 
-        alert('Game created!') 
+        // try {
+            await axios.post("http://localhost:3001/videogames", form) 
+            alert('Game created!') 
+        // } catch (error) {
+        //     alert('puto el que lee');
+        // }
+        
     }
 
     function handleSelectG (e) {

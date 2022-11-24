@@ -12,12 +12,16 @@ import Loader from '../Loader/Loader';
 const Home = () => {
     const dispatch = useDispatch();
     const videogames = useSelector(state => state.filtered);
+    const AllVideogames = useSelector(state => state.videogames);
     const error = useSelector(state => state.error);
 
     useEffect(()=> {
         if(!videogames.length)
         dispatch(getAllVideogames());
     },[dispatch]);
+
+    //Filter
+    const [genreA, setGenreA] = useState("");
 
     //PAGINATION 
     const [page, setPage] = useState(1);
@@ -40,7 +44,7 @@ const Home = () => {
     
     return (
         <div className={s.home}>
-            <Nav/>
+            <Nav genreA={genreA} setGenreA={setGenreA}/>
             {
                 videogames.length ?
                 
@@ -56,7 +60,7 @@ const Home = () => {
                     }
                     </div>
                     <div className={s.aside}>
-                        <Aside/>
+                        <Aside genreA={genreA} setGenreA={setGenreA}/>
                         <h3 className={s.order}>Order by</h3>
                         <div className={s.orderDiv}>
                             <select className={s.select} name="Sort" onChange={handleSort}>
@@ -74,7 +78,7 @@ const Home = () => {
                     </div>
                 </div>
                 
-                : error ? <Error/> : <Loader/>
+                : error ? <Error genreA={genreA} setGenreA={setGenreA}/> : <Loader/>
             }
         </div>
     )

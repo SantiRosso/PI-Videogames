@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 import s from './Nav.module.css';
 import Search from '../Search/Search';
 import { useDispatch } from 'react-redux';
-import { getAllVideogames, setError } from '../../redux/actions';
+import { resetHome, setError } from '../../redux/actions';
 
-const Nav  = () => {
+const Nav  = ({genreA, setGenreA}) => {
 
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(getAllVideogames());
+        dispatch(resetHome());
         dispatch(setError())
+        setGenreA("")
     }
 
     return (
