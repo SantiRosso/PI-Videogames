@@ -5,7 +5,7 @@ import Search from '../Search/Search';
 import { useDispatch } from 'react-redux';
 import { resetHome, setError } from '../../redux/actions';
 
-const Nav  = ({genreA, setGenreA}) => {
+const Nav  = ({genreA, setGenreA, setPage, setInput}) => {
 
     const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ const Nav  = ({genreA, setGenreA}) => {
             <Link to='/videogames'>
                 <h1 className={s.home} onClick={handleClick}>Videogames</h1>
             </Link>
-            <Search/>
+            <Search setInput={setInput} setPage={setPage}/>
             <Link to='/create'>
                <button className={s.boton}>Create Videogame</button> 
             </Link>

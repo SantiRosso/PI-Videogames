@@ -26,11 +26,11 @@ const Create = () => {
         rating: 0,
     });
 
-    function handleChange (e) {
+    async function handleChange (e) {
         setForm({
             ...form,
-            [e.target.name]: e.target.value
-        })
+             [e.target.name]: e.target.value
+         })
     }
 
     const validate = (form) => {
@@ -44,25 +44,29 @@ const Create = () => {
         if (form.rating < 1 || form.rating > 5) {
             errors.rating = '-Rating must be between 1 and 5';
         }
+        if (isNaN(form.rating)) {
+            errors.rating = '-Rating must be a number';
+        }
+        if (form.genres.length < 1) {
+            errors.genres = '-Genres is required';
+        }
+        if (form.platforms.length < 1) {
+            errors.platforms = '-Platforms is required';
+        }
         return errors;
     }   
 
+    const errorMsg = validate(form);
+
     async function handleSubmit (e) {
         e.preventDefault()
-        let result = validate(form);
-        if(Object.values(result).length){
-            return alert(Object.values(result).join('\n'));
-        }
-        if (form.genres.length < 1) {
-            return alert('-Genres is required');
-        }
-        if (form.platforms.length < 1) {
-            return alert('-Platforms is required');
+        if(Object.values(errorMsg).length){
+            return alert(Object.values(errorMsg).join('\n'));
         }
         
-        let asd = await axios.post("http://localhost:3001/videogames", form) 
+        let errorAlert = await axios.post("http://localhost:3001/videogames", form) 
         
-        if(asd.data.message === 'error'){
+        if(errorAlert.data.message === 'error'){
             alert('This name is already used.')
         } else {
             window.location.reload()
@@ -116,12 +120,15 @@ const Create = () => {
                 <form onSubmit={handleSubmit} className={s.form}>
                     <label>Name: </label>
                     <input type='text' name='name' onChange={handleChange} className={s.input} autoComplete='off' required></input>
+                    <p>{errorMsg.name}</p>
                     <label>Released: </label>
-                    <input type='text' name='released' onChange={handleChange} className={s.input} autoComplete='off' placeholder='dd/mm/yy' required></input>
+                    <input type='text' name='released' onChange={handleChange} className={s.input} autoComplete='off' placeholder='dd/mm/yy' required></input>                    
                     <label>Description: </label>
                     <input type='text' name='description' onChange={handleChange} className={s.input} autoComplete='off' required></input>
+                    <p>{errorMsg.description}</p>
                     <label>Rating: </label>
                     <input type='text' name='rating' onChange={handleChange} className={s.input} autoComplete='off' placeholder='1-5' required></input>
+                    <p>{errorMsg.rating}</p>
                     <label>Image: </label>
                     <input type='text' name='img' onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' required></input>
                     
@@ -139,7 +146,7 @@ const Create = () => {
                         })
                         }
                     </div>
-
+                    <p>{errorMsg.genres}</p> 
                     <label>Platforms: </label>
                     <select name='platforms' onChange={handleSelectP}>
                         <option value='platforms'>Platforms</option>
@@ -154,7 +161,7 @@ const Create = () => {
                         })
                         }
                     </div>
-
+                    <p>{errorMsg.platforms}</p> 
                     <button type='submit' className={s.boton}>Create</button>
                 </form>
             </div>

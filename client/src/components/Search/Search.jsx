@@ -4,22 +4,24 @@ import { useState } from 'react';
 import { getByName } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 
-const Search = () => {
+const Search = ({ setPage, setInput }) => {
 
     const dispatch = useDispatch();
 
-    const [input, setInput] = useState({
+    const [inputS, setInputS] = useState({
         search: ''
     })
 
     const handleChange = (e) => {
-        setInput({
+        setInputS({
         [e.target.name]: e.target.value
       });
   }
 
   const handleClick = () => {
-    dispatch(getByName(input.search))
+    dispatch(getByName(inputS.search))
+    setInput(1)
+    setPage(1)
 }
 
     return(
@@ -28,7 +30,7 @@ const Search = () => {
             name="search" 
             placeholder='Videogame...' 
             className={s.input} 
-            value={input.search} 
+            value={inputS.search} 
             onChange={handleChange}/>
             <button className={s.boton} onClick={handleClick}>SEARCH</button>
         </div>

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import s from './Pagination.module.css';
 
-const Pagination = ({page, setPage, max}) => {
-    const [input, setInput] = useState(1);
+const Pagination = ({input, setInput, page, setPage, max}) => {
 
     const nextPage = () => {
         setInput(input +1)

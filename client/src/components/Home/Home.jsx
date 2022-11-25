@@ -19,10 +19,11 @@ const Home = () => {
         dispatch(getAllVideogames());
     },[dispatch]);
 
-    //Filter
+    //Filter active
     const [genreA, setGenreA] = useState("");
 
     //PAGINATION 
+    const [input, setInput] = useState(1);
     const [page, setPage] = useState(1);
     const [perPage] = useState(15);
 
@@ -43,7 +44,7 @@ const Home = () => {
     
     return (
         <div className={s.home}>
-            <Nav genreA={genreA} setGenreA={setGenreA}/>
+            <Nav setInput={setInput} setPage={setPage} genreA={genreA} setGenreA={setGenreA}/>
             {
                 videogames.length ?
                 
@@ -73,7 +74,7 @@ const Home = () => {
                                 <option value="may">Major-Minor</option>
                             </select>
                         </div>
-                        <Pagination page={page} setPage={setPage} max={max}/>
+                        <Pagination input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>
                     </div>
                 </div>
                 
