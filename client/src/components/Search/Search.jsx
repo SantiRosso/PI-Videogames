@@ -18,8 +18,8 @@ const Search = ({ setPage, setInput }) => {
       });
   }
 
-  const handleClick = () => {
-    dispatch(getByName(inputS.search))
+  const handleClick = async () => {
+    await dispatch(getByName(inputS.search))
     setInput(1)
     setPage(1)
 }
