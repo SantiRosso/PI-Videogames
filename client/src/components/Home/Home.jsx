@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import s from './Home.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllVideogames, getRating, getSort } from '../../redux/actions';
+import { getAllVideogames, getRating, getSort, resetHome } from '../../redux/actions';
 import Card from '../Card/Card';
 import Aside from '../Aside/Aside';
 import Nav from '../Nav/Nav';
@@ -41,6 +41,11 @@ const Home = () => {
         dispatch(getRating(e.target.value))
         setOrder(!order)
     }
+
+    //reset filter
+    const handleReset = () => {
+        dispatch(resetHome())
+    }
     
     return (
         <div className={s.home}>
@@ -73,6 +78,9 @@ const Home = () => {
                                 <option value="men">Minor-Major</option>
                                 <option value="may">Major-Minor</option>
                             </select>
+                        </div>
+                        <div className={s.divReset}>
+                            <button className={s.reset} onClick={handleReset}>Reset filters</button>
                         </div>
                         <Pagination input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>
                     </div>

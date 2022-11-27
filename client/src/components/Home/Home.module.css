@@ -8,7 +8,6 @@
 .containerGrid{
     display: grid;
     grid-template-columns: 3fr 1fr;
-    /* background-color: rgba(0, 0, 0, 0.833); */
     background-size: cover;
     padding-top: 70px;
     height: 100%;
@@ -45,8 +44,34 @@
     height: 40px;
     width: 150px;
     font-size: smaller;
-    /* border-radius: 20px; */
     border: none;
     transition: background-color .5s;
     margin-right: 20px;
+}
+
+.divReset{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.reset{
+    background-color: gray;
+    font-family: 'Silkscreen', cursive;
+    color: white;
+    height: 40px;
+    width: 150px;
+    font-size: smaller;
+    border-radius: 20px;
+    border: none;
+    transition: background-color .5s;
+    margin-right: 20px;
+    border: 2px solid white;
+}
+
+.reset:hover{
+    color:white;
+    background-color: rgb(34, 34, 34) ;
+    cursor: pointer;
 }
