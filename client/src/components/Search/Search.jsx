@@ -1,8 +1,8 @@
-import React from 'react';
-import s from './Search.module.css';
-import { useState } from 'react';
-import { getByName } from '../../redux/actions';
-import { useDispatch } from 'react-redux';
+import React from "react";
+import s from "./Search.module.css";
+import { useState } from "react";
+import { getByName } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const Search = ({ setPage, setInput }) => {
 
@@ -28,7 +28,7 @@ const Search = ({ setPage, setInput }) => {
         <div className={s.container}>
             <input type="text" 
             name="search" 
-            placeholder='Videogame...' 
+            placeholder="Videogame..." 
             className={s.input} 
             value={inputS.search} 
             onChange={handleChange}/>

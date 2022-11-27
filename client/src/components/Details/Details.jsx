@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import s from './Details.module.css';
-import Nav from '../Nav/Nav';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import Loader from '../Loader/Loader'
+import React, { useEffect, useState } from "react";
+import s from "./Details.module.css";
+import Nav from "../Nav/Nav";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Loader from "../Loader/Loader";
 
-const Details = (props) => {
+const Details = () => {
     const {id} = useParams();
     const [detail, setDetail] = useState();
 
@@ -46,12 +46,12 @@ const Details = (props) => {
                     </div>
                 </div>
                 <h2>Description: </h2>
-                <h4 className={s.info2}>{detail.description?.split('<p>')
-                .join('\n')
-                .split('</p>')
-                .join(' ')
-                .split('<br />')
-                .join('\n')
+                <h4 className={s.info2}>{detail.description?.split("<p>")
+                .join("\n")
+                .split("</p>")
+                .join(" ")
+                .split("<br />")
+                .join("\n")
                 }</h4> 
                 </div>
                 : <Loader/>

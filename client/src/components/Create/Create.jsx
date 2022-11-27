@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import s from './Create.module.css';
-import { useState } from 'react';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { getGenres } from '../../redux/actions';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import s from "./Create.module.css";
+import { useState } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getGenres } from "../../redux/actions";
+import { Link } from "react-router-dom";
 
 const Create = () => {
 
@@ -17,12 +17,12 @@ const Create = () => {
     },[dispatch])
 
     const [form, setForm] = useState({
-        name: '',
-        released: '',
-        description: '',
+        name: "",
+        released: "",
+        description: "",
         genres: [],
         platforms: [],
-        img: '',
+        img: "",
         rating: 0,
     });
 
@@ -36,22 +36,22 @@ const Create = () => {
     const validate = (form) => {
         let errors = {};
         if (form.name.length < 2) {
-            errors.name = '-Game Name must have at least 2 characters';
+            errors.name = "-Game Name must have at least 2 characters";
         }
         if (form.description.length < 15) {
-            errors.description = '-Description must have at least 15 characters'
+            errors.description = "-Description must have at least 15 characters";
         }
         if (form.rating < 1 || form.rating > 5) {
-            errors.rating = '-Rating must be between 1 and 5';
+            errors.rating = "-Rating must be between 1 and 5";
         }
         if (isNaN(form.rating)) {
-            errors.rating = '-Rating must be a number';
+            errors.rating = "-Rating must be a number";
         }
         if (form.genres.length < 1) {
-            errors.genres = '-Genres is required';
+            errors.genres = "-Genres is required";
         }
         if (form.platforms.length < 1) {
-            errors.platforms = '-Platforms is required';
+            errors.platforms = "-Platforms is required";
         }
         return errors;
     }   
@@ -66,16 +66,16 @@ const Create = () => {
         
         let errorAlert = await axios.post("http://localhost:3001/videogames", form) 
         
-        if(errorAlert.data.message === 'error'){
-            alert('This name is already used.')
+        if(errorAlert.data.message === "error"){
+            alert("This name is already used.")
         } else {
             window.location.reload()
-            alert('Game created!') 
+            alert("Game created!") 
         } 
     }
 
     function handleSelectG (e) {
-        if(e.target.value !== 'genres' && !form.genres.includes(e.target.value))
+        if(e.target.value !== "genres" && !form.genres.includes(e.target.value))
         setForm({
             ...form,
             genres: [...form.genres, e.target.value]
@@ -83,7 +83,7 @@ const Create = () => {
     }
     
     function handleSelectP (e) {
-        if(e.target.value !== 'platforms' && !form.platforms.includes(e.target.value))
+        if(e.target.value !== "platforms" && !form.platforms.includes(e.target.value))
         setForm({
             ...form,
             platforms: [...form.platforms, e.target.value]
@@ -109,7 +109,7 @@ const Create = () => {
     return (
         <div className={s.container}>
             <div className={s.nav}>
-                <Link to='/videogames'>
+                <Link to="/videogames">
                 <h1 className={s.home}>Videogames</h1>
                 </Link>
             </div>
@@ -119,22 +119,22 @@ const Create = () => {
             <div className={s.div}>
                 <form onSubmit={handleSubmit} className={s.form}>
                     <label>Name: </label>
-                    <input type='text' name='name' onChange={handleChange} className={s.input} autoComplete='off' required></input>
+                    <input type="text" name="name" onChange={handleChange} className={s.input} autoComplete='off' required></input>
                     <p>{errorMsg.name}</p>
                     <label>Released: </label>
-                    <input type='text' name='released' onChange={handleChange} className={s.input} autoComplete='off' placeholder='dd/mm/yy' required></input>                    
+                    <input type="text" name="released" onChange={handleChange} className={s.input} autoComplete='off' placeholder='dd/mm/yy' required></input>                    
                     <label>Description: </label>
-                    <input type='text' name='description' onChange={handleChange} className={s.input} autoComplete='off' required></input>
+                    <input type="text" name="description" onChange={handleChange} className={s.input} autoComplete='off' required></input>
                     <p>{errorMsg.description}</p>
                     <label>Rating: </label>
-                    <input type='text' name='rating' onChange={handleChange} className={s.input} autoComplete='off' placeholder='1-5' required></input>
+                    <input type="text" name="rating" onChange={handleChange} className={s.input} autoComplete='off' placeholder='1-5' required></input>
                     <p>{errorMsg.rating}</p>
                     <label>Image: </label>
-                    <input type='text' name='img' onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' required></input>
+                    <input type="text" name="img" onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' required></input>
                     
                     <label>Genres: </label>
-                    <select name='genres' onChange={handleSelectG}>
-                        <option value='genres'>Genres</option>
+                    <select name="genres" onChange={handleSelectG}>
+                        <option value="genres">Genres</option>
                         {genres?.map((e, i) => {return(<option key={i}>{e.name}</option>)})}
                     </select>
                     <div>
@@ -148,8 +148,8 @@ const Create = () => {
                     </div>
                     <p>{errorMsg.genres}</p> 
                     <label>Platforms: </label>
-                    <select name='platforms' onChange={handleSelectP}>
-                        <option value='platforms'>Platforms</option>
+                    <select name="platforms" onChange={handleSelectP}>
+                        <option value="platforms">Platforms</option>
                         {platf?.map((e, i) => {return(<option key={i}>{e}</option>)})}
                     </select>
                     <div>
@@ -162,7 +162,7 @@ const Create = () => {
                         }
                     </div>
                     <p>{errorMsg.platforms}</p> 
-                    <button type='submit' className={s.boton}>Create</button>
+                    <button type="submit" className={s.boton}>Create</button>
                 </form>
             </div>
         </div>

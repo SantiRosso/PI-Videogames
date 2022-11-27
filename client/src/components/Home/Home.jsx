@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import s from './Home.module.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { getAllVideogames, getRating, getSort, resetHome } from '../../redux/actions';
-import Card from '../Card/Card';
-import Aside from '../Aside/Aside';
-import Nav from '../Nav/Nav';
-import Pagination from '../Pagination/Pagination';
-import Error from '../Error/Error';
-import Loader from '../Loader/Loader';
+import React, { useEffect, useState } from "react";
+import s from "./Home.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllVideogames, getRating, getSort, resetHome } from "../../redux/actions";
+import Card from "../Card/Card";
+import Aside from "../Aside/Aside";
+import Nav from "../Nav/Nav";
+import Pagination from "../Pagination/Pagination";
+import Error from "../Error/Error";
+import Loader from "../Loader/Loader";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -44,7 +44,8 @@ const Home = () => {
 
     //reset filter
     const handleReset = () => {
-        dispatch(resetHome())
+        dispatch(resetHome());
+        setGenreA("");
     }
     
     return (

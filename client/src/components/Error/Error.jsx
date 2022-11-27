@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { resetHome, setError } from "../../redux/actions";
 import s from "./Error.module.css";
-import img from "./Error-404.jpg"
+import img from "./Error-404.jpg";
 
 const Error = ({ genreA, setGenreA}) => {
 
@@ -18,7 +18,7 @@ const Error = ({ genreA, setGenreA}) => {
     return(
         <div className={s.container}>
             <div className={s.divButton}>
-            <Link to={'/videogames'}>
+            <Link to={"/videogames"}>
                 <button className={s.button} onClick={handleClick}>BACK</button>
             </Link>
             </div>

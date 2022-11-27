@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getByGenre, getGenres, getGamesDbOrApi } from '../../redux/actions';
-import s from './Aside.module.css'; 
-import './genreA.css'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getByGenre, getGenres, getGamesDbOrApi } from "../../redux/actions";
+import s from "./Aside.module.css"; 
+import "./genreA.css";
 
 const Aside = ({genreA, setGenreA}) => {
 
@@ -31,7 +31,7 @@ const Aside = ({genreA, setGenreA}) => {
                 {
                     genres?.map((e,i) => {
                         return(
-                            <button key={i} className={e.name === genreA ? 'genreA' : 'genre'} value={e.name} onClick={handleClick}>{e.name}</button>                           
+                            <button key={i} className={e.name === genreA ? "genreA" : "genre"} value={e.name} onClick={handleClick}>{e.name}</button>                           
                         )
                     })
                 }
@@ -39,8 +39,8 @@ const Aside = ({genreA, setGenreA}) => {
             <div className={s.divApidb}>
                 <h3 className={s.title}>API/DATABASE</h3>
                 <div className={s.subDiv}>
-                <button onClick={handleClickSwitch} className={s.apidb} value='api'>Games API</button>
-                <button onClick={handleClickSwitch} className={s.apidb} value='db'>Created games</button>
+                <button onClick={handleClickSwitch} className={s.apidb} value="api">Games API</button>
+                <button onClick={handleClickSwitch} className={s.apidb} value="db">Created games</button>
                 </div>
             </div>
         </div>
