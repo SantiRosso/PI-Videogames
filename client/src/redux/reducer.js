@@ -41,7 +41,7 @@ const rootReducer = (state = initialState, action) => {
         filtered2: action.payload,
       };
     case GET_BY_GENRE:
-      let av = [...state.videogames];
+      let av = [...state.filtered];
       let gf = av?.filter((e) => {
         return e.genres.includes(action.payload) && e;
       });
