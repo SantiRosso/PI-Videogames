@@ -162,7 +162,7 @@ const Create = () => {
                         }
                     </div>
                     <p>{errorMsg.platforms}</p> 
-                    <button type="submit" className={s.boton}>Create</button>
+                    <button type="submit" className={s.boton} /* disabled={errorMsg} */>Create</button>
                 </form>
             </div>
         </div>
