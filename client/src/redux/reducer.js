@@ -106,6 +106,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: state.videogames,
+        filtered2: state.videogames,
       };
     default:
       return { ...state };
