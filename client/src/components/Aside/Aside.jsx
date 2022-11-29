@@ -4,7 +4,7 @@ import { getByGenre, getGenres, getGamesDbOrApi } from "../../redux/actions";
 import s from "./Aside.module.css"; 
 import "./genreA.css";
 
-const Aside = ({genreA, setGenreA}) => {
+const Aside = ({setPage, genreA, setGenreA, setInput}) => {
 
     const dispatch = useDispatch();
     const genres = useSelector(state => state.genres);    
@@ -16,11 +16,15 @@ const Aside = ({genreA, setGenreA}) => {
 
     function handleClickSwitch(e) {
         dispatch(getGamesDbOrApi(e.target.value))
+        setInput(1)
+        setPage(1)
     }
 
     function handleClick(e) {
         dispatch(getByGenre(e.target.value))
         setGenreA(e.target.value)
+        setInput(1)
+        setPage(1)
     }
 
     return(

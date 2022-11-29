@@ -66,7 +66,7 @@ const Home = () => {
                     }
                     </div>
                     <div className={s.aside}>
-                        <Aside genreA={genreA} setGenreA={setGenreA}/>
+                        <Aside setPage={setPage} setInput={setInput} genreA={genreA} setGenreA={setGenreA}/>
                         <h3 className={s.order}>Order by</h3>
                         <div className={s.orderDiv}>
                             <select className={s.select} name="Sort" onChange={handleSort}>
