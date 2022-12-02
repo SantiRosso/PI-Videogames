@@ -5,7 +5,6 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import Create from "./components/Create/Create";
 import Home from "./components/Home/Home";
 import Details from "./components/Details/Details";
-import Favourites from "./components/Favourites/Favourites";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
       <Route path="/videogames" component={Home} />
       <Route path="/details/:id" component={Details} />
       <Route path="/create" component={Create} />
-      <Route path="/favourites" component={Favourites} />
     </div>
   );
 }
