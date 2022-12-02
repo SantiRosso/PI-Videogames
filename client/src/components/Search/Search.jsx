@@ -20,6 +20,7 @@ const Search = ({ setPage, setInput }) => {
 
   const handleClick = async () => {
     await dispatch(getByName(inputS.search))
+    // await dispatch(getByGenre(inputS.search))
     setInput(1)
     setPage(1)
 }
