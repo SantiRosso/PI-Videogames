@@ -15,6 +15,7 @@ const initialState = {
   videogames: [],
   filtered: [],
   filtered2: [],
+  filtered3: [],
   genres: [],
   error: false,
 };
@@ -28,6 +29,7 @@ const rootReducer = (state = initialState, action) => {
         videogames: action.payload,
         filtered: a,
         filtered2: a,
+        filtered3: a,
       };
     case GET_GENRES:
       return {
@@ -39,9 +41,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         filtered: action.payload,
         filtered2: action.payload,
+        filtered3: action.payload,
       };
     case GET_BY_GENRE:
-      let av = [...state.filtered];
+      let av = [...state.filtered2];
       let gf = av?.filter((e) => {
         return e.genres.includes(action.payload) && e;
       });
@@ -49,15 +52,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: gf,
-        filtered2: gf,
+        // filtered2: gf,
+        filtered3: gf,
         error: err ? !state.error : state.error,
       };
     case GET_GAMES_DBORAPI:
-      let Api = state.filtered2.filter((e) => !e.created);
-      let Db = state.filtered2.filter((e) => e.created === true);
+      let Api = state.filtered3.filter((e) => !e.created);
+      let Db = state.filtered3.filter((e) => e.created === true);
       return {
         ...state,
         filtered: action.payload === "api" ? Api : Db,
+        filtered2: action.payload === "api" ? Api : Db,
       };
     case GET_SORT:
       const sort =
@@ -78,6 +83,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         filtered: sort,
         filtered2: sort,
+        filtered3: sort,
       };
     case GET_RATING:
       let rating =
