@@ -12,17 +12,15 @@ export const RESET_HOME = "RESET_HOME";
 
 export const getAllVideogames = () => {
   return async (dispatch) => {
-    return await axios
-      .get("http://localhost:3001/videogames")
-      .then((response) => {
-        dispatch({ type: GET_ALL_VIDEOGAMES, payload: response.data });
-      });
+    return await axios.get("/videogames").then((response) => {
+      dispatch({ type: GET_ALL_VIDEOGAMES, payload: response.data });
+    });
   };
 };
 
 export const getGenres = () => {
   return async (dispatch) => {
-    return await axios.get("http://localhost:3001/genres").then((response) => {
+    return await axios.get("/genres").then((response) => {
       dispatch({ type: GET_GENRES, payload: response.data });
     });
   };
@@ -30,9 +28,7 @@ export const getGenres = () => {
 
 export const getByName = (name) => {
   return async (dispatch) => {
-    let result = await axios.get(
-      `http://localhost:3001/videogames?name=${name}`
-    );
+    let result = await axios.get(`/videogames?name=${name}`);
     if (result.data) {
       return dispatch({ type: GET_BY_NAME, payload: result.data });
     } else {

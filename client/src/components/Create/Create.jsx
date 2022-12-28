@@ -64,7 +64,7 @@ const Create = () => {
             return alert(Object.values(errorMsg).join('\n'));
         }
         
-        let errorAlert = await axios.post("http://localhost:3001/videogames", form) 
+        let errorAlert = await axios.post("/videogames", form) 
         
         if(errorAlert.data.message === "error"){
             alert("This name is already used.")
