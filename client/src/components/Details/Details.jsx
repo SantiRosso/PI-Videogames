@@ -10,7 +10,7 @@ const Details = () => {
     const [detail, setDetail] = useState();
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/videogame/${id}`)
+        axios.get(`/videogame/${id}`)
         .then(response => setDetail(response.data))
     },[id])
 
