@@ -33,7 +33,7 @@ const Aside = ({setPage, genreA, setGenreA, setInput}) => {
             <h3 className={s.container}>Genres</h3>
             <div className={s.genres}>
                 {
-                    genres?.map((e,i) => {
+                    Array.isArray(genres)?.map((e,i) => {
                         return(
                             <button key={i} className={e.name === genreA ? "genreA" : "genre"} value={e.name} onClick={handleClick}>{e.name}</button>                           
                         )
