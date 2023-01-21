@@ -9,25 +9,23 @@
     gap: 1%;
     padding-left: 2%;
     padding-right: 2%;
-    
 }
 
 .divApidb{
-    margin-top: 3%;
+    margin-top: 10%;
 }
 
 .apidb{
     background-color: black;
     font-family: 'Silkscreen', cursive;
     color: white;
-    height: 4%;
-    width: 20%;
+    height: 4vh;
+    width: 30%;
     font-size: smaller;
     border-radius: 20%;
     border: none;
     transition: background-color .5s;
-    margin-right: 1%;
-    margin-bottom: 2%;
+    margin: 2%;
 }
 
 .apidb:hover{

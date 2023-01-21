@@ -29,8 +29,11 @@
     height: 100%;
     width: 20%;
     position: fixed;
-    top: 0;
+    top: 7%;
     right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .orderDiv{
@@ -42,8 +45,8 @@
     background-color: white;
     font-family: 'Silkscreen', cursive;
     color: black;
-    height: 4%;
-    width: 20%;
+    height: 100%;
+    width: 25%;
     font-size: smaller;
     border: none;
     border-radius: 20%;
@@ -62,8 +65,8 @@
     background-color: gray;
     font-family: 'Silkscreen', cursive;
     color: white;
-    height: 4%;
-    width: 20%;
+    height: 100%;
+    width: 25%;
     font-size: smaller;
     border-radius: 20%;
     border: none;
