@@ -2,14 +2,14 @@
     background-color: black;
     font-family: 'Silkscreen', cursive;
     color: white;
-    height: 40px;
-    width: 75px;
+    height: 4%;
+    width: 15%;
     font-size: larger;
-    border-radius: 20px;
+    border-radius: 20%;
     border: none;
     transition: background-color .5s;
-    margin-right: 10px;
-    margin-bottom: 20px;
+    margin-right: 1%;
+    margin-bottom: 2%;
 }
 
 .button:hover{
@@ -23,14 +23,15 @@
     background-color: white;
     font-family: 'Silkscreen', cursive;
     color: black;
-    height: 40px;
-    width: 75px;
-    font-size: medium;
-    border-radius: 20px;
+    height: 4%;
+    width: 15%;
+    font-size: larger;
+    border-radius: 20%;
     border: none;
     transition: background-color .5s;
     text-align: center;
-    margin-right: 10px;
+    margin-right: 1%;
+    margin-bottom: 2%
 }
 
 .input:hover{
@@ -48,16 +49,16 @@
     background-color: white;
     font-family: 'Silkscreen', cursive;
     color: black;
-    height: 30px;
-    width: 75px;
+    height: 3%;
+    width: 15%;
     font-size: medium;
-    border-radius: 20px;
+    border-radius: 20%;
     border: none;
     transition: background-color .5s;
     text-align: center;
-    margin-right: 10px;
+    margin-right: 1%;
     margin-top: 0;
-    padding-top: 10px;
+    padding-top: 1%;
 }
 
 .title{

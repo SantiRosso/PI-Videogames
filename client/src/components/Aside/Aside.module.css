@@ -6,27 +6,28 @@
 .genres{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    gap: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    
 }
 
 .divApidb{
-    margin-top: 20px;
+    margin-top: 3%;
 }
 
 .apidb{
     background-color: black;
     font-family: 'Silkscreen', cursive;
     color: white;
-    height: 40px;
-    width: 150px;
+    height: 4%;
+    width: 20%;
     font-size: smaller;
-    border-radius: 20px;
+    border-radius: 20%;
     border: none;
     transition: background-color .5s;
-    margin-right: 10px;
-    margin-bottom: 20px;
+    margin-right: 1%;
+    margin-bottom: 2%;
 }
 
 .apidb:hover{

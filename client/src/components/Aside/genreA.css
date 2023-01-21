@@ -2,10 +2,10 @@
     background-color: black;
     font-family: 'Silkscreen', cursive;
     color: white;
-    height: 40px;
-    width: 150px;
+    height: 4vh;
+    width: 100%;
     font-size: smaller;
-    border-radius: 20px;
+    border-radius: 20%;
     border: none;
     transition: background-color .5s;
 }
@@ -20,10 +20,10 @@
     background-color: white;
     font-family: 'Silkscreen', cursive;
     color: black;
-    height: 40px;
-    width: 150px;
+    height: 4vh;
+    width: 100%;
     font-size: smaller;
-    border-radius: 20px;
+    border-radius: 20%;
     border: none;
     transition: background-color .5s;
 }

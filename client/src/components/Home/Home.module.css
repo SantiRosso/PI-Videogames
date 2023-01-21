@@ -26,7 +26,8 @@
 
 .aside{
     background-color: gray;
-    height: 100vh;
+    height: 100%;
+    width: 20%;
     position: fixed;
     top: 0;
     right: 0;
@@ -41,10 +42,11 @@
     background-color: white;
     font-family: 'Silkscreen', cursive;
     color: black;
-    height: 40px;
-    width: 150px;
+    height: 4%;
+    width: 20%;
     font-size: smaller;
     border: none;
+    border-radius: 20%;
     transition: background-color .5s;
     margin-right: 20px;
 }
@@ -52,21 +54,21 @@
 .divReset{
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .reset{
     background-color: gray;
     font-family: 'Silkscreen', cursive;
     color: white;
-    height: 40px;
-    width: 150px;
+    height: 4%;
+    width: 20%;
     font-size: smaller;
-    border-radius: 20px;
+    border-radius: 20%;
     border: none;
     transition: background-color .5s;
-    margin-right: 20px;
+    margin-right: 2%;
     border: 2px solid white;
 }
 
