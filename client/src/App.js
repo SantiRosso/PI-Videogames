@@ -5,6 +5,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import Create from "./components/Create/Create";
 import Home from "./components/Home/Home";
 import Details from "./components/Details/Details";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/videogames" component={Home} />
       <Route path="/details/:id" component={Details} />
       <Route path="/create" component={Create} />
+      <Route path="/about" component={About} />
     </div>
   );
 }

@@ -8,17 +8,17 @@
     top: 0;
     width: 100%;
     z-index: 1000;
-    height: 80px;
+    height: 7%;
 }
 
 .boton{
     background-color: white;
     font-family: 'Silkscreen', cursive;
     color: black;
-    height: 50px;
-    width: 200px;
+    height: 4%;
+    width: 100%;
     font-size: larger;
-    border-radius: 20px;
+    border-radius: 20%;
     border: none;
     transition: background-color .5s;
 }
@@ -31,5 +31,5 @@
 
 .home{
     border: 2px solid white;
-    border-radius: 20px;
+    border-radius: 20%;
 }
