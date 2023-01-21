@@ -7,16 +7,16 @@
 
 .containerGrid{
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 4fr 1fr;
     background-size: cover;
-    padding-top: 70px;
+    padding-top: 3%;
     height: 100%;
 }
 
 .grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    margin: 20px;
+    margin: 2%;
 }
 
 .order{
