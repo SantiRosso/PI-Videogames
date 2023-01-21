@@ -3,6 +3,7 @@ import s from "./Search.module.css";
 import { useState } from "react";
 import { getByName } from "../../redux/actions";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom"
 
 const Search = ({ setPage, setInput }) => {
 
@@ -33,7 +34,9 @@ const Search = ({ setPage, setInput }) => {
             className={s.input} 
             value={inputS.search} 
             onChange={handleChange}/>
-            <button className={s.boton} onClick={handleClick}>SEARCH</button>
+            <Link to="/videogames">
+                <button className={s.boton} onClick={handleClick}>SEARCH</button>
+            </Link>
         </div>
     )
 }
