@@ -8,6 +8,7 @@ import Nav from "../Nav/Nav";
 import Pagination from "../Pagination/Pagination";
 import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
+import Footer from "../Footer/Footer";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -84,6 +85,7 @@ const Home = () => {
                             <button className={s.reset} onClick={handleReset}>Reset filters</button>
                         </div>
                         <Pagination input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>
+                        <Footer/>
                     </div>
                 </div>
                 

@@ -46,7 +46,7 @@ const Aside = ({setPage, genreA, setGenreA, setInput}) => {
                 <button onClick={handleClickSwitch} className={s.apidb} value="api">Games API</button>
                 <button onClick={handleClickSwitch} className={s.apidb} value="db">Created games</button>
                 </div>
-            </div>
+            </div>            
         </div>
     )
 }
