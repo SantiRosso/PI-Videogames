@@ -4,25 +4,25 @@
 }
 
 .title{
-    margin-top: 100px;
+    margin-top: 5%;
 }
 
 .img{
-    height: 400px;
-    width: 500px;
+    height: 70%;
+    width: 100%;
     object-fit: cover;
     position: relative;
-    top: 50px;
-    left: 50px;
-    border-radius: 8px;
+    top: 15%;
+    left: 15%;
+    border-radius: 8%;
 }
 
 .grid{
     display: grid;
     grid-template-columns: 1fr 3fr;
-    padding-bottom: 10px;
+    padding-bottom: 1%;
     background-color: black;
-    height: 500px;
+    height: 50%;
 }
 
 .subGrid{

@@ -3,11 +3,11 @@
     flex-direction: column;
     /* border: 2px solid white; */
     background-color: rgba(0, 0, 0, 0.785);
-    border-radius: 20px;
-    margin: 10px;
+    border-radius: 5%;
+    margin: 4%;
     align-items: center;
     /* transition: .5s; */
-    height: 510px;
+    height: 95%;
     border: 2px solid rgba(0, 0, 0, 0.785)
 }
 
@@ -17,10 +17,10 @@
 }
 
 .img{
-    border-radius: 20px;
-    height: 280px;
-    width: 250px;
-    margin-top: 5px;
+    border-radius: 5%;
+    height: 25vh;
+    width: 13vw;
+    margin-top: 1%;
     object-fit: cover;
 }
 
