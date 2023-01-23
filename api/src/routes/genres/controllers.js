@@ -1,3 +1,8 @@
+require("dotenv").config();
+const { Genre } = require("../../db.js");
+const { APIKEY } = process.env;
+const axios = require("axios");
+
 const getGenres = async () => {
   try {
     let genresApi = await axios.get(

@@ -1,3 +1,8 @@
+require("dotenv").config();
+const { Genre, Videogame } = require("../../db.js");
+const { APIKEY } = process.env;
+const axios = require("axios");
+
 const getById = async (id) => {
   try {
     let game = await axios.get(
@@ -38,7 +43,9 @@ const getGameByIdFromDb = async (id) => {
   }
 };
 
-const deleteGame = () => {};
+const deleteGame = async (id) => {
+  await Videogame.destroy();
+};
 
 module.exports = {
   getById,
