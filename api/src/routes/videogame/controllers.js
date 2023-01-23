@@ -44,7 +44,11 @@ const getGameByIdFromDb = async (id) => {
 };
 
 const deleteGame = async (id) => {
-  await Videogame.destroy();
+  await Videogame.destroy({
+    where: {
+      id,
+    },
+  });
 };
 
 module.exports = {

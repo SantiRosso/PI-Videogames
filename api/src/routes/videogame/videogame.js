@@ -18,11 +18,11 @@ router.get("/:idVideogame", async (req, res) => {
   }
 });
 
-router.delete("/id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     await deleteGame(id);
-    res.status(204);
+    res.sendStatus(204);
   } catch (error) {
     res.status(500).send(error.message);
   }
