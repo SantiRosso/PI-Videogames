@@ -2,7 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 const { Op } = require("sequelize");
 const { APIKEY } = process.env;
-const { Genre, Videogame } = require("../db.js");
+const { Genre, Videogame } = require("../../db.js");
 
 const getHome = async () => {
   try {
@@ -116,75 +116,46 @@ const getFilQuery = async (name) => {
   }
 };
 
-const getById = async (id) => {
-  try {
-    let game = await axios.get(
-      `https://api.rawg.io/api/games/${id}?key=${APIKEY}`
-    );
-    game = game.data;
-    let gameOk = {
-      id: game.id,
-      name: game.name,
-      genres: game.genres?.map((e) => e.name),
-      platforms: game.platforms?.map((e) => e.platform.name),
-      released: game.released,
-      img: game.background_image,
-      rating: game.rating,
-      description: game.description,
-    };
-    return gameOk;
-  } catch (error) {
-    throw new Error(error);
-  }
-};
-
-const getGameByIdFromDb = async (id) => {
-  try {
-    let videogameDb = await Videogame.findOne({
-      where: {
-        id: id,
+const createVideogame = async (
+  name,
+  description,
+  released,
+  rating,
+  platforms,
+  genres,
+  img
+) => {
+  let [juego, boolean] = await Videogame.findOrCreate({
+    where: {
+      name: {
+        [Op.iLike]: `%${name}%`,
       },
-      include: Genre,
-    });
-    console.log(videogameDb);
-    videogameDb.dataValues.genres = videogameDb.dataValues.genres.map(
-      (e) => e.name
-    );
-    return videogameDb.dataValues;
-  } catch (error) {
-    throw new Error(error);
-  }
-};
+    },
+    defaults: {
+      name,
+      description,
+      released,
+      rating,
+      platforms,
+      img,
+    },
+  });
 
-const getGenres = async () => {
-  try {
-    let genresApi = await axios.get(
-      `https://api.rawg.io/api/genres?key=${APIKEY}`
-    );
-    genresApi = genresApi.data.results;
-    genresApi = genresApi?.map((e) => {
-      return {
-        name: e.name,
-      };
-    });
-    genresApi.forEach(async (e) => {
-      await Genre.findOrCreate({
-        where: {
-          name: e.name,
-        },
-      });
-    });
-    let genresDb = await Genre.findAll();
-    return genresDb;
-  } catch (error) {
-    throw new Error(error);
+  if (!boolean) {
+    return res.json({ message: "error" });
   }
+
+  let genreDb = await Genre.findAll({
+    where: {
+      name: genres,
+    },
+  });
+
+  juego.addGenre(genreDb);
 };
 
 module.exports = {
   getHome,
   getFilQuery,
-  getById,
-  getGameByIdFromDb,
-  getGenres,
+  createVideogame,
 };

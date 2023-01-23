@@ -1,6 +1,10 @@
 const { Router } = require("express");
-const { getHome, getFilQuery /* getGamesDb */ } = require("./controllers");
-const { Videogame, Genre } = require("../db.js");
+const {
+  getHome,
+  getFilQuery /* getGamesDb */,
+  createVideogame,
+} = require("./controllers");
+const { Videogame, Genre } = require("../../db.js");
 const router = Router();
 const { Op } = require("sequelize");
 
@@ -24,34 +28,15 @@ router.post("/", async (req, res) => {
     req.body;
 
   try {
-    let [juego, boolean] = await Videogame.findOrCreate({
-      where: {
-        name: {
-          [Op.iLike]: `%${name}%`,
-        },
-      },
-      defaults: {
-        name,
-        description,
-        released,
-        rating,
-        platforms,
-        img,
-      },
-    });
-
-    if (!boolean) {
-      return res.json({ message: "error" });
-    }
-
-    let genreDb = await Genre.findAll({
-      where: {
-        name: genres,
-      },
-    });
-
-    juego.addGenre(genreDb);
-
+    await createVideogame(
+      name,
+      description,
+      released,
+      rating,
+      platforms,
+      genres,
+      img
+    );
     res.status(201).send("ok");
   } catch (error) {
     res.status(400).send(error);
