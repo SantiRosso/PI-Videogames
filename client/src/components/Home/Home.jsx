@@ -5,10 +5,8 @@ import { getAllVideogames, getRating, getSort, resetHome } from "../../redux/act
 import Card from "../Card/Card";
 import Aside from "../Aside/Aside";
 import Nav from "../Nav/Nav";
-import Pagination from "../Pagination/Pagination";
 import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
-import Footer from "../Footer/Footer";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -61,31 +59,13 @@ const Home = () => {
                         videogames?.slice((page -1) * perPage, (page -1) * perPage + perPage)
                         .map((e) => {
                             return(
-                                <Card key={e.id} id={e.id} name={e.name} img={e.img} genres={e.genres} game={e} />
+                                <Card key={e.id} id={e.id} name={e.name} img={e.img} genres={e.genres} game={e}/>
                             )
                         })
                     }
                     </div>
                     <div className={s.aside}>
-                        <Aside setPage={setPage} setInput={setInput} genreA={genreA} setGenreA={setGenreA}/>
-                        <h3 className={s.order}>Order by</h3>
-                        <div className={s.orderDiv}>
-                            <select className={s.select} name="Sort" onChange={handleSort}>
-                                <option value="sort">Alphabet</option>
-                                <option value="asc">A-Z</option>
-                                <option value="des">Z-A</option>
-                            </select>
-                            <select className={s.select} name="Rating" onChange={handleRating}>
-                                <option value="rating">Rating</option>
-                                <option value="men">Minor-Major</option>
-                                <option value="may">Major-Minor</option>
-                            </select>
-                        </div>
-                        <div className={s.divReset}>
-                            <button className={s.reset} onClick={handleReset}>Reset filters</button>
-                        </div>
-                        <Pagination input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>
-                        <Footer/>
+                        <Aside setPage={setPage} setInput={setInput} genreA={genreA} setGenreA={setGenreA} handleRating={handleRating} handleSort={handleSort} handleReset={handleReset} input={input} page={page} max={max}/>
                     </div>
                 </div>
                 
