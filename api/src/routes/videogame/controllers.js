@@ -51,8 +51,38 @@ const deleteGame = async (id) => {
   });
 };
 
+const updateGame = async (
+  id,
+  name,
+  description,
+  released,
+  rating,
+  platforms,
+  genres,
+  img
+) => {
+  try {
+    const videogame = await Videogame.findOne({
+      where: {
+        id,
+      },
+    });
+    videogame.name = name;
+    videogame.description = description;
+    videogame.released = released;
+    videogame.rating = rating;
+    videogame.platforms = platforms;
+    videogame.genres = genres;
+    videogame.img = img;
+    await videogame.save();
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 module.exports = {
   getById,
   getGameByIdFromDb,
   deleteGame,
+  updateGame,
 };
