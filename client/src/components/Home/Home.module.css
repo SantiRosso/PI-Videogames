@@ -16,7 +16,8 @@
 .grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    margin: 2%;
+    gap: 1%;
+    margin: 1%;
 }
 
 .order{

@@ -1,13 +1,12 @@
 .container{
+    position: relative;
     display: flex;
     flex-direction: column;
-    /* border: 2px solid white; */
     background-color: rgba(0, 0, 0, 0.785);
     border-radius: 5%;
     margin: 4%;
     align-items: center;
-    /* transition: .5s; */
-    height: 95%;
+    height: 50vh;
     border: 2px solid rgba(0, 0, 0, 0.785)
 }
 
@@ -30,4 +29,17 @@
 
 .genres{
     color: gray;
+}
+
+.button{
+    transition: 0.5s;
+    border-radius: 20%; 
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.button:hover{
+    background-color: black;
+    color: white
 }

@@ -22,6 +22,7 @@ const getHome = async () => {
         released: e.released,
         img: e.background_image,
         rating: e.rating,
+        created: false,
       };
     });
 

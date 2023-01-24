@@ -61,7 +61,7 @@ const Home = () => {
                         videogames?.slice((page -1) * perPage, (page -1) * perPage + perPage)
                         .map((e) => {
                             return(
-                                <Card key={e.id} id={e.id} name={e.name} img={e.img} genres={e.genres}/>
+                                <Card key={e.id} id={e.id} name={e.name} img={e.img} genres={e.genres} game={e} />
                             )
                         })
                     }
