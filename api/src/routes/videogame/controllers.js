@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Genre, Videogame } = require("../../db.js");
+const { Genre, Videogame, Platform } = require("../../db.js");
 const { APIKEY } = process.env;
 const axios = require("axios");
 
@@ -31,10 +31,13 @@ const getGameByIdFromDb = async (id) => {
       where: {
         id: id,
       },
-      include: Genre,
+      include: [Genre, Platform],
     });
     console.log(videogameDb);
     videogameDb.dataValues.genres = videogameDb.dataValues.genres.map(
+      (e) => e.name
+    );
+    videogameDb.dataValues.platforms = videogameDb.dataValues.platforms.map(
       (e) => e.name
     );
     return videogameDb.dataValues;

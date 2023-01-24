@@ -2,7 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 const { Op } = require("sequelize");
 const { APIKEY } = process.env;
-const { Genre, Videogame } = require("../../db.js");
+const { Genre, Videogame, Platform } = require("../../db.js");
 
 const getHome = async () => {
   try {
@@ -26,19 +26,28 @@ const getHome = async () => {
     });
 
     let videogamesDb = await Videogame.findAll({
-      include: {
-        model: Genre,
-        attributes: ["name"],
-        through: {
-          attributes: [],
+      include: [
+        {
+          model: Genre,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
         },
-      },
+        {
+          model: Platform,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
     });
     videogamesDb = videogamesDb?.map((e) => {
       return {
         id: e.id,
         name: e.name,
-        platforms: e.platforms,
+        platforms: e.platforms?.map((e) => e.name),
         released: e.released,
         img: e.img,
         rating: e.rating,
@@ -84,13 +93,22 @@ const getFilQuery = async (name) => {
           [Op.iLike]: `%${name}%`,
         },
       },
-      include: {
-        model: Genre,
-        attributes: ["name"],
-        through: {
-          attributes: [],
+      include: [
+        {
+          model: Genre,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
         },
-      },
+        {
+          model: Platform,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
     });
 
     if (db.length) {
@@ -99,7 +117,7 @@ const getFilQuery = async (name) => {
           id: e.id,
           name: e.name,
           genres: e.genres?.map((e) => e.name),
-          platforms: e.platforms,
+          platforms: e.platforms?.map((e) => e.name),
           released: e.released,
           img: e.background_image,
           rating: e.rating,
@@ -136,7 +154,6 @@ const createVideogame = async (
       description,
       released,
       rating,
-      platforms,
       img,
     },
   });
@@ -151,7 +168,14 @@ const createVideogame = async (
     },
   });
 
+  let platformDb = await Platform.findAll({
+    where: {
+      name: platforms,
+    },
+  });
+
   juego.addGenre(genreDb);
+  juego.addPlatform(platformDb);
 };
 
 module.exports = {
