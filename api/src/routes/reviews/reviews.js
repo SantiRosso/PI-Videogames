@@ -25,4 +25,24 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/", async (req, res) => {
+  const { id } = req.body;
+  try {
+    await deleteReview(id);
+    res.sendStatus(204);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+router.put("/", async (req, res) => {
+  const { id, title, comment, score } = req.body;
+  try {
+    await updateReview(id, title, comment, score);
+    res.sendStatus(204);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
 module.exports = router;
