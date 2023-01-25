@@ -5,6 +5,7 @@ const genresRouter = require("./genres/genres.js");
 const platformsRouter = require("./platforms/platforms.js");
 const videogamesRouter = require("./videogames/videogames.js");
 const videogameRouter = require("./videogame/videogame.js");
+const favouritesRouter = require("./favourites/favourites.js");
 
 const router = Router();
 
@@ -15,5 +16,6 @@ router.use("/videogames", videogamesRouter);
 router.use("/genres", genresRouter);
 router.use("/videogame", videogameRouter);
 router.use("/platforms", platformsRouter);
+router.use("/favourites", favouritesRouter);
 
 module.exports = router;

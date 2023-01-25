@@ -1,4 +1,4 @@
-const Favourite = require("../../models/Favourite");
+const { Favourite /* User */ } = require("../../db.js");
 
 const getFavourites = async (userId) => {
   try {
@@ -13,4 +13,17 @@ const getFavourites = async (userId) => {
   }
 };
 
-module.exports = { getFavourites };
+const postFavourite = async (userId, gameId) => {
+  try {
+    await Favourite.findOrCreate({
+      where: {
+        userId,
+        gameId,
+      },
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+module.exports = { getFavourites, postFavourite };
