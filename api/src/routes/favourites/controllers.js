@@ -26,4 +26,17 @@ const postFavourite = async (userId, gameId) => {
   }
 };
 
-module.exports = { getFavourites, postFavourite };
+const deleteFavourite = async (userId, gameId) => {
+  try {
+    await Favourite.destroy({
+      where: {
+        userId,
+        gameId,
+      },
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+module.exports = { getFavourites, postFavourite, deleteFavourite };

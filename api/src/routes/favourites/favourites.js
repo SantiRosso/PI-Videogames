@@ -1,5 +1,9 @@
 const { Router } = require("express");
-const { getFavourites, postFavourite } = require("./controllers");
+const {
+  getFavourites,
+  postFavourite,
+  deleteFavourite,
+} = require("./controllers");
 const {} = require("../../db.js");
 const router = Router();
 
@@ -24,7 +28,12 @@ router.post("/", async (req, res) => {
 
 router.delete("/", async (req, res) => {
   try {
-  } catch (error) {}
+    const { userId, gameId } = req.body;
+    await deleteFavourite(userId, gameId);
+    res.sendStatus(204);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 });
 
 module.exports = router;
