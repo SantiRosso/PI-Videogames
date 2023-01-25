@@ -4,9 +4,7 @@ const {
   getFilQuery /* getGamesDb */,
   createVideogame,
 } = require("./controllers");
-const { Videogame, Genre } = require("../../db.js");
 const router = Router();
-const { Op } = require("sequelize");
 
 router.get("/", async (req, res) => {
   const { name } = req.query;
