@@ -1,6 +1,15 @@
-.container{
+.containter{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.subtitle{
     color: rgba(0, 0, 0, 0.407);
     text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .genres{
@@ -9,11 +18,12 @@
     gap: 1%;
     padding-left: 2%;
     padding-right: 2%;
+    height: 30vh;
 }
 
-.divApidb{
+/* .divApidb{
     margin-top: 10%;
-}
+} */
 
 .apidb{
     background-color: black;
@@ -37,6 +47,8 @@
 .title{
     color: rgba(0, 0, 0, 0.407);
     text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .subDiv{
@@ -47,6 +59,8 @@
 .order{
     color: rgba(0, 0, 0, 0.407);
     text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .orderDiv{
