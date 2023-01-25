@@ -7,6 +7,7 @@ const videogamesRouter = require("./videogames/videogames.js");
 const videogameRouter = require("./videogame/videogame.js");
 const favouritesRouter = require("./favourites/favourites.js");
 const reviewsRouter = require("./reviews/reviews.js");
+const commentsRouter = require("./comments/comments.js");
 
 const router = Router();
 
@@ -19,5 +20,6 @@ router.use("/videogame", videogameRouter);
 router.use("/platforms", platformsRouter);
 router.use("/favourites", favouritesRouter);
 router.use("/reviews", reviewsRouter);
+router.use("/comments", commentsRouter);
 
 module.exports = router;
