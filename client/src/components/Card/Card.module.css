@@ -43,3 +43,9 @@
     background-color: black;
     color: white
 }
+
+.link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
