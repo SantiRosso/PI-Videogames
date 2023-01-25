@@ -9,6 +9,7 @@ import {
   ERROR,
   CLOSE_ERROR,
   RESET_HOME,
+  DELETE_VIDEOGAME,
 } from "./actions.js";
 
 const initialState = {
@@ -113,6 +114,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         filtered: state.videogames,
         filtered2: state.videogames,
+      };
+    case DELETE_VIDEOGAME:
+      return {
+        ...state,
+        filtered: state.filtered.filter((e) => e.id !== action.payload),
       };
     default:
       return { ...state };

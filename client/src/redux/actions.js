@@ -9,6 +9,7 @@ export const GET_RATING = "GET_RATING";
 export const ERROR = "ERROR";
 export const CLOSE_ERROR = "CLOSE_ERROR";
 export const RESET_HOME = "RESET_HOME";
+export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME";
 
 export const getAllVideogames = () => {
   return async (dispatch) => {
@@ -59,4 +60,10 @@ export const setError = () => {
 
 export const resetHome = () => {
   return { type: RESET_HOME };
+};
+
+export const deleteVideogame = (id) => {
+  return async (dispatch) => {
+    return dispatch({ type: DELETE_VIDEOGAME, payload: id });
+  };
 };

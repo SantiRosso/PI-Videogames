@@ -3,17 +3,17 @@ import s from "./Card.module.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { getAllVideogames } from "../../redux/actions";
+import { deleteVideogame } from "../../redux/actions";
 
 
-const Card = ({ name, img, genres, id, game, update, setUpdate }) => {
+const Card = ({ name, img, genres, id, game }) => {
     
     const dispatch = useDispatch()
 
     const handleDelete = async () => {
         console.log("handle", id)
         await axios.delete(`/videogame/${id}`)
-        dispatch(getAllVideogames());
+        dispatch(deleteVideogame(id))
     }
 
     return (
