@@ -32,6 +32,7 @@ const updateComment = async (id, title, comment, score) => {
     let newComment = await Comment.findOne({
       where: {
         id,
+        userId,
       },
     });
     newComment.title = title;
@@ -43,4 +44,17 @@ const updateComment = async (id, title, comment, score) => {
   }
 };
 
-module.exports = { getComments, postComment, updateComment };
+const deleteComment = async (id, userId) => {
+  try {
+    await Comment.destroy({
+      where: {
+        id,
+        userId,
+      },
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+module.exports = { getComments, postComment, updateComment, deleteComment };
