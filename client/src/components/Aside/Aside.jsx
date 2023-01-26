@@ -43,7 +43,7 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
                 }
             </div>
             <div className={s.divApidb}>
-                <h3 className={s.title}>API/DATABASE</h3>
+                {/* <h3 className={s.title}>API/DATABASE</h3> */}
                 <div className={s.subDiv}>
                 <button onClick={handleClickSwitch} className={s.apidb} value="api">Games API</button>
                 <button onClick={handleClickSwitch} className={s.apidb} value="db">Created games</button>

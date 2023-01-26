@@ -9,6 +9,8 @@
     width: 100%;
     z-index: 1000;
     height: 7%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
 }
 
 .boton{
