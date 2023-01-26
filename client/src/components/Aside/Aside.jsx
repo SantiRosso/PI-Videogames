@@ -31,9 +31,9 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
 
     return(
         <div className={s.containter}>
-            <h1 className={s.title}>Filter by</h1>
+            <h1 className={s.title}>DARK/LIGHT</h1>
             <h3 className={s.subtitle}>Genres</h3>
-            <div className={s.genres}>
+            {/* <div className={s.genres}>
                 {
                     genres?.map((e,i) => {
                         return(
@@ -41,6 +41,18 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
                         )
                     })
                 }
+            </div> */}
+            <div className={s.genres}>
+                <select className={s.selectGenres}>
+                    {
+                        genres?.map((e,i) => {
+                            return(
+                                <option value={e.name} onClick={handleClick}>{e.name}</option>                        
+                            )
+                        })
+                    }
+                </select>
+                
             </div>
             <div className={s.divApidb}>
                 {/* <h3 className={s.title}>API/DATABASE</h3> */}

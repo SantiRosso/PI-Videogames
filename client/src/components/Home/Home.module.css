@@ -21,7 +21,7 @@
 }
 
 .aside{
-    background-color: rgb(70, 70, 70);
+    background-color: rgba(70, 70, 70, 0.744);
     height: 91%;
     width: 20%;
     position: fixed;

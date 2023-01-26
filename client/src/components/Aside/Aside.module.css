@@ -12,13 +12,19 @@
     margin-bottom: 0;
 }
 
-.genres{
+/* .genres{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1%;
     padding-left: 2%;
     padding-right: 2%;
     height: 30vh;
+    width: 19vw;
+} */
+
+.genres{
+    display: flex;
+    justify-content: center;
 }
 
 /* .divApidb{
@@ -74,6 +80,19 @@
     color: black;
     height: 100%;
     width: 25%;
+    font-size: smaller;
+    border: none;
+    border-radius: 20%;
+    transition: background-color .5s;
+    margin-right: 20px;
+}
+
+.selectGenres{
+    background-color: white;
+    font-family: 'Silkscreen', cursive;
+    color: black;
+    height: 100%;
+    width: 75%;
     font-size: smaller;
     border: none;
     border-radius: 20%;
