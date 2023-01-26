@@ -27,4 +27,20 @@ const postComment = async (gameId, userId, title, comment, score) => {
   }
 };
 
-module.exports = { getComments, postComment };
+const updateComment = async (id, title, comment, score) => {
+  try {
+    let newComment = await Comment.findOne({
+      where: {
+        id,
+      },
+    });
+    newComment.title = title;
+    newComment.comment = comment;
+    newComment.score = score;
+    newComment.save();
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+module.exports = { getComments, postComment, updateComment };

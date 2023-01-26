@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { getComments, postComment } = require("./controllers.js");
+const { getComments, postComment, updateComment } = require("./controllers.js");
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -15,6 +15,16 @@ router.post("/", async (req, res) => {
   const { gameId, userId, title, comment, score } = req.body;
   try {
     await postComment(gameId, userId, title, comment, score);
+    res.sendStatus(204);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+router.put("/", async (req, res) => {
+  const { id, title, comment, score } = req.body;
+  try {
+    await updateComment(id, title, comment, score);
     res.sendStatus(204);
   } catch (error) {
     res.status(500).send(error.message);
