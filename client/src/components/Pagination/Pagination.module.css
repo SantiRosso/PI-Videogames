@@ -1,5 +1,5 @@
 .button{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.588);
     font-family: 'Silkscreen', cursive;
     color: white;
     height: 4%;
@@ -14,7 +14,7 @@
 
 .button:hover{
     color:white;
-    background-color: rgb(34, 34, 34) ;
+    background-color: rgb(20, 20, 20) ;
     cursor: pointer;
 }
 

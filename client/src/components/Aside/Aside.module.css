@@ -12,7 +12,7 @@
     margin-bottom: 0;
 }
 
-/* .genres{
+.genres{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1%;
@@ -20,19 +20,19 @@
     padding-right: 2%;
     height: 30vh;
     width: 19vw;
-} */
+}
 
-.genres{
+/* .genres{
     display: flex;
     justify-content: center;
-}
+} */
 
 /* .divApidb{
     margin-top: 10%;
 } */
 
 .apidb{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.588);
     font-family: 'Silkscreen', cursive;
     color: white;
     height: 4vh;
@@ -46,7 +46,7 @@
 
 .apidb:hover{
     color:white;
-    background-color: rgb(34, 34, 34) ;
+    background-color: rgb(20, 20, 20) ;
     cursor: pointer;
 }
 

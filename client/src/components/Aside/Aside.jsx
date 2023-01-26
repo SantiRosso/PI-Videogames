@@ -29,11 +29,18 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
         setPage(1)
     }
 
+    // function handleChange(e) {
+    //     dispatch(getByGenre(e.target.value))
+    //     setGenreA(e.target.value)
+    //     setInput(1)
+    //     setPage(1)
+    // }
+
     return(
         <div className={s.containter}>
             <h1 className={s.title}>DARK/LIGHT</h1>
             <h3 className={s.subtitle}>Genres</h3>
-            {/* <div className={s.genres}>
+            <div className={s.genres}>
                 {
                     genres?.map((e,i) => {
                         return(
@@ -41,19 +48,19 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
                         )
                     })
                 }
-            </div> */}
-            <div className={s.genres}>
+            </div>
+            {/* <div className={s.genres}>
                 <select className={s.selectGenres}>
                     {
                         genres?.map((e,i) => {
                             return(
-                                <option value={e.name} onClick={handleClick}>{e.name}</option>                        
+                                <option value={e.name} onChange={handleChange}>{e.name}</option>                        
                             )
                         })
                     }
                 </select>
                 
-            </div>
+            </div> */}
             <div className={s.divApidb}>
                 {/* <h3 className={s.title}>API/DATABASE</h3> */}
                 <div className={s.subDiv}>
