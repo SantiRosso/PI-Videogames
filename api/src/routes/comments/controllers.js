@@ -22,6 +22,7 @@ const postComment = async (gameId, userId, title, comment, score) => {
       comment,
       score,
     });
+    // let user = User.findOne();
   } catch (error) {
     throw new Error(error);
   }
