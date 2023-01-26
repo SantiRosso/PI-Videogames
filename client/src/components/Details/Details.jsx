@@ -20,39 +20,43 @@ const Details = () => {
             {
                 detail ?
                 <div>
-                <h1 className={s.title}>Details</h1>
-                <h2>{detail.name}</h2>
-                <div className={s.grid}>
-                    <img src={detail.img} alt={detail.name} className={s.img}/>                           
-                    <div className={s.subGrid}>
-                        <div>
-                            <h2>Platorms: </h2>
-                            {detail.platforms?.map((e) => {
-                                return(
-                                    <h4 className={s.info}>{e}</h4>
-                                    )
-                                })}
+                    <h1 className={s.title}>Details</h1>
+                    <h2>{detail.name}</h2>
+                    <div className={s.grid}>
+                        <img src={detail.img} alt={detail.name} className={s.img}/>                           
+                        <div className={s.subGrid}>
+                            <div>
+                                <h2>Platorms: </h2>
+                                {detail.platforms?.map((e) => {
+                                    return(
+                                        <h4 className={s.info}>{e}</h4>
+                                        )
+                                    })}
+                            </div>
+                            <div>
+                                <h2>Genres: </h2>
+                                {detail.genres?.map((e) => {
+                                    return(
+                                        <h4 className={s.info}>{e}</h4>
+                                        )
+                                    })}
+                            </div>
+                            <h2>Rating: <span className={s.info}>{detail.rating}</span></h2>
+                            <h2>Released: <span className={s.info}>{detail.released}</span></h2>
                         </div>
-                        <div>
-                            <h2>Genres: </h2>
-                            {detail.genres?.map((e) => {
-                                return(
-                                    <h4 className={s.info}>{e}</h4>
-                                    )
-                                })}
-                        </div>
-                        <h2>Rating: <span className={s.info}>{detail.rating}</span></h2>
-                        <h2>Released: <span className={s.info}>{detail.released}</span></h2>
                     </div>
-                </div>
-                <h2>Description: </h2>
-                <h4 className={s.info2}>{detail.description?.split("<p>")
-                .join("\n")
-                .split("</p>")
-                .join(" ")
-                .split("<br />")
-                .join("\n")
-                }</h4> 
+                    <h2>Description: </h2>
+                    <div className={s.description}>
+                        <h4 className={s.info2}>
+                            {detail.description?.split("<p>")
+                            .join("\n")
+                            .split("</p>")
+                            .join(" ")
+                            .split("<br />")
+                            .join("\n")
+                            }
+                        </h4> 
+                    </div>
                 </div>
                 : <Loader/>
             } 
