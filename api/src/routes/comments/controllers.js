@@ -13,4 +13,18 @@ const getComments = async (gameId) => {
   }
 };
 
-module.exports = { getComments };
+const postComment = async (gameId, userId, title, comment, score) => {
+  try {
+    await Comment.create({
+      gameId,
+      userId,
+      title,
+      comment,
+      score,
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+module.exports = { getComments, postComment };
