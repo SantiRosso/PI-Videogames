@@ -24,8 +24,8 @@ const Card = ({ name, img, genres, id, game }) => {
                 <h3 className={s.name}>{name}</h3>
                 <div> 
                 {   
-                    genres.length > 7 ? 
-                    genres?.slice(0,7).map((e) => (<div className={s.genres}><span key={e+id}>{e}</span></div>)) 
+                    genres.length > 3 ? 
+                    genres?.slice(0,3).map((e) => (<div className={s.genres}><span key={e+id}>{e}</span></div>)) 
                     : genres?.map((e) => (<div className={s.genres}><span key={e+id}>{e}</span></div>))
                 } 
                 </div>    

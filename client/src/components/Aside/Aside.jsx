@@ -40,14 +40,16 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
         <div className={s.containter}>
             <h1 className={s.title}>DARK/LIGHT</h1>
             <h3 className={s.subtitle}>Genres</h3>
-            <div className={s.genres}>
-                {
-                    genres?.map((e,i) => {
-                        return(
-                            <button key={i} className={e.name === genreA ? "genreA" : "genre"} value={e.name} onClick={handleClick}>{e.name}</button>                           
-                        )
-                    })
-                }
+            <div className={s.divGenres}>
+                <div className={s.genres}>
+                    {
+                        genres?.map((e,i) => {
+                            return(
+                                <button key={i} className={e.name === genreA ? "genreA" : "genre"} value={e.name} onClick={handleClick}>{e.name}</button>                           
+                            )
+                        })
+                    }
+                </div>
             </div>
             {/* <div className={s.genres}>
                 <select className={s.selectGenres}>
@@ -61,13 +63,10 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
                 </select>
                 
             </div> */}
-            <div className={s.divApidb}>
-                {/* <h3 className={s.title}>API/DATABASE</h3> */}
-                <div className={s.subDiv}>
+            <div className={s.subDiv}>
                 <button onClick={handleClickSwitch} className={s.apidb} value="api">Games API</button>
                 <button onClick={handleClickSwitch} className={s.apidb} value="db">Created games</button>
-                </div>
-            </div>  
+            </div>
             <h3 className={s.order}>Order by</h3>
             <div className={s.orderDiv}>
                 <select className={s.select} name="Sort" onChange={handleSort}>

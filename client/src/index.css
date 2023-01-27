@@ -10,9 +10,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: white;
   background-image: url("../public/carrousell_1920x1080_2.jpg");
-  /* background-image: url("../public/fondo-de-pantalla-de-1920x1080-tumblr-pc.-fondo-de-pantalla-1024x576.jpg"); */
-  /* background-image: url("../public/photo-1511512578047-dfb367046420.jpg"); */
-  /* background-image: url("../public/video-games-gamers-wallpaper-preview.jpg"); */
+}
+
+body::-webkit-scrollbar {
+  /* opacity: 0; */
+  /* width: 0; */
+  width: 15px;
+  background-color: rgb(111, 113, 113);
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: rgb(63, 63, 63);
+  border-radius: 5px;
+  width: 15px;
 }
 
 code {
