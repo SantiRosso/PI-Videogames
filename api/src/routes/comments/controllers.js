@@ -1,4 +1,4 @@
-const { Comment } = require("../../db.js");
+const { Comment, User } = require("../../db.js");
 
 const getComments = async (gameId) => {
   try {
@@ -15,9 +15,15 @@ const getComments = async (gameId) => {
 
 const postComment = async (gameId, userId, title, comment, score) => {
   try {
+    let userDb = await User.findOne({
+      where: {
+        id: userId,
+      },
+    });
+    console.log(userDb);
     await Comment.create({
       gameId,
-      userId,
+      userName: userDb?.name,
       title,
       comment,
       score,

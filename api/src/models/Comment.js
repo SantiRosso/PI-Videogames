@@ -4,8 +4,8 @@ module.exports = (sequelize) => {
   sequelize.define(
     "comment",
     {
-      userId: {
-        type: DataTypes.INTEGER,
+      userName: {
+        type: DataTypes.STRING,
       },
       //así o con relación?
       gameId: {
