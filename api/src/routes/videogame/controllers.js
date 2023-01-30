@@ -17,7 +17,7 @@ const getById = async (id) => {
       released: game.released,
       img: game.background_image,
       rating: game.rating,
-      description: game.description,
+      description: game.description_raw,
     };
     return gameOk;
   } catch (error) {

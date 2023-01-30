@@ -48,13 +48,7 @@ const Details = () => {
                     <h2>Description: </h2>
                     <div className={s.description}>
                         <h4 className={s.info2}>
-                            {detail.description?.split("<p>")
-                            .join("\n")
-                            .split("</p>")
-                            .join(" ")
-                            .split("<br />")
-                            .join("\n")
-                            }
+                            {detail.description}
                         </h4> 
                     </div>
                 </div>
