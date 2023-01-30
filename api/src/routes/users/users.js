@@ -59,6 +59,7 @@ router.put("/", async (req, res) => {
     favPlatform,
   } = req.body;
   try {
+    console.log(req.body);
     await updateUser(
       id,
       name,

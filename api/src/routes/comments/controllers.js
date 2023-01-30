@@ -6,6 +6,10 @@ const getComments = async (gameId) => {
       where: {
         gameId,
       },
+      include: {
+        model: User,
+        attributes: ["name"],
+      },
     });
     return result;
   } catch (error) {
@@ -23,12 +27,11 @@ const postComment = async (gameId, userId, title, comment, score) => {
     console.log(userDb);
     await Comment.create({
       gameId,
-      userName: userDb?.name,
       title,
       comment,
       score,
+      userId,
     });
-    // let user = User.findOne();
   } catch (error) {
     throw new Error(error);
   }
