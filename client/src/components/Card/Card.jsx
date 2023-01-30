@@ -30,6 +30,9 @@ const Card = ({ name, img, genres, id, game }) => {
                 } 
                 </div>    
             </Link>
+            <Link to={`/edit/${id}`}>
+            <button className={s.edit} hidden={!game.created}>Edit</button>
+            </Link>
         </div>
     )
 }

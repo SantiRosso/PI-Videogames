@@ -65,11 +65,22 @@ const updateGame = async (
   img
 ) => {
   try {
+    const nameGame = await Videogame.findOne({
+      where: {
+        name: name,
+      },
+    });
+
+    if (nameGame) {
+      return res.send({ message: "error" });
+    }
+
     const videogame = await Videogame.findOne({
       where: {
         id,
       },
     });
+
     videogame.name = name;
     videogame.description = description;
     videogame.released = released;

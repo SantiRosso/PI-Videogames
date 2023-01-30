@@ -6,6 +6,7 @@ import Create from "./components/Create/Create";
 import Home from "./components/Home/Home";
 import Details from "./components/Details/Details";
 import About from "./components/About/About";
+import Edit from "./components/Edit/Edit";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/details/:id" component={Details} />
       <Route path="/create" component={Create} />
       <Route path="/about" component={About} />
+      <Route path="/edit/:id" component={Edit} />
     </div>
   );
 }
