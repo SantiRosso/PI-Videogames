@@ -4,9 +4,6 @@ module.exports = (sequelize) => {
   sequelize.define(
     "review",
     {
-      userId: {
-        type: DataTypes.INTEGER,
-      },
       title: {
         type: DataTypes.STRING,
       },

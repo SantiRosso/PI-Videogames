@@ -19,12 +19,6 @@ const getComments = async (gameId) => {
 
 const postComment = async (gameId, userId, title, comment, score) => {
   try {
-    let userDb = await User.findOne({
-      where: {
-        id: userId,
-      },
-    });
-    console.log(userDb);
     await Comment.create({
       gameId,
       title,
