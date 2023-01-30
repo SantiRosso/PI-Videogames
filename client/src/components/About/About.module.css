@@ -1,3 +1,7 @@
+body {
+    background-image: url("../public/carrousell_1920x1080_2.jpg");
+  }
+
 .firstDiv{
     height: 100vh;
     width: 100vw;
