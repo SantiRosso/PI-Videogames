@@ -13,32 +13,27 @@ const Edit = () => {
     const platf = useSelector((state) => state.platforms)
     const gameId = useParams().id
 
-    const [game, setGame] = useState()
-
-    const getGame = async() => {
-        let gameDb = await axios.get(`/videogame/${gameId}`)
-        setGame(gameDb.data);
-    }
-    
+    const [game, setGame] = useState()    
 
     useEffect(()=> {
-        dispatch(getGenres())
-        dispatch(getPlatforms())
-        if(!game){
-            getGame()
+        if(!genres.length){
+            dispatch(getGenres())  
         }
-    },[dispatch, game])
-
-    console.log(game)
+        if(!platf.length){
+            dispatch(getPlatforms())
+        }
+        axios.get(`/videogame/${gameId}`)
+        .then(response => setGame(response.data))
+    },[dispatch, gameId])
 
     const [form, setForm] = useState({
-        name: "",
-        released: "",
-        description: "",
-        genres: [],
-        platforms: [],
-        img: "",
-        rating: 0,
+        name: game?.name,
+        released: game?.released,
+        description: game?.description,
+        genres: game?.genres,
+        platforms: game?.platforms,
+        img: game?.img,
+        rating: parseInt(game?.rating),
     });
 
     function handleChange (e) {
@@ -50,22 +45,22 @@ const Edit = () => {
 
     const validate = (form) => {
         let errors = {};
-        if (form.name.length < 2) {
+        if (form.name?.length < 2) {
             errors.name = "-Game Name must have at least 2 characters";
         }
-        if (form.description.length < 15) {
+        if (form.description?.length < 15) {
             errors.description = "-Description must have at least 15 characters";
         }
-        if (form.rating < 1 || form.rating > 5) {
+        if (form.rating && (form.rating < 1 || form.rating > 5)) {
             errors.rating = "-Rating must be between 1 and 5";
-        }
-        if (isNaN(form.rating)) {
+        } 
+        if (form.rating && isNaN(form.rating)) {
             errors.rating = "-Rating must be a number";
         }
-        if (form.genres.length < 1) {
+        if (form.genres?.length < 1) {
             errors.genres = "-Genres is required";
         }
-        if (form.platforms.length < 1) {
+        if (form.platforms?.length < 1) {
             errors.platforms = "-Platforms is required";
         }
         return errors;
@@ -90,26 +85,31 @@ const Edit = () => {
     }
 
     function handleSelectG (e) {
-        if(e.target.value !== "genres" && !form.genres.includes(e.target.value))
-        setForm({
-            ...form,
-            genres: [...form.genres, e.target.value]
-        })
+        if(e.target.value !== "genres" && !form.genres?.includes(e.target.value))
+            if(form.genres){
+                setForm({
+                ...form,
+                genres: [...form.genres, e.target.value]
+                
+            })
+        }
     }
     
     function handleSelectP (e) {
-        if(e.target.value !== "platforms" && !form.platforms.includes(e.target.value))
-        setForm({
-            ...form,
-            platforms: [...form.platforms, e.target.value]
-        })
+        if(e.target.value !== "platforms" && !form.platforms?.includes(e.target.value))
+            if(form.platforms){
+            setForm({
+                ...form,
+                platforms: [...form.platforms, e.target.value]
+            }) 
+        }
     }
 
     function handleDeleteG (event) {
         event.preventDefault()
         setForm({
             ...form,
-            genres: form.genres.filter(e => e !== event.target.value)
+            genres: form.genres?.filter(e => e !== event.target.value)
         })
     }
     
@@ -117,7 +117,7 @@ const Edit = () => {
         event.preventDefault()
         setForm({
             ...form,
-            platforms: form.platforms.filter(e => e !== event.target.value)
+            platforms: form.platforms?.filter(e => e !== event.target.value)
         })
     }
 
@@ -153,11 +153,11 @@ const Edit = () => {
                     </select>
                     <div>
                         {
-                        form.genres?.map((e, i) => {
-                            return(
-                                <span key={i} className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteG} className={s.btnx}>X</button></span>
-                            )
-                        })
+                            form.genres?.legnth && form.genres?.map((e, i) => {
+                                return(
+                                    <span key={i} className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteG} className={s.btnx}>X</button></span>
+                                )
+                            })
                         }
                     </div>
                     <p>{errorMsg.genres}</p> 
@@ -168,7 +168,7 @@ const Edit = () => {
                     </select>
                     <div>
                         {
-                            form.platforms?.map((e, i) => {
+                            form.platforms?.length && form.platforms?.map((e, i) => {
                                 return(
                                     <span key={i} className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteP} className={s.btnx}>X</button></span>
                                 )
