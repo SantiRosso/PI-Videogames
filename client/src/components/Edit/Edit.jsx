@@ -11,9 +11,7 @@ const Edit = () => {
     const genres = useSelector((state) => state.genres)
     const dispatch = useDispatch();
     const platf = useSelector((state) => state.platforms)
-    const gameId = useParams().id
-
-    const [game, setGame] = useState()    
+    const gameId = useParams().id   
 
     useEffect(()=> {
         if(!genres.length){
@@ -23,18 +21,20 @@ const Edit = () => {
             dispatch(getPlatforms())
         }
         axios.get(`/videogame/${gameId}`)
-        .then(response => setGame(response.data))
+        .then(response => setForm(response.data))
     },[dispatch, gameId])
 
     const [form, setForm] = useState({
-        name: game?.name,
-        released: game?.released,
-        description: game?.description,
-        genres: game?.genres,
-        platforms: game?.platforms,
-        img: game?.img,
-        rating: parseInt(game?.rating),
+        name: "",
+        released: "",
+        description: "",
+        genres: [],
+        platforms: [],
+        img: "",
+        rating: null,
     });
+
+    console.log(form)
 
     function handleChange (e) {
         setForm({
@@ -134,18 +134,18 @@ const Edit = () => {
             <div className={s.div}>
                 <form onSubmit={handleSubmit} className={s.form}>
                     <label>Name: </label>
-                    <input type="text" name="name" onChange={handleChange} className={s.input} autoComplete='off' defaultValue={game?.name} required></input>
+                    <input type="text" name="name" onChange={handleChange} className={s.input} autoComplete='off' defaultValue={form?.name} required></input>
                     <p>{errorMsg.name}</p>
                     <label>Released: </label>
-                    <input type="text" name="released" onChange={handleChange} className={s.input} autoComplete='off' placeholder='dd/mm/yy' defaultValue={game?.released} required></input>                    
+                    <input type="text" name="released" onChange={handleChange} className={s.input} autoComplete='off' placeholder='dd/mm/yy' defaultValue={form?.released} required></input>                    
                     <label>Description: </label>
-                    <input type="text" name="description" onChange={handleChange} className={s.input} autoComplete='off' defaultValue={game?.description} required></input>
+                    <input type="text" name="description" onChange={handleChange} className={s.input} autoComplete='off' defaultValue={form?.description} required></input>
                     <p>{errorMsg.description}</p>
                     <label>Rating: </label>
-                    <input type="text" name="rating" onChange={handleChange} className={s.input} autoComplete='off' placeholder='1-5' defaultValue={game?.rating} required></input>
+                    <input type="text" name="rating" onChange={handleChange} className={s.input} autoComplete='off' placeholder='1-5' defaultValue={form?.rating} required></input>
                     <p>{errorMsg.rating}</p>
                     <label>Image: </label>
-                    <input type="text" name="img" onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' defaultValue={game?.img} required></input>                  
+                    <input type="text" name="img" onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' defaultValue={form?.img} required></input>                  
                     <label>Genres: </label>
                     <select name="genres" onChange={handleSelectG}>
                         <option value="genres">Genres</option>
@@ -153,7 +153,7 @@ const Edit = () => {
                     </select>
                     <div>
                         {
-                            form.genres?.legnth && form.genres?.map((e, i) => {
+                            form.genres?.map((e, i) => {
                                 return(
                                     <span key={i} className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteG} className={s.btnx}>X</button></span>
                                 )
@@ -168,7 +168,7 @@ const Edit = () => {
                     </select>
                     <div>
                         {
-                            form.platforms?.length && form.platforms?.map((e, i) => {
+                            form.platforms?.map((e, i) => {
                                 return(
                                     <span key={i} className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteP} className={s.btnx}>X</button></span>
                                 )

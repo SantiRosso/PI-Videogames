@@ -70,7 +70,7 @@ const updateGame = async (
       },
     });
 
-    if (nameGame) {
+    if (nameGame && nameGame.id !== id) {
       return res.send({ message: "error" });
     }
 
@@ -78,15 +78,39 @@ const updateGame = async (
       where: {
         id,
       },
+      include: [
+        {
+          model: Genre,
+        },
+        {
+          model: Platform,
+        },
+      ],
     });
 
     videogame.name = name;
     videogame.description = description;
     videogame.released = released;
     videogame.rating = rating;
-    videogame.platforms = platforms;
-    videogame.genres = genres;
     videogame.img = img;
+
+    let genresDb = await Genre.findAll({
+      where: {
+        name: genres,
+      },
+    });
+
+    let platformsDb = await Platform.findAll({
+      where: {
+        name: platforms,
+      },
+    });
+
+    await videogame.removeGenre(videogame.genres);
+    await videogame.removePlatform(videogame.platforms);
+    videogame.addGenre(genresDb);
+    videogame.addPlatform(platformsDb);
+
     await videogame.save();
   } catch (error) {
     throw new Error(error);
