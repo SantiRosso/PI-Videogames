@@ -10,6 +10,7 @@ export const ERROR = "ERROR";
 export const CLOSE_ERROR = "CLOSE_ERROR";
 export const RESET_HOME = "RESET_HOME";
 export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME";
+export const GET_PLATFORMS = "GET_PLATFORMS";
 
 export const getAllVideogames = () => {
   return async (dispatch) => {
@@ -23,6 +24,14 @@ export const getGenres = () => {
   return async (dispatch) => {
     return await axios.get("/genres").then((response) => {
       dispatch({ type: GET_GENRES, payload: response.data });
+    });
+  };
+};
+
+export const getPlatforms = () => {
+  return async (dispatch) => {
+    return await axios.get("/platforms").then((response) => {
+      dispatch({ type: GET_PLATFORMS, payload: response.data });
     });
   };
 };

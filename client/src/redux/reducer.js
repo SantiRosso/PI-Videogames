@@ -10,6 +10,7 @@ import {
   CLOSE_ERROR,
   RESET_HOME,
   DELETE_VIDEOGAME,
+  GET_PLATFORMS,
 } from "./actions.js";
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   filtered2: [],
   filtered3: [],
   genres: [],
+  platforms: [],
   error: false,
 };
 
@@ -36,6 +38,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         genres: action.payload,
+      };
+    case GET_PLATFORMS:
+      return {
+        ...state,
+        platforms: action.payload,
       };
     case GET_BY_NAME:
       return {
