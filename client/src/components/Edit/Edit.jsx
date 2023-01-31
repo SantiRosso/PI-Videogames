@@ -13,9 +13,22 @@ const Edit = () => {
     const platf = ['PC', 'PlayStation 5', 'PlayStation 4', 'Xbox One', 'Xbox Series S/X', 'Nintendo Switch', 'iOS', 'Android', 'Nintendo 3DS', 'Nintendo DS', 'Nintendo DSi', 'macOS', 'Linux', 'Xbox 360', 'Xbox', 'PlayStation 3', 'PlayStation 2', 'PlayStation', 'PS Vita', 'PSP', 'Wii U', 'Wii', 'GameCube', 'Nintendo 64', 'Game Boy Advance', 'Game Boy Color', 'Game Boy', 'SNES', 'NES', 'Classic Macintosh', 'Apple II', 'Commodore / Amiga', 'Atari 7800', 'Atari 5200', 'Atari 2600', 'Atari Flashback', 'Atari 8-bit', 'Atari ST', 'Atari Lynx', 'Atari XEGS', 'Genesis', 'SEGA Saturn', 'SEGA CD', 'SEGA 32X', 'SEGA Master System', 'Dreamcast', '3DO', 'Jaguar', 'Game Gear', 'Neo Geo', 'Web'];
     const gameId = useParams().id
 
+    const [game, setGame] = useState()
+
+    const getGame = async() => {
+        let gameDb = await axios.get(`/videogame/${gameId}`)
+        setGame(gameDb.data);
+    }
+    
+
     useEffect(()=> {
         dispatch(getGenres())
-    },[dispatch])
+        if(!game){
+            getGame()
+        }
+    },[dispatch, game])
+
+    console.log(game)
 
     const [form, setForm] = useState({
         name: "",
@@ -30,7 +43,7 @@ const Edit = () => {
     function handleChange (e) {
         setForm({
             ...form,
-             [e.target.name]: e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -120,19 +133,18 @@ const Edit = () => {
             <div className={s.div}>
                 <form onSubmit={handleSubmit} className={s.form}>
                     <label>Name: </label>
-                    <input type="text" name="name" onChange={handleChange} className={s.input} autoComplete='off' required></input>
+                    <input type="text" name="name" onChange={handleChange} className={s.input} autoComplete='off' defaultValue={game?.name} required></input>
                     <p>{errorMsg.name}</p>
                     <label>Released: </label>
-                    <input type="text" name="released" onChange={handleChange} className={s.input} autoComplete='off' placeholder='dd/mm/yy' required></input>                    
+                    <input type="text" name="released" onChange={handleChange} className={s.input} autoComplete='off' placeholder='dd/mm/yy' defaultValue={game?.released} required></input>                    
                     <label>Description: </label>
-                    <input type="text" name="description" onChange={handleChange} className={s.input} autoComplete='off' required></input>
+                    <input type="text" name="description" onChange={handleChange} className={s.input} autoComplete='off' defaultValue={game?.description} required></input>
                     <p>{errorMsg.description}</p>
                     <label>Rating: </label>
-                    <input type="text" name="rating" onChange={handleChange} className={s.input} autoComplete='off' placeholder='1-5' required></input>
+                    <input type="text" name="rating" onChange={handleChange} className={s.input} autoComplete='off' placeholder='1-5' defaultValue={game?.rating} required></input>
                     <p>{errorMsg.rating}</p>
                     <label>Image: </label>
-                    <input type="text" name="img" onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' required></input>
-                    
+                    <input type="text" name="img" onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' defaultValue={game?.img} required></input>                  
                     <label>Genres: </label>
                     <select name="genres" onChange={handleSelectG}>
                         <option value="genres">Genres</option>
@@ -155,11 +167,11 @@ const Edit = () => {
                     </select>
                     <div>
                         {
-                        form.platforms?.map((e, i) => {
-                            return(
-                                <span key={i} className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteP} className={s.btnx}>X</button></span>
-                            )
-                        })
+                            form.platforms?.map((e, i) => {
+                                return(
+                                    <span key={i} className={s.genrePlatf}>{e}<button value={e} onClick={handleDeleteP} className={s.btnx}>X</button></span>
+                                )
+                            })
                         }
                     </div>
                     <p>{errorMsg.platforms}</p> 

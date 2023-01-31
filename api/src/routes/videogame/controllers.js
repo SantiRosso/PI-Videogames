@@ -33,7 +33,6 @@ const getGameByIdFromDb = async (id) => {
       },
       include: [Genre, Platform],
     });
-    console.log(videogameDb);
     videogameDb.dataValues.genres = videogameDb.dataValues.genres.map(
       (e) => e.name
     );
