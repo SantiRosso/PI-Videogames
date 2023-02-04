@@ -35,33 +35,3 @@
     border: 2px solid white;
     border-radius: 20%;
 }
-
-.divLogin{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.login{
-    background-color: white;
-    font-family: 'Silkscreen', cursive;
-    color: black;
-    height: 100%;
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: small;
-    border-radius: 20%;
-    border: none;
-    transition: background-color .5s;
-}
-
-.login:hover{
-    color:white;
-    background-color: rgb(34, 34, 34) ;
-    cursor: pointer;
-}
-
-.divButtonLogin{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}

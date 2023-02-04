@@ -4,6 +4,7 @@ import s from "./Nav.module.css";
 import Search from "../Search/Search";
 import { useDispatch } from "react-redux";
 import { resetHome, setError } from "../../redux/actions";
+import Modals from "../Modals/Modals";
 
 const Nav  = ({genreA, setGenreA, setPage, setInput}) => {
 
@@ -21,16 +22,7 @@ const Nav  = ({genreA, setGenreA, setPage, setInput}) => {
                 <h1 className={s.home} onClick={handleClick}>Videogames</h1>
             </Link>
             <Search setInput={setInput} setPage={setPage}/>
-            <div className={s.divLogin}>
-                <div>
-                    <h5>User</h5>
-                </div>
-                <div className={s.divButtonLogin}>
-                    <button className={s.login}>SignIn</button>
-                    <button className={s.login}>SignUp</button>
-                    <button className={s.login}>LogOut</button>
-                </div>
-            </div>
+            <Modals/>
         </nav>
     )
 }

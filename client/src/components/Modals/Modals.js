@@ -1,26 +1,99 @@
 import { useModal } from "../../hooks/useModal";
-import Modal from "./Modal";
+// import {useSelector }
+import Modal from "./Modal.js";
 
 const Modals = () => {
   const [isOpenModal1, OpenModal1, closeModal1] = useModal(false);
   const [isOpenModal2, OpenModal2, closeModal2] = useModal(false);
+
+  // const genres = useSelector()
   return (
     <div className="div-login">
       <h5>User</h5>
       <div className="div-login-buttons">
-        <button onClick={OpenModal1}>SignIn</button>
+        <button className="login-button" onClick={OpenModal1}>
+          SignIn
+        </button>
         <Modal isOpen={isOpenModal1} closeModal={closeModal1}>
-          <h3>Modal 1</h3>
-          <p>contenido</p>
-          <img src="https://placeimg.com/400/400/animals" alt="Animal" />
+          <div className="modal-content">
+            <form className="form">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="login-email"
+                placeholder="example@email.com"
+                requided
+              />
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="login-password"
+                placeholder="******"
+                requided
+              />
+              <button type="submit">LogIn</button>
+            </form>
+
+            <button type="button" id="googleLogin">
+              Google
+            </button>
+            <button type="button" id="facebookLogin">
+              Facebook
+            </button>
+            <button type="button" id="githubLogin">
+              Github
+            </button>
+          </div>
         </Modal>
-        <button onClick={OpenModal2}>SignUp</button>
+        <button className="login-button" onClick={OpenModal2}>
+          SignUp
+        </button>
         <Modal isOpen={isOpenModal2} closeModal={closeModal2}>
-          <h3>Modal 2</h3>
-          <p>contenido</p>
-          <img src="https://placeimg.com/400/400/nature" alt="Nature" />
+          <div className="modal-content">
+            <form className="form">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="login-email"
+                placeholder="example@email.com"
+                requided
+              />
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="login-password"
+                placeholder="******"
+                requided
+              />
+              <label>Name:</label>
+              <input />
+              <label>Sex:</label>
+              <input />
+              <label>Age:</label>
+              <input />
+              <label>Image:</label>
+              <input />
+              <label>Country:</label>
+              <input />
+              <label>Favourite genre:</label>
+              <input />
+              <label>Favourite platform:</label>
+              <input />
+              <button type="submit">Register</button>
+            </form>
+
+            <button type="button" id="googleLogin">
+              Google
+            </button>
+            <button type="button" id="facebookLogin">
+              Facebook
+            </button>
+            <button type="button" id="githubLogin">
+              Github
+            </button>
+          </div>
         </Modal>
-        <button>LogOut</button>
+        <button className="login-button">LogOut</button>
       </div>
     </div>
   );

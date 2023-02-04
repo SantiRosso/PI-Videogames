@@ -18,7 +18,6 @@ function App() {
       <Route path="/create" component={Create} />
       <Route path="/about" component={About} />
       <Route path="/edit/:id" component={Edit} />
-      <Modals />
     </div>
   );
 }
