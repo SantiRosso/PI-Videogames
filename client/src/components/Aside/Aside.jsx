@@ -5,6 +5,7 @@ import s from "./Aside.module.css";
 import "./genreA.css";
 import Pagination from "../Pagination/Pagination";
 import Footer from "../Footer/Footer";
+import {Link} from "react-router-dom"
 
 const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, handleReset, input, page, max}) => {
 
@@ -84,6 +85,15 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
                 <button className={s.reset} onClick={handleReset}>Reset filters</button>
             </div>
             <Pagination input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>
+            <div className={s.divLink}>
+                <Link to="/about">
+                <button className={s.link}>About</button>
+                </Link>
+                <Link to="/create">
+               <button className={s.link}>Create Videogame</button> 
+                </Link>
+            </div>
+            
             <Footer/>          
         </div>
     )

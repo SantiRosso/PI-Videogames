@@ -20,13 +20,17 @@ const Nav  = ({genreA, setGenreA, setPage, setInput}) => {
             <Link to="/videogames">
                 <h1 className={s.home} onClick={handleClick}>Videogames</h1>
             </Link>
-            <Link to="/about">
-                <button className={s.boton}>About</button>
-            </Link>
             <Search setInput={setInput} setPage={setPage}/>
-            <Link to="/create">
-               <button className={s.boton}>Create Videogame</button> 
-            </Link>
+            <div className={s.divLogin}>
+                <div>
+                    <h5>User</h5>
+                </div>
+                <div className={s.divButtonLogin}>
+                    <button className={s.login}>SignIn</button>
+                    <button className={s.login}>SignUp</button>
+                    <button className={s.login}>LogOut</button>
+                </div>
+            </div>
         </nav>
     )
 }
