@@ -1,0 +1,33 @@
+.modal{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.is-open{
+    display: flex;
+}
+
+.modal-container{
+    position: relative;
+    min-width: 40%;
+    max-width: 50%;
+    min-height: 30%;
+    max-height: 40%;
+    overflow: auto;
+    border-radius: 2%;
+    background-color: #202020;
+}
+
+.modal-close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}

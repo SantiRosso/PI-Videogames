@@ -40,6 +40,14 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
     return(
         <div className={s.containter}>
             <h1 className={s.title}>DARK/LIGHT</h1>
+            <div className={s.divLink}>
+                <Link to="/about">
+                <button className={s.link}>About</button>
+                </Link>
+                <Link to="/create">
+               <button className={s.link}>Create Videogame</button> 
+                </Link>
+            </div>
             <h3 className={s.subtitle}>Genres</h3>
             <div className={s.divGenres}>
                 <div className={s.genres}>
@@ -84,16 +92,7 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
             <div className={s.divReset}>
                 <button className={s.reset} onClick={handleReset}>Reset filters</button>
             </div>
-            <Pagination input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>
-            <div className={s.divLink}>
-                <Link to="/about">
-                <button className={s.link}>About</button>
-                </Link>
-                <Link to="/create">
-               <button className={s.link}>Create Videogame</button> 
-                </Link>
-            </div>
-            
+            <Pagination input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>            
             <Footer/>          
         </div>
     )
