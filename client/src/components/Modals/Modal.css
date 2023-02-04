@@ -31,3 +31,15 @@
     top: 1rem;
     right: 1rem;
 }
+
+.div-login{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.div-login-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
