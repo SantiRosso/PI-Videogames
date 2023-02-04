@@ -1,6 +1,9 @@
+import { useModal } from "../../hooks/useModal";
 import Modal from "./Modal";
 
 const Modals = () => {
+  const [isOpenModal1, OpenModal1, closeModal1] = useModal(false)
+  const [isOpenModal2, OpenModal2, closeModal2] = useModal(false)
   return (
     <div>
       <h2>Modals</h2>
