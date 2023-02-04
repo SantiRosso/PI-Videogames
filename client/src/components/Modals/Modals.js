@@ -1,12 +1,10 @@
 import { useModal } from "../../hooks/useModal";
-// import {useSelector }
 import Modal from "./Modal.js";
 
 const Modals = () => {
   const [isOpenModal1, OpenModal1, closeModal1] = useModal(false);
   const [isOpenModal2, OpenModal2, closeModal2] = useModal(false);
 
-  // const genres = useSelector()
   return (
     <div className="div-login">
       <h5>User</h5>
@@ -16,7 +14,7 @@ const Modals = () => {
         </button>
         <Modal isOpen={isOpenModal1} closeModal={closeModal1}>
           <div className="modal-content">
-            <form className="form">
+            <form id="signin-form" className="form">
               <label htmlFor="email">Email:</label>
               <input
                 type="email"
@@ -50,22 +48,22 @@ const Modals = () => {
         </button>
         <Modal isOpen={isOpenModal2} closeModal={closeModal2}>
           <div className="modal-content">
-            <form className="form">
+            <form id="signup-form" className="form">
               <label htmlFor="email">Email:</label>
               <input
                 type="email"
-                id="login-email"
+                id="signUp-email"
                 placeholder="example@email.com"
                 requided
               />
               <label htmlFor="password">Password:</label>
               <input
                 type="password"
-                id="login-password"
+                id="signUp-password"
                 placeholder="******"
                 requided
               />
-              <label>Name:</label>
+              {/* <label>Name:</label>
               <input />
               <label>Sex:</label>
               <input />
@@ -78,7 +76,7 @@ const Modals = () => {
               <label>Favourite genre:</label>
               <input />
               <label>Favourite platform:</label>
-              <input />
+              <input /> */}
               <button type="submit">Register</button>
             </form>
 
@@ -93,7 +91,9 @@ const Modals = () => {
             </button>
           </div>
         </Modal>
-        <button className="login-button">LogOut</button>
+        <button className="login-button" id="logout">
+          LogOut
+        </button>
       </div>
     </div>
   );
