@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react";
-import s from "./Home.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllVideogames, getRating, getSort, resetHome } from "../../redux/actions";
+
+//styles
+import s from "./Home.module.css";
+
+//components
 import Card from "../Card/Card";
 import Aside from "../Aside/Aside";
 import Nav from "../Nav/Nav";
 import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
 
+//firebase
+import { useAuth } from "../context/authContext.js";
+
 const Home = () => {
     const dispatch = useDispatch();
     const videogames = useSelector(state => state.filtered);
     const error = useSelector(state => state.error);
+    const authContext = useAuth();
 
     useEffect(()=> {
         if(!videogames.length)

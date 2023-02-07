@@ -8,17 +8,24 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import axios from "axios";
 
-// axios.defaults.baseURL = process.env.REACT_APP_API;
-axios.defaults.baseURL = "http://localhost:3001";
+// firebase:
+import { FirebaseAppProvider } from "reactfire";
+import { firebaseConfig } from "./firebase.js";
+
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+// axios.defaults.baseURL = "http://localhost:3001";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+  <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+    <React.StrictMode>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </React.StrictMode>
+  </FirebaseAppProvider>,
+
   document.getElementById("root")
 );
 
