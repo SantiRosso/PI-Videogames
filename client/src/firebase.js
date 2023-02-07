@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 // import { getAnalytics } from "firebase/analytics";
 // import { getFirestore } from "firebase/firestore";
-import { GoogleAuthProvider } from "firebase/auth";
+// import { GoogleAuthProvider } from "firebase/auth";
 
-export const provider = new GoogleAuthProvider();
-provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
-provider.setCustomParameters({
-  login_hint: "user@example.com",
-});
+// export const provider = new GoogleAuthProvider();
+// provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+// provider.setCustomParameters({
+//   login_hint: "user@example.com",
+// });
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object

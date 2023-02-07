@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useModal } from "../../hooks/useModal";
 import Modal from "./Modal.js";
 
@@ -5,11 +6,21 @@ const Modals = () => {
   const [isOpenModal1, OpenModal1, closeModal1] = useModal(false);
   const [isOpenModal2, OpenModal2, closeModal2] = useModal(false);
 
+  // const [userLogin, setUserLogin] = useState({
+  //   email: "",
+  //   password: "",
+  // });
+
+  // const [userRegister, setUserRegister] = useState({
+  //   email: "",
+  //   password: "",
+  // });
+
   return (
     <div className="div-login">
       <h5>User</h5>
       <div className="div-login-buttons">
-        <button className="login-button" onClick={OpenModal1}>
+        <button id="logged-out" className="login-button" onClick={OpenModal1}>
           SignIn
         </button>
         <Modal isOpen={isOpenModal1} closeModal={closeModal1}>
@@ -18,6 +29,7 @@ const Modals = () => {
               <label htmlFor="email">Email:</label>
               <input
                 type="email"
+                name="login-email"
                 id="login-email"
                 placeholder="example@email.com"
                 requided
@@ -25,6 +37,7 @@ const Modals = () => {
               <label htmlFor="password">Password:</label>
               <input
                 type="password"
+                name="login-password"
                 id="login-password"
                 placeholder="******"
                 requided
@@ -43,7 +56,7 @@ const Modals = () => {
             </button>
           </div>
         </Modal>
-        <button className="login-button" onClick={OpenModal2}>
+        <button id="logged-out" className="login-button" onClick={OpenModal2}>
           SignUp
         </button>
         <Modal isOpen={isOpenModal2} closeModal={closeModal2}>
@@ -52,6 +65,7 @@ const Modals = () => {
               <label htmlFor="email">Email:</label>
               <input
                 type="email"
+                name="signUp-email"
                 id="signUp-email"
                 placeholder="example@email.com"
                 requided
@@ -60,6 +74,7 @@ const Modals = () => {
               <input
                 type="password"
                 id="signUp-password"
+                name="signUp-password"
                 placeholder="******"
                 requided
               />
@@ -91,7 +106,7 @@ const Modals = () => {
             </button>
           </div>
         </Modal>
-        <button className="login-button" id="logout">
+        <button id="logged-in" className="login-button">
           LogOut
         </button>
       </div>
