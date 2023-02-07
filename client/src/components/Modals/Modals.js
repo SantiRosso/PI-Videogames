@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useModal } from "../../hooks/useModal";
 import Modal from "./Modal.js";
+import { useAuth } from "../context/authContext.js";
+import { showMessage } from "../../showMessage";
 
 const Modals = () => {
+  const { signup, login, logout } = useAuth();
+
   //login
 
   const [isOpenModal1, OpenModal1, closeModal1] = useModal(false);
@@ -21,7 +25,7 @@ const Modals = () => {
 
   const handelSubmitLogin = (e) => {
     e.preventDefault();
-    console.log(userLogin);
+    login(userLogin.email, userLogin.password);
   };
 
   //register
@@ -40,9 +44,22 @@ const Modals = () => {
     });
   };
 
-  const handelSubmitRegister = (e) => {
+  const handelSubmitRegister = async (e) => {
     e.preventDefault();
-    console.log(userRegister);
+    try {
+      await signup(userRegister.email, userRegister.password);
+      showMessage("Welcome " + userRegister.email, "success");
+    } catch (error) {
+      if (error.code === "auth/invalid-email") {
+        showMessage("Invalid email", "error");
+      } else if (error.code === "auth/weak-password") {
+        showMessage("Password is too weak", "error");
+      } else if (error.code === "auth/email-already-in-use") {
+        showMessage("Email already in use", "error");
+      } else if (error.code) {
+        showMessage("Something went wrong", "error");
+      }
+    }
   };
 
   return (
@@ -150,7 +167,11 @@ const Modals = () => {
           </div>
         </Modal>
         {/* LogOut */}
-        <button id="logged-in" className="login-button">
+        <button
+          id="logged-in"
+          className="login-button"
+          onClick={() => logout()}
+        >
           LogOut
         </button>
       </div>

@@ -7,6 +7,7 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { auth } from "../../firebase.js";
+import { loginCheck } from "../../loginCheck.js";
 
 export const authContext = createContext();
 
@@ -43,6 +44,7 @@ export const AuthProvider = ({ children }) => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      loginCheck(currentUser.user);
     });
   }, []);
 
