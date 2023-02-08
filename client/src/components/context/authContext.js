@@ -7,7 +7,6 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { auth } from "../../firebase.js";
-import { loginCheck } from "../../loginCheck.js";
 
 export const authContext = createContext();
 
@@ -32,8 +31,8 @@ export const AuthProvider = ({ children }) => {
     );
   };
 
-  const login = async (email, password) => {
-    const user = await signInWithEmailAndPassword(auth, email, password);
+  const login = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password);
   };
 
   const logout = () => {
@@ -44,7 +43,6 @@ export const AuthProvider = ({ children }) => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      loginCheck(currentUser.user);
     });
   }, []);
 

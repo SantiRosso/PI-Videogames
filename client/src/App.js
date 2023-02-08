@@ -12,6 +12,7 @@ import Edit from "./components/Edit/Edit";
 
 //firebase
 import { AuthProvider } from "./components/context/authContext.js";
+// import { PortectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -20,9 +21,11 @@ function App() {
         <Route exact path="/" component={LandingPage} />
         <Route path="/videogames" component={Home} />
         <Route path="/details/:id" component={Details} />
-        <Route path="/create" component={Create} />
         <Route path="/about" component={About} />
+        {/* <PortectedRoute> */}
+        <Route path="/create" component={Create} />
         <Route path="/edit/:id" component={Edit} />
+        {/* </PortectedRoute> */}
       </AuthProvider>
     </div>
   );

@@ -4,7 +4,7 @@ import s from "./Nav.module.css";
 import Search from "../Search/Search";
 import { useDispatch } from "react-redux";
 import { resetHome, setError } from "../../redux/actions";
-import Modals from "../Modals/Modals";
+import Modals from "../LoginModals/Modals";
 
 const Nav  = ({genreA, setGenreA, setPage, setInput}) => {
 

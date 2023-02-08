@@ -42,10 +42,10 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
             <h1 className={s.title}>DARK/LIGHT</h1>
             <div className={s.divLink}>
                 <Link to="/about">
-                <button className={s.link}>About</button>
+                    <button className={s.link}>About</button>
                 </Link>
                 <Link to="/create">
-               <button className={s.link}>Create Videogame</button> 
+                    <button className={s.link}>Create Videogame</button> 
                 </Link>
             </div>
             <h3 className={s.subtitle}>Genres</h3>

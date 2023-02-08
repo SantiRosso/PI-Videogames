@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
 import Modal from "./Modal.js";
 import { useAuth } from "../context/authContext.js";
 import { showMessage } from "../../showMessage";
 
 const Modals = () => {
-  const { signup, login, logout } = useAuth();
+  const { signup, login, logout, user } = useAuth();
+  const history = useHistory();
 
   //login
 
@@ -23,9 +25,25 @@ const Modals = () => {
     });
   };
 
-  const handelSubmitLogin = (e) => {
+  const handelSubmitLogin = async (e) => {
     e.preventDefault();
-    login(userLogin.email, userLogin.password);
+    try {
+      await login(userLogin.email, userLogin.password);
+
+      closeModal1();
+
+      showMessage("Welcome " + userLogin.email, "success");
+
+      history.push("/videogames");
+    } catch (error) {
+      if (error.code === "auth/wrong-password") {
+        showMessage("Wrong password", "error");
+      } else if (error.code === "auth/user-not-found") {
+        showMessage("User not found", "error");
+      } else {
+        showMessage("Something went wrong", "error");
+      }
+    }
   };
 
   //register
@@ -48,7 +66,12 @@ const Modals = () => {
     e.preventDefault();
     try {
       await signup(userRegister.email, userRegister.password);
+
+      closeModal2();
+
       showMessage("Welcome " + userRegister.email, "success");
+
+      history.push("/videogames");
     } catch (error) {
       if (error.code === "auth/invalid-email") {
         showMessage("Invalid email", "error");
@@ -62,12 +85,23 @@ const Modals = () => {
     }
   };
 
+  //logout
+
+  const handleLogout = async () => {
+    await logout();
+  };
+
   return (
     <div className="div-login">
-      <h5>User</h5>
+      <h5>{user ? user.email : "User guest"}</h5>
       <div className="div-login-buttons">
         {/* Login */}
-        <button id="logged-out" className="login-button" onClick={OpenModal1}>
+        <button
+          id="logged-out"
+          className="login-button"
+          onClick={OpenModal1}
+          hidden={user}
+        >
           SignIn
         </button>
         <Modal isOpen={isOpenModal1} closeModal={closeModal1}>
@@ -110,7 +144,12 @@ const Modals = () => {
           </div>
         </Modal>
         {/* SignUp */}
-        <button id="logged-out" className="login-button" onClick={OpenModal2}>
+        <button
+          id="logged-out"
+          className="login-button"
+          onClick={OpenModal2}
+          hidden={user}
+        >
           SignUp
         </button>
         <Modal isOpen={isOpenModal2} closeModal={closeModal2}>
@@ -170,7 +209,8 @@ const Modals = () => {
         <button
           id="logged-in"
           className="login-button"
-          onClick={() => logout()}
+          onClick={handleLogout}
+          hidden={!user}
         >
           LogOut
         </button>
