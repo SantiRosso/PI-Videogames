@@ -1,13 +1,21 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
 import Modal from "./Modal.js";
 import { useAuth } from "../context/authContext.js";
 import { showMessage } from "../../showMessage";
 
 const Modals = () => {
-  const { signup, login, logout, user, loginWithGoogle } = useAuth();
-  const history = useHistory();
+  const {
+    signup,
+    login,
+    logout,
+    user,
+    loginWithGoogle,
+    loginWithFacebook,
+    loginWithGithub,
+  } = useAuth();
+  const navigate = useNavigate();
 
   //login
 
@@ -34,7 +42,7 @@ const Modals = () => {
 
       showMessage("Welcome " + userLogin.email, "success");
 
-      history.push("/videogames");
+      navigate("/videogames");
     } catch (error) {
       if (error.code === "auth/wrong-password") {
         showMessage("Wrong password", "error");
@@ -71,7 +79,7 @@ const Modals = () => {
 
       showMessage("Welcome " + userRegister.email, "success");
 
-      history.push("/videogames");
+      navigate("/videogames");
     } catch (error) {
       if (error.code === "auth/invalid-email") {
         showMessage("Invalid email", "error");
@@ -95,6 +103,28 @@ const Modals = () => {
   const handleGoogleLogin = async () => {
     try {
       const credentials = await loginWithGoogle();
+      closeModal1();
+      showMessage("Welcome " + credentials.user.displayName, "success");
+    } catch (error) {
+      showMessage(error.code, "error");
+    }
+  };
+
+  //Facebook
+  const handleFacebookLogin = async () => {
+    try {
+      const credentials = await loginWithFacebook();
+      closeModal1();
+      showMessage("Welcome " + credentials.user.displayName, "success");
+    } catch (error) {
+      showMessage(error.code, "error");
+    }
+  };
+
+  //Github
+  const handleGithubLogin = async () => {
+    try {
+      const credentials = await loginWithGithub();
       closeModal1();
       showMessage("Welcome " + credentials.user.displayName, "success");
     } catch (error) {
@@ -156,10 +186,14 @@ const Modals = () => {
             <button type="button" id="googleLogin" onClick={handleGoogleLogin}>
               Google
             </button>
-            <button type="button" id="facebookLogin">
+            <button
+              type="button"
+              id="facebookLogin"
+              onClick={handleFacebookLogin}
+            >
               Facebook
             </button>
-            <button type="button" id="githubLogin">
+            <button type="button" id="githubLogin" onClick={handleGithubLogin}>
               Github
             </button>
           </div>

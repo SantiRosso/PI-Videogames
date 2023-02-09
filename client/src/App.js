@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 //components
@@ -12,20 +12,22 @@ import Edit from "./components/Edit/Edit";
 
 //firebase
 import { AuthProvider } from "./components/context/authContext.js";
-// import { PortectedRoute } from "./components/ProtectedRoute";
+// import { ProtectedRoute } from "./components/ProtectedRoute.js";
 
 function App() {
   return (
     <div>
       <AuthProvider>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/videogames" component={Home} />
-        <Route path="/details/:id" component={Details} />
-        <Route path="/about" component={About} />
-        {/* <PortectedRoute> */}
-        <Route path="/create" component={Create} />
-        <Route path="/edit/:id" component={Edit} />
-        {/* </PortectedRoute> */}
+        <Routes>
+          <Route exact path="/" element={<LandingPage />} />
+          <Route path="/videogames" element={<Home />} />
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="/about" element={<About />} />
+          {/* <ProtectedRoute> */}
+          <Route path="/create" element={<Create />} />
+          <Route path="/edit/:id" element={<Edit />} />
+          {/* </ProtectedRoute> */}
+        </Routes>
       </AuthProvider>
     </div>
   );

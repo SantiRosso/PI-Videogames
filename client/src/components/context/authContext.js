@@ -6,6 +6,8 @@ import {
   signOut,
   sendEmailVerification,
   GoogleAuthProvider,
+  FacebookAuthProvider,
+  GithubAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../../firebase.js";
@@ -46,6 +48,16 @@ export const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const loginWithFacebook = () => {
+    const googleProvider = new FacebookAuthProvider();
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const loginWithGithub = () => {
+    const googleProvider = new GithubAuthProvider();
+    return signInWithPopup(auth, googleProvider);
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -55,7 +67,16 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <authContext.Provider
-      value={{ signup, login, logout, user, loading, loginWithGoogle }}
+      value={{
+        signup,
+        login,
+        logout,
+        user,
+        loading,
+        loginWithGoogle,
+        loginWithFacebook,
+        loginWithGithub,
+      }}
     >
       {children}
     </authContext.Provider>
