@@ -6,7 +6,7 @@ import { useAuth } from "../context/authContext.js";
 import { showMessage } from "../../showMessage";
 
 const Modals = () => {
-  const { signup, login, logout, user } = useAuth();
+  const { signup, login, logout, user, loginWithGoogle } = useAuth();
   const history = useHistory();
 
   //login
@@ -91,6 +91,27 @@ const Modals = () => {
     await logout();
   };
 
+  //google
+  const handleGoogleLogin = async () => {
+    try {
+      const credentials = await loginWithGoogle();
+      closeModal1();
+      showMessage("Welcome " + credentials.user.displayName, "success");
+    } catch (error) {
+      showMessage(error.code, "error");
+    }
+  };
+
+  // const handleGoogleRegister = async () => {
+  //   try {
+  //     const credentials = await loginWithGoogle();
+  //     closeModal2();
+  //     showMessage("Welcome " + credentials.user.displayName, "success");
+  //   } catch (error) {
+  //     showMessage(error.code, "error");
+  //   }
+  // };
+
   return (
     <div className="div-login">
       <h5>{user ? user.email : "User guest"}</h5>
@@ -132,7 +153,7 @@ const Modals = () => {
               <button type="submit">LogIn</button>
             </form>
 
-            <button type="button" id="googleLogin">
+            <button type="button" id="googleLogin" onClick={handleGoogleLogin}>
               Google
             </button>
             <button type="button" id="facebookLogin">
@@ -194,7 +215,11 @@ const Modals = () => {
               <button type="submit">Register</button>
             </form>
 
-            <button type="button" id="googleLogin">
+            {/* <button
+              type="button"
+              id="googleLogin"
+              onClick={handleGoogleRegister}
+            >
               Google
             </button>
             <button type="button" id="facebookLogin">
@@ -202,7 +227,7 @@ const Modals = () => {
             </button>
             <button type="button" id="githubLogin">
               Github
-            </button>
+            </button> */}
           </div>
         </Modal>
         {/* LogOut */}
