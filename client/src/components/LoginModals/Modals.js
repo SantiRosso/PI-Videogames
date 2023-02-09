@@ -142,9 +142,11 @@ const Modals = () => {
   //   }
   // };
 
+  let nameOrEmail = user?.displayName ? user?.displayName : user?.email;
+
   return (
     <div className="div-login">
-      <h5>{user ? user.email : "User guest"}</h5>
+      <h5>{user ? nameOrEmail : "User guest"}</h5>
       <div className="div-login-buttons">
         {/* Login */}
         <button
