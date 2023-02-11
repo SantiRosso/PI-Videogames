@@ -132,17 +132,15 @@ const Modals = () => {
     }
   };
 
-  // const handleGoogleRegister = async () => {
-  //   try {
-  //     const credentials = await loginWithGoogle();
-  //     closeModal2();
-  //     showMessage("Welcome " + credentials.user.displayName, "success");
-  //   } catch (error) {
-  //     showMessage(error.code, "error");
-  //   }
-  // };
-
+  //displayName
   let nameOrEmail = user?.displayName ? user?.displayName : user?.email;
+
+  //handleResetPassword
+  const handleResetPassword = () => {
+    if (!userLogin.email) showMessage("Please, enter your email", "error");
+
+    console.log("reset");
+  };
 
   return (
     <div className="div-login">
@@ -198,6 +196,9 @@ const Modals = () => {
             <button type="button" id="githubLogin" onClick={handleGithubLogin}>
               Github
             </button>
+            <a href="#!" onClick={handleResetPassword}>
+              Forgot your password?
+            </a>
           </div>
         </Modal>
         {/* SignUp */}
@@ -250,20 +251,6 @@ const Modals = () => {
               <input /> */}
               <button type="submit">Register</button>
             </form>
-
-            {/* <button
-              type="button"
-              id="googleLogin"
-              onClick={handleGoogleRegister}
-            >
-              Google
-            </button>
-            <button type="button" id="facebookLogin">
-              Facebook
-            </button>
-            <button type="button" id="githubLogin">
-              Github
-            </button> */}
           </div>
         </Modal>
         {/* LogOut */}
