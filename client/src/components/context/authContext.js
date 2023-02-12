@@ -9,6 +9,7 @@ import {
   FacebookAuthProvider,
   GithubAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../../firebase.js";
 
@@ -58,6 +59,10 @@ export const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const resetPassword = (email) => {
+    sendPasswordResetEmail(auth, email);
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -76,6 +81,7 @@ export const AuthProvider = ({ children }) => {
         loginWithGoogle,
         loginWithFacebook,
         loginWithGithub,
+        resetPassword,
       }}
     >
       {children}

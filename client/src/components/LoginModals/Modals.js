@@ -14,6 +14,7 @@ const Modals = () => {
     loginWithGoogle,
     loginWithFacebook,
     loginWithGithub,
+    resetPassword,
   } = useAuth();
   const navigate = useNavigate();
 
@@ -136,10 +137,17 @@ const Modals = () => {
   let nameOrEmail = user?.displayName ? user?.displayName : user?.email;
 
   //handleResetPassword
-  const handleResetPassword = () => {
-    if (!userLogin.email) showMessage("Please, enter your email", "error");
-
-    console.log("reset");
+  const handleResetPassword = async () => {
+    if (!userLogin.email) {
+      showMessage("Please, enter your email", "error");
+    } else {
+      try {
+        await resetPassword(userLogin.email);
+        showMessage("Check your email for a password reset link", "success");
+      } catch (error) {
+        showMessage(error.code, "error");
+      }
+    }
   };
 
   return (
