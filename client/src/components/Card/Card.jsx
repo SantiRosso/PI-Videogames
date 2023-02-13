@@ -4,16 +4,23 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { deleteVideogame } from "../../redux/actions";
+import { useAuth } from "../context/authContext.js";
+import { showMessage } from "../../showMessage";
 
 
 const Card = ({ name, img, genres, id, game }) => {
     
     const dispatch = useDispatch()
+    const {user} = useAuth();
 
     const handleDelete = async () => {
-        console.log("handle", id)
-        await axios.delete(`/videogame/${id}`)
-        dispatch(deleteVideogame(id))
+        if(user){
+            await axios.delete(`/videogame/${id}`)
+            dispatch(deleteVideogame(id))
+        }else{
+            showMessage("Login or register", "error")
+        }
+        
     }
 
     return (
