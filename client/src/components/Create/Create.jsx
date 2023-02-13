@@ -4,16 +4,23 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getPlatforms } from "../../redux/actions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext.js";
+import { showMessage } from "../../showMessage";
 
 const Create = () => {
 
     const genres = useSelector((state) => state.genres)
     const dispatch = useDispatch();
     const platf = useSelector((state) => state.platforms)
-    console.log(platf)
+    const {user} = useAuth();
+    const navigate = useNavigate();
 
     useEffect(()=> {
+        if(!user){
+            navigate("/videogames")
+            showMessage("Login or register", "error")
+        }
         dispatch(getGenres())
         dispatch(getPlatforms())
     },[dispatch])

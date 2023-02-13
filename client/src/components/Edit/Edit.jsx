@@ -4,7 +4,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getPlatforms } from "../../redux/actions";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../context/authContext.js";
+import { showMessage } from "../../showMessage";
+
 
 const Edit = () => {
 
@@ -12,8 +15,14 @@ const Edit = () => {
     const dispatch = useDispatch();
     const platf = useSelector((state) => state.platforms)
     const gameId = useParams().id   
+    const {user} = useAuth();
+    const navigate = useNavigate()
 
     useEffect(()=> {
+        if(!user){
+            navigate("/videogames")
+            showMessage("Login or register", "error")
+        }
         if(!genres.length){
             dispatch(getGenres())  
         }
