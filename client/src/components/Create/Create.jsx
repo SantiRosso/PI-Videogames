@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getPlatforms } from "../../redux/actions";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext.js";
-import { showMessage } from "../../showMessage";
+import { showMessage } from "../../showMessage.js";
 
 const Create = () => {
 
@@ -70,17 +70,15 @@ const Create = () => {
     async function handleSubmit (e) {
         e.preventDefault()
         if(Object.values(errorMsg).length){
-            return alert(Object.values(errorMsg).join('\n'));
+            return showMessage(Object.values(errorMsg).join('\n'), "error");
         }
-        
-        let errorAlert = await axios.post("/videogames", form) 
-        
-        if(errorAlert.data.message === "error"){
-            alert("This name is already used.")
-        } else {
-            window.location.reload()
-            alert("Game created!") 
-        } 
+
+        try {
+            await axios.post("/videogames", form)
+            showMessage("Game created!", "success") 
+        } catch (error) {
+            showMessage("This name is already used.", "error")
+        }
     }
 
     function handleSelectG (e) {

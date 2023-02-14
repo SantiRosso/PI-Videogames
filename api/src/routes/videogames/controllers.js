@@ -160,7 +160,7 @@ const createVideogame = async (
   });
 
   if (!boolean) {
-    return res.json({ message: "error" });
+    throw new Error(error);
   }
 
   let genreDb = await Genre.findAll({
