@@ -18,10 +18,10 @@ const getHome = async () => {
         id: e.id,
         name: e.name,
         genres: e.genres?.map((e) => e.name),
-        platforms: e.platforms?.map((e) => e.platform.name),
-        released: e.released,
         img: e.background_image,
-        rating: e.rating,
+        // platforms: e.platforms?.map((e) => e.platform.name),
+        // released: e.released,
+        // rating: e.rating,
         created: false,
       };
     });
@@ -48,12 +48,12 @@ const getHome = async () => {
       return {
         id: e.id,
         name: e.name,
-        platforms: e.platforms?.map((e) => e.name),
-        released: e.released,
         img: e.img,
-        rating: e.rating,
-        description: e.description,
         genres: e.genres?.map((e) => e.name),
+        // platforms: e.platforms?.map((e) => e.name),
+        // released: e.released,
+        // rating: e.rating,
+        // description: e.description,
         created: e.created,
       };
     });
