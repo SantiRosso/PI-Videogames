@@ -71,7 +71,7 @@ const updateGame = async (
     });
 
     if (nameGame && nameGame.id !== id) {
-      return res.send({ message: "error" });
+      throw new Error(error);
     }
 
     const videogame = await Videogame.findOne({

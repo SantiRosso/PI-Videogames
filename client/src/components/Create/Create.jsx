@@ -73,8 +73,10 @@ const Create = () => {
 
         try {
             await axios.post("/videogames", form)
-            navigate("/videogames")
             showMessage("Game created!", "success") 
+            setTimeout(() => {
+                window.location.reload()
+              }, 1500);
         } catch (error) {
             showMessage("This name is already used.", "error")
         }

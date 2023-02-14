@@ -20,7 +20,6 @@ const Card = ({ name, img, genres, id, game }) => {
         }else{
             showMessage("Login or register", "error")
         }
-        
     }
 
     return (

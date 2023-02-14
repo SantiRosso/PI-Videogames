@@ -3,7 +3,7 @@ import s from "./Edit.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getGenres, getPlatforms } from "../../redux/actions";
+import { getAllVideogames, getGenres, getPlatforms } from "../../redux/actions";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { showMessage } from "../../showMessage";
 
@@ -78,17 +78,19 @@ const Edit = () => {
     async function handleSubmit (e) {
         e.preventDefault()
         if(Object.values(errorMsg).length){
-            return alert(Object.values(errorMsg).join('\n'));
+            return showMessage(Object.values(errorMsg).join('\n'), "error");
         }
-        
-        let errorAlert = await axios.put(`/videogame/${gameId}`, form) 
-        
-        if(errorAlert.data.message === "error"){
-            alert("This name is already used.")
-        } else {
-            window.location.reload()
-            alert("Game edited!") 
-        } 
+
+        try {
+            await axios.put(`/videogame/${gameId}`, form)
+            showMessage("Game edited!", "success")
+            navigate("/videogames")
+            setTimeout(()=>{
+                window.location.reload()
+            }, 1000)
+        } catch (error) {
+            showMessage("This name is already used.", "error")
+        }
     }
 
     function handleSelectG (e) {
