@@ -37,7 +37,9 @@ const Modals = () => {
   const handelSubmitLogin = async (e) => {
     e.preventDefault();
     try {
-      await login(userLogin.email, userLogin.password);
+      const credentials = await login(userLogin.email, userLogin.password);
+
+      window.localStorage.setItem("token", credentials._tokenResponse.idToken);
 
       closeModal1();
 
@@ -74,7 +76,12 @@ const Modals = () => {
   const handelSubmitRegister = async (e) => {
     e.preventDefault();
     try {
-      await signup(userRegister.email, userRegister.password);
+      const credentials = await signup(
+        userRegister.email,
+        userRegister.password
+      );
+
+      window.localStorage.setItem("token", credentials._tokenResponse.idToken);
 
       closeModal2();
 
@@ -98,6 +105,7 @@ const Modals = () => {
 
   const handleLogout = async () => {
     await logout();
+    window.localStorage.removeItem("token");
   };
 
   //google

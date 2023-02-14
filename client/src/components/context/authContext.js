@@ -12,6 +12,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../../firebase.js";
+import { showMessage } from "../../showMessage.js";
 
 export const authContext = createContext();
 
@@ -25,19 +26,22 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const signup = async (email, password) => {
+    let user;
     await createUserWithEmailAndPassword(auth, email, password).then(
       (currentUser) => {
-        console.log("usuario creado:", currentUser);
+        user = currentUser;
 
         sendEmailVerification(currentUser.user).then(
-          console.log("Email verified")
+          showMessage("Verification email sent", "success")
         );
       }
     );
+    return user;
   };
 
   const login = async (email, password) => {
-    await signInWithEmailAndPassword(auth, email, password);
+    const credentials = await signInWithEmailAndPassword(auth, email, password);
+    return credentials;
   };
 
   const logout = () => {
