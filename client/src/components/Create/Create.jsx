@@ -5,7 +5,6 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getPlatforms } from "../../redux/actions";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext.js";
 import { showMessage } from "../../showMessage.js";
 
 const Create = () => {
@@ -13,11 +12,10 @@ const Create = () => {
     const genres = useSelector((state) => state.genres)
     const dispatch = useDispatch();
     const platf = useSelector((state) => state.platforms)
-    const {user} = useAuth();
     const navigate = useNavigate();
 
     useEffect(()=> {
-        if(!user){
+        if(!window.localStorage.getItem("token")){
             navigate("/videogames")
             showMessage("Login or register", "error")
         }
@@ -75,8 +73,8 @@ const Create = () => {
 
         try {
             await axios.post("/videogames", form)
+            navigate("/videogames")
             showMessage("Game created!", "success") 
-            window.location.reload()
         } catch (error) {
             showMessage("This name is already used.", "error")
         }
