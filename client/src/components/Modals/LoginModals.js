@@ -251,20 +251,6 @@ const Modals = () => {
                 onChange={handleChangeRegister}
                 requided
               />
-              {/* <label>Name:</label>
-              <input />
-              <label>Sex:</label>
-              <input />
-              <label>Age:</label>
-              <input />
-              <label>Image:</label>
-              <input />
-              <label>Country:</label>
-              <input />
-              <label>Favourite genre:</label>
-              <input />
-              <label>Favourite platform:</label>
-              <input /> */}
               <button type="submit">Register</button>
             </form>
           </div>

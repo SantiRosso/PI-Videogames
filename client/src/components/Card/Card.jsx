@@ -3,20 +3,19 @@ import s from "./Card.module.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { deleteVideogame } from "../../redux/actions";
-import { useAuth } from "../context/authContext.js";
+import { deleteVideogame, getAllVideogames } from "../../redux/actions";
 import { showMessage } from "../../showMessage";
 
 
 const Card = ({ name, img, genres, id, game }) => {
     
     const dispatch = useDispatch()
-    const {user} = useAuth();
 
     const handleDelete = async () => {
-        if(user){
+        if(window.localStorage.getItem("token")){
             await axios.delete(`/videogame/${id}`)
             dispatch(deleteVideogame(id))
+            dispatch(getAllVideogames())
         }else{
             showMessage("Login or register", "error")
         }
