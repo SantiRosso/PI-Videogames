@@ -4,8 +4,8 @@ import "toastify-js/src/toastify.css";
 export const showMessage = (message, type) => {
   Toastify({
     text: message,
-    duration: 3000,
-    destination: "https://github.com/apvarun/toastify-js",
+    duration: 2000,
+    destination: "#",
     newWindow: true,
     close: true,
     gravity: "top", // `top` or `bottom`
