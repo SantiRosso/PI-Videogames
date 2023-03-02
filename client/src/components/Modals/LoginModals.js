@@ -112,6 +112,7 @@ const Modals = () => {
   const handleGoogleLogin = async () => {
     try {
       const credentials = await loginWithGoogle();
+      window.localStorage.setItem("token", credentials._tokenResponse.idToken);
       closeModal1();
       showMessage("Welcome " + credentials.user.displayName, "success");
     } catch (error) {
@@ -123,6 +124,7 @@ const Modals = () => {
   const handleFacebookLogin = async () => {
     try {
       const credentials = await loginWithFacebook();
+      window.localStorage.setItem("token", credentials._tokenResponse.idToken);
       closeModal1();
       showMessage("Welcome " + credentials.user.displayName, "success");
     } catch (error) {
@@ -134,6 +136,7 @@ const Modals = () => {
   const handleGithubLogin = async () => {
     try {
       const credentials = await loginWithGithub();
+      window.localStorage.setItem("token", credentials._tokenResponse.idToken);
       closeModal1();
       showMessage("Welcome " + credentials.user.displayName, "success");
     } catch (error) {
