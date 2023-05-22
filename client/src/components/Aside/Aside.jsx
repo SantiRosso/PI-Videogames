@@ -9,8 +9,8 @@ import {Link} from "react-router-dom"
 
 const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, handleReset, input, page, max}) => {
 
-    const dispatch = useDispatch();
     const genres = useSelector(state => state.genres);    
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if(!genres.length)

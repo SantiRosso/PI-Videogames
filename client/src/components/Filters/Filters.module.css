@@ -47,13 +47,6 @@
     cursor: pointer;
 }
 
-.title{ 
-    color: rgba(0, 0, 0, 0.407);
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
 .order{ 
     color: rgba(0, 0, 0, 0.407);
     text-align: center;
@@ -112,28 +105,3 @@
     cursor: pointer;
 }
 
-.divLink{ 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.link{ 
-    background-color: rgba(0, 0, 0, 0.588);
-    font-family: 'Silkscreen', cursive;
-    color: white;
-    height: 4vh;
-    width: 100%;
-    font-size: smaller;
-    border-radius: 20%;
-    border: none;
-    transition: background-color .5s;
-    margin: 2%;
-}
-
-.link:hover{
-    color:white;
-    background-color: rgb(20, 20, 20) ;
-    cursor: pointer;
-}
