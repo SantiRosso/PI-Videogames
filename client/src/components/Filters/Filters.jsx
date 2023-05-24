@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getByGenre, getGenres, getGamesDbOrApi, getFilters } from "../../redux/actions";
+import { getGenres, getFilters } from "../../redux/actions";
 //styles
 import s from "./Filters.module.css";
 import "./genreA.css";
@@ -8,47 +8,33 @@ import "./genreA.css";
 const Filters = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, handleReset }) => {
     const genres = useSelector((state) => state.genres)
     const dispatch = useDispatch();
-
+    //filtros combinados
+    const [filters, setFilters] = useState({
+        genre: "",
+        apiODb: ""
+    })
+    
     useEffect(() => {
         if(!genres.length)
         dispatch(getGenres())
-    },[dispatch, genres])
+        dispatch(getFilters(filters))
+    },[dispatch, genres, filters])
 
-    //filtros combinados
-    // const [filters, setFilters] = useState({
-    //     genre: "",
-    //     apiODb: ""
-    // })
-
-    // function handleClickSwitch(e) {
-    //     setFilters({
-    //         ...filters,
-    //         apiODb: e.target.value
-    //     })
-    //     setInput(1)
-    //     setPage(1)
-    //     dispatch(getFilters(filters))
-    // }
-
-    // function handleClick(e) {
-    //     setFilters({
-    //         ...filters,
-    //         genre: e.target.value
-    //     })
-    //     setGenreA(e.target.value)
-    //     setInput(1)
-    //     setPage(1)
-    //     dispatch(getFilters(filters))
-    // }
 
     function handleClickSwitch(e) {
-        dispatch(getGamesDbOrApi(e.target.value))
+        setFilters({
+            ...filters,
+            apiODb: e.target.value
+        })
         setInput(1)
         setPage(1)
     }
 
     function handleClick(e) {
-        dispatch(getByGenre(e.target.value))
+        setFilters({
+            ...filters,
+            genre: e.target.value
+        })
         setGenreA(e.target.value)
         setInput(1)
         setPage(1)
@@ -58,11 +44,11 @@ const Filters = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort
         <div>
             <h3 className={s.subtitle}>Genres</h3>
             {/* <div className={s.genres}>
-                <select className={s.selectGenres}>
+                <select onChange={handleClick} className={s.selectGenres}>
                     {
                         genres?.map((e,i) => {
                             return(
-                                <option value={e.name} onChange={handleChange}>{e.name}</option>                        
+                                <option value={e.name} >{e.name}</option>                        
                             )
                         })
                     }

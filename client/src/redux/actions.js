@@ -2,8 +2,6 @@ import axios from "axios";
 export const GET_ALL_VIDEOGAMES = "GET_ALL_VIDEOGAMES";
 export const GET_GENRES = "GET_GENRES";
 export const GET_BY_NAME = "GET_BY_NAME";
-export const GET_BY_GENRE = "GET_BY_GENRE";
-export const GET_GAMES_DBORAPI = "GET_GAMES_DBORAPI";
 export const GET_SORT = "GET_SORT";
 export const GET_RATING = "GET_RATING";
 export const ERROR = "ERROR";
@@ -46,14 +44,6 @@ export const getByName = (name) => {
       return dispatch({ type: ERROR });
     }
   };
-};
-
-export const getByGenre = (name) => {
-  return { type: GET_BY_GENRE, payload: name };
-};
-
-export const getGamesDbOrApi = (payload) => {
-  return { type: GET_GAMES_DBORAPI, payload };
 };
 
 export const getSort = (payload) => {

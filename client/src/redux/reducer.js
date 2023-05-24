@@ -52,27 +52,6 @@ const rootReducer = (state = initialState, action) => {
         filtered2: action.payload,
         filtered3: action.payload,
       };
-    case GET_BY_GENRE:
-      let av = [...state.filtered2];
-      let gf = av?.filter((e) => {
-        return e.genres.includes(action.payload) && e;
-      });
-      let err = !gf.length && true;
-      return {
-        ...state,
-        filtered: gf,
-        // filtered2: gf,
-        filtered3: gf,
-        error: err ? !state.error : state.error,
-      };
-    case GET_GAMES_DBORAPI:
-      let Api = state.filtered3.filter((e) => !e.created);
-      let Db = state.filtered3.filter((e) => e.created === true);
-      return {
-        ...state,
-        filtered: action.payload === "api" ? Api : Db,
-        filtered2: action.payload === "api" ? Api : Db,
-      };
     case GET_SORT:
       const sort =
         action.payload === "asc"
@@ -142,9 +121,11 @@ const rootReducer = (state = initialState, action) => {
           games = state.videogames.filter((e) => e.created === true);
         }
       }
+      let errors = !games.length && true;
       return {
         ...state,
         filtered: games,
+        error: errors ? !state.error : state.error,
       };
     default:
       return { ...state };
