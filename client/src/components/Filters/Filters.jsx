@@ -30,6 +30,18 @@ const Filters = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort
     return(
         <div>
             <h3 className={s.subtitle}>Genres</h3>
+            {/* <div className={s.genres}>
+                <select className={s.selectGenres}>
+                    {
+                        genres?.map((e,i) => {
+                            return(
+                                <option value={e.name} onChange={handleChange}>{e.name}</option>                        
+                            )
+                        })
+                    }
+                </select>
+                
+            </div> */}
             <div className={s.divGenres}>
                 <div className={s.genres}>
                     {

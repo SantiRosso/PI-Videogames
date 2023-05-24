@@ -5,136 +5,11 @@
     justify-content: space-evenly;
 }
 
-.subtitle{
-    color: rgba(0, 0, 0, 0.407);
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* .divGenres{
-    outline: 1px solid red;
-    display: flex;
-    justify-content: center;
-} */
-
-.genres{
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding-left: 0%;
-    padding-right: 0%;
-    height: 30vh;
-    width: 19vw;
-}
-
-/* .genres{
-    display: flex;
-    justify-content: center;
-} */
-
-.apidb{
-    background-color: rgba(0, 0, 0, 0.588);
-    font-family: 'Silkscreen', cursive;
-    color: white;
-    height: 4vh;
-    width: 30%;
-    font-size: smaller;
-    border-radius: 20%;
-    border: none;
-    transition: background-color .5s;
-    margin: 2%;
-}
-
-.apidb:hover{
-    color:white;
-    background-color: rgb(20, 20, 20) ;
-    cursor: pointer;
-}
-
 .title{
     color: rgba(0, 0, 0, 0.407);
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
-}
-
-.subDiv{
-    display: flex;
-    justify-content: center;
-}
-
-.order{
-    color: rgba(0, 0, 0, 0.407);
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.orderDiv{
-    display: flex;
-    justify-content: center;
-}
-
-.select{
-    background-color: white;
-    font-family: 'Silkscreen', cursive;
-    color: black;
-    height: 100%;
-    width: 25%;
-    font-size: smaller;
-    border: none;
-    border-radius: 20%;
-    transition: background-color .5s;
-    margin-right: 20px;
-}
-
-.select:hover{
-    color:white;
-    background-color: rgb(20, 20, 20) ;
-    cursor: pointer;
-}
-
-.selectGenres{
-    background-color: white;
-    font-family: 'Silkscreen', cursive;
-    color: black;
-    height: 100%;
-    width: 75%;
-    font-size: smaller;
-    border: none;
-    border-radius: 20%;
-    transition: background-color .5s;
-    margin-right: 20px;
-}
-
-.divReset{
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
-
-.reset{
-    background-color: gray;
-    font-family: 'Silkscreen', cursive;
-    color: white;
-    height: 100%;
-    width: 25%;
-    font-size: smaller;
-    border-radius: 20%;
-    border: none;
-    transition: background-color .5s;
-    margin-right: 2%;
-    border: 2px solid white;
-}
-
-.reset:hover{
-    color:white;
-    background-color: rgb(34, 34, 34) ;
-    cursor: pointer;
 }
 
 .divLink{
@@ -144,7 +19,7 @@
     align-items: center;
 }
 
-.link{
+.link{ 
     background-color: rgba(0, 0, 0, 0.588);
     font-family: 'Silkscreen', cursive;
     color: white;
@@ -157,7 +32,7 @@
     margin: 2%;
 }
 
-.link:hover{
+.link:hover{ 
     color:white;
     background-color: rgb(20, 20, 20) ;
     cursor: pointer;

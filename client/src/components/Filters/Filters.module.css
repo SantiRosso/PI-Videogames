@@ -47,6 +47,11 @@
     cursor: pointer;
 }
 
+.subDiv{
+    display: flex;
+    justify-content: center;
+}
+
 .order{ 
     color: rgba(0, 0, 0, 0.407);
     text-align: center;
