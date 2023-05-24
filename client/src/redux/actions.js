@@ -11,7 +11,7 @@ export const CLOSE_ERROR = "CLOSE_ERROR";
 export const RESET_HOME = "RESET_HOME";
 export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME";
 export const GET_PLATFORMS = "GET_PLATFORMS";
-export const FILTERS = "FILTERS";
+export const GET_FILTERS = "GET_FILTERS";
 
 export const getAllVideogames = () => {
   return async (dispatch) => {
@@ -79,8 +79,8 @@ export const deleteVideogame = (id) => {
 };
 
 //filtros combinados
-export const filters = (payload) => {
+export const getFilters = (payload) => {
   return async (dispatch) => {
-    return dispatch({ type: FILTERS, payload });
+    return dispatch({ type: GET_FILTERS, payload });
   };
 };

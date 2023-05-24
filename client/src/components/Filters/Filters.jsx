@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getByGenre, getGenres, getGamesDbOrApi } from "../../redux/actions";
+import { getByGenre, getGenres, getGamesDbOrApi, getFilters } from "../../redux/actions";
 //styles
 import s from "./Filters.module.css";
 import "./genreA.css";
@@ -13,6 +13,33 @@ const Filters = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort
         if(!genres.length)
         dispatch(getGenres())
     },[dispatch, genres])
+
+    //filtros combinados
+    // const [filters, setFilters] = useState({
+    //     genre: "",
+    //     apiODb: ""
+    // })
+
+    // function handleClickSwitch(e) {
+    //     setFilters({
+    //         ...filters,
+    //         apiODb: e.target.value
+    //     })
+    //     setInput(1)
+    //     setPage(1)
+    //     dispatch(getFilters(filters))
+    // }
+
+    // function handleClick(e) {
+    //     setFilters({
+    //         ...filters,
+    //         genre: e.target.value
+    //     })
+    //     setGenreA(e.target.value)
+    //     setInput(1)
+    //     setPage(1)
+    //     dispatch(getFilters(filters))
+    // }
 
     function handleClickSwitch(e) {
         dispatch(getGamesDbOrApi(e.target.value))
