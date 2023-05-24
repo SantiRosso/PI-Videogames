@@ -47,12 +47,15 @@ const Home = () => {
     const handleRating = (e) => {
         dispatch(getRating(e.target.value))
         setOrder(!order)
+        console.log(order)
     }
 
     //reset filter
     const handleReset = () => {
         dispatch(resetHome());
         setGenreA("");
+        document.getElementById("alphabet").selected = "selected"
+        document.getElementById("rating").selected = "selected"
     }
     
     return (

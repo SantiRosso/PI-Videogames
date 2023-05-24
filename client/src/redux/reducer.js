@@ -2,8 +2,6 @@ import {
   GET_ALL_VIDEOGAMES,
   GET_GENRES,
   GET_BY_NAME,
-  GET_BY_GENRE,
-  GET_GAMES_DBORAPI,
   GET_SORT,
   GET_RATING,
   ERROR,
@@ -17,8 +15,6 @@ import {
 const initialState = {
   videogames: [],
   filtered: [],
-  filtered2: [],
-  filtered3: [],
   genres: [],
   platforms: [],
   error: false,
@@ -32,8 +28,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         videogames: action.payload,
         filtered: a,
-        filtered2: a,
-        filtered3: a,
       };
     case GET_GENRES:
       return {
@@ -49,8 +43,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: action.payload,
-        filtered2: action.payload,
-        filtered3: action.payload,
       };
     case GET_SORT:
       const sort =
@@ -70,11 +62,9 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: sort,
-        filtered2: sort,
-        filtered3: sort,
       };
     case GET_RATING:
-      let rating =
+      const gamesByRating =
         action.payload === "men"
           ? state.filtered.sort((a, b) => a.rating - b.rating)
           : action.payload === "may"
@@ -82,8 +72,7 @@ const rootReducer = (state = initialState, action) => {
           : [...state.filtered];
       return {
         ...state,
-        filtered: rating,
-        filtered2: rating,
+        filtered: gamesByRating,
       };
     case ERROR:
       return {
@@ -100,7 +89,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: state.videogames,
-        filtered2: state.videogames,
       };
     case DELETE_VIDEOGAME:
       return {

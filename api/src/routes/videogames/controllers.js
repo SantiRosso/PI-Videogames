@@ -21,7 +21,7 @@ const getHome = async () => {
         img: e.background_image,
         // platforms: e.platforms?.map((e) => e.platform.name),
         // released: e.released,
-        // rating: e.rating,
+        rating: e.rating,
         created: false,
       };
     });

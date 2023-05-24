@@ -73,12 +73,12 @@ const Filters = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort
             <h3 className={s.order}>Order by</h3>
             <div className={s.orderDiv}>
                 <select className={s.select} name="Sort" onChange={handleSort}>
-                    <option value="sort">Alphabet</option>
+                    <option value="sort" id="alphabet">Alphabet</option>
                     <option value="asc">A-Z</option>
                     <option value="des">Z-A</option>
                 </select>
                 <select className={s.select} name="Rating" onChange={handleRating}>
-                    <option value="rating">Rating</option>
+                    <option value="rating" id="rating">Rating</option>
                     <option value="men">Minor-Major</option>
                     <option value="may">Major-Minor</option>
                 </select>
