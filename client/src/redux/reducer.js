@@ -11,6 +11,7 @@ import {
   RESET_HOME,
   DELETE_VIDEOGAME,
   GET_PLATFORMS,
+  FILTERS,
 } from "./actions.js";
 
 const initialState = {
@@ -126,6 +127,24 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: state.filtered.filter((e) => e.id !== action.payload),
+      };
+    case FILTERS:
+      let games = state.filtered;
+      if (action.payload === "genre") {
+        games = games?.filter((e) => {
+          return e.genres.includes(action.payload.genre) && e;
+        });
+      }
+      if (action.payload === "apiODb") {
+        if (action.payload.apiODb === "api") {
+          games = games.filter((e) => !e.created);
+        } else {
+          games = games.filter((e) => e.created === true);
+        }
+      }
+      return {
+        ...state,
+        filtered: games,
       };
     default:
       return { ...state };
