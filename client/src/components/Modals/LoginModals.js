@@ -4,6 +4,8 @@ import { useModal } from "../../hooks/useModal";
 import Modal from "./Modal.js";
 import { useAuth } from "../context/authContext.js";
 import { showMessage } from "../../showMessage";
+//styles
+import s from "./LoginModals.module.css";
 
 const Modals = () => {
   const {
@@ -189,6 +191,7 @@ const Modals = () => {
                 placeholder="example@email.com"
                 onChange={handleChangeLogin}
                 requided
+                className={s.input}
               />
               <label htmlFor="password">Password:</label>
               <input
@@ -198,21 +201,35 @@ const Modals = () => {
                 placeholder="******"
                 onChange={handleChangeLogin}
                 requided
+                className={s.input}
               />
-              <button type="submit">LogIn</button>
+              <button type="submit" className={s.buttonLogin}>
+                LogIn
+              </button>
             </form>
 
-            <button type="button" id="googleLogin" onClick={handleGoogleLogin}>
+            <button
+              type="button"
+              id="googleLogin"
+              onClick={handleGoogleLogin}
+              className={s.buttonG}
+            >
               Google
             </button>
             <button
               type="button"
               id="facebookLogin"
               onClick={handleFacebookLogin}
+              className={s.buttonF}
             >
               Facebook
             </button>
-            <button type="button" id="githubLogin" onClick={handleGithubLogin}>
+            <button
+              type="button"
+              id="githubLogin"
+              onClick={handleGithubLogin}
+              className={s.buttonGit}
+            >
               Github
             </button>
             <a href="#!" onClick={handleResetPassword}>

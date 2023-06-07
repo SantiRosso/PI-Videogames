@@ -1,0 +1,55 @@
+.input{
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 20%;
+    font: bold;
+}
+
+.input:hover{
+    background-color: rgb(85, 84, 84);
+}
+
+.buttonG{
+ background-color: rgb(255, 51, 0);
+ border-radius: 20%;
+ font: bold;
+}
+
+.buttonG:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 51, 0);
+}
+
+.buttonF{
+background-color: rgb(31, 72, 254);
+border-radius: 20%;
+font: bold;
+}
+
+.buttonF:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(31, 72, 254);
+}
+
+.buttonGit{
+background-color: black;
+border-radius: 20%;
+color: white;
+font: bold;
+}
+
+.buttonGit:hover{
+    background-color: rgb(255, 255, 255);
+    color: black
+}
+
+.buttonLogin{
+ border-radius: 20%;
+ border: 2px solid black;
+ height: 30px;
+ font: bold;
+}
+
+.buttonLogin:hover{
+    background-color: rgb(85, 84, 84);
+}
