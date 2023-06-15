@@ -9,7 +9,7 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
 
     return(
         <div className={s.containter}>
-            <h1 className={s.title}>DARK/LIGHT</h1>
+            {/* <h1 className={s.title}>DARK/LIGHT</h1> */}
             <div className={s.divLink}>
                 <Link to="/about">
                     <button className={s.link}>About</button>

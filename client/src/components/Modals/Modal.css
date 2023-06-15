@@ -26,6 +26,8 @@
     overflow: auto;
     border-radius: 2%;
     background-color: #202020;
+    box-shadow: 0px 0px 4px 2px gray;
+    overflow-x: hidden;
 }
 
 .modal-close{
