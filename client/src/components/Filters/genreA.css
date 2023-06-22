@@ -1,6 +1,7 @@
 .genreA{
     background-color: black;
-    font-family: 'Silkscreen', cursive;
+    /* font-family: 'Silkscreen', cursive; */
+    font-family: 'Alegreya Sans SC', sans-serif;
     color: white;
     height: 4vh;
     width: 100%;
@@ -18,7 +19,8 @@
 
 .genre{
     background-color: white;
-    font-family: 'Silkscreen', cursive;
+    /* font-family: 'Silkscreen', cursive; */
+    font-family: 'Alegreya Sans SC', sans-serif;
     color: black;
     height: 4vh;
     width: 75%;

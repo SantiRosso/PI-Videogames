@@ -64,7 +64,8 @@
 
 .login-button{
     background-color: white;
-    font-family: 'Silkscreen', cursive;
+    /* font-family: 'Silkscreen', cursive; */
+    font-family: 'Alegreya Sans SC', sans-serif;
     color: black;
     height: 100%;
     width: 100%;

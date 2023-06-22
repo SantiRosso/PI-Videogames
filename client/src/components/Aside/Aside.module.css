@@ -21,7 +21,8 @@
 
 .link{ 
     background-color: rgba(0, 0, 0, 0.588);
-    font-family: 'Silkscreen', cursive;
+    /* font-family: 'Silkscreen', cursive; */
+    font-family: 'Alegreya Sans SC', sans-serif;
     color: white;
     height: 4vh;
     width: 100%;

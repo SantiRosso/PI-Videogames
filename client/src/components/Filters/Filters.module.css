@@ -30,7 +30,8 @@
 
 .apidb{ 
     background-color: rgba(0, 0, 0, 0.588);
-    font-family: 'Silkscreen', cursive;
+    /* font-family: 'Silkscreen', cursive; */
+    font-family: 'Alegreya Sans SC', sans-serif;
     color: white;
     height: 4vh;
     width: 30%;
@@ -66,7 +67,8 @@
 
 .select{ 
     background-color: white;
-    font-family: 'Silkscreen', cursive;
+    /* font-family: 'Silkscreen', cursive; */
+    font-family: 'Alegreya Sans SC', sans-serif;
     color: black;
     height: 100%;
     width: 25%;
@@ -92,7 +94,8 @@
 
 .reset{ 
     background-color: gray;
-    font-family: 'Silkscreen', cursive;
+    /* font-family: 'Silkscreen', cursive; */
+    font-family: 'Alegreya Sans SC', sans-serif;
     color: white;
     height: 100%;
     width: 25%;
