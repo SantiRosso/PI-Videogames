@@ -3,7 +3,7 @@ import s from "./Edit.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllVideogames, getGenres, getPlatforms } from "../../redux/actions";
+import { getGenres, getPlatforms } from "../../redux/actions";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { showMessage } from "../../showMessage";
 
@@ -156,7 +156,7 @@ const Edit = () => {
                     <label>Image: </label>
                     <input type="text" name="img" onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' defaultValue={form?.img} required></input>                  
                     <label>Genres: </label>
-                    <select name="genres" onChange={handleSelectG}>
+                    <select name="genres" onChange={handleSelectG} className={s.select}>
                         <option value="genres">Genres</option>
                         {genres?.map((e, i) => {return(<option key={i}>{e.name}</option>)})}
                     </select>
@@ -171,7 +171,7 @@ const Edit = () => {
                     </div>
                     <p>{errorMsg.genres}</p> 
                     <label>Platforms: </label>
-                    <select name="platforms" onChange={handleSelectP}>
+                    <select name="platforms" onChange={handleSelectP} className={s.select}>
                         <option value="platforms">Platforms</option>
                         {platf?.map((e, i) => {return(<option key={i}>{e.name}</option>)})}
                     </select>

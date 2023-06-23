@@ -34,16 +34,21 @@
 }
 
 .button{
+    background-color: #1E1E1E;
+    color: #dcdcdc;
     transition: 0.5s;
     border-radius: 20%; 
     position: absolute;
     top: 10px;
     right: 10px;
+    font-size: large;
+    padding: 3px;
+    cursor: pointer;
 }
 
 .button:hover{
-    background-color: #1e1e1e;
-    color: #dcdcdc;
+    background-color: #dcdcdc;
+    color: #1E1E1E;
 }
 
 .link{
@@ -53,17 +58,18 @@
 }
 
 .edit{
-    background-color: #dcdcdc;
-    color: #1E1E1E;
+    background-color: #1E1E1E;
+    color: #dcdcdc;
     border-radius: 5px;
     transition: background-color .5s;
     height: 100%;
     width: 100%;
-    font-size: small;
+    font-size: large;
+    padding: 3px;
 }
 
 .edit:hover{
-    color:#dcdcdc;
-    background-color: #1E1E1E;
+    color:#1E1E1E;
+    background-color: #dcdcdc;
     cursor: pointer;
 }

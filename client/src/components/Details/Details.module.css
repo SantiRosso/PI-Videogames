@@ -1,6 +1,7 @@
 .container{
     /* background-color: rgba(0, 0, 0, 0.833); */
     text-align: center;
+    color: #dcdcdc;
 }
 
 .title{
@@ -38,7 +39,7 @@
 }
 
 .info2{
-    color: #dcdcdc;
+    color: #929292;
     font-size: larger;
 }
 

@@ -141,7 +141,7 @@ const Create = () => {
                     <input type="text" name="img" onChange={handleChange} className={s.input} autoComplete='off' placeholder='url...' required></input>
                     
                     <label>Genres: </label>
-                    <select name="genres" onChange={handleSelectG}>
+                    <select name="genres" onChange={handleSelectG} className={s.select}>
                         <option value="genres">Genres</option>
                         {genres?.map((e, i) => {return(<option key={i}>{e.name}</option>)})}
                     </select>
@@ -156,7 +156,7 @@ const Create = () => {
                     </div>
                     <p>{errorMsg.genres}</p> 
                     <label>Platforms: </label>
-                    <select name="platforms" onChange={handleSelectP}>
+                    <select name="platforms" onChange={handleSelectP} className={s.select}>
                         <option value="platforms">Platforms</option>
                         {platf?.map((e, i) => {return(<option key={i}>{e.name}</option>)})}
                     </select>
