@@ -1,34 +1,42 @@
 .input{
     height: 25px;
+    width: 40vh;
     border: 2px solid #1E1E1E;
     border-radius: 20%;
     font: bold;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    transition: all .5s;
 }
 
 .input:hover{
-    background-color: rgb(85, 84, 84);
+    background-color: #454545;
+    box-shadow: 0px 0px 4px 2px #c49216;
 }
 
 .buttonG{
  background-color: rgb(255, 51, 0);
  border-radius: 20%;
  font: bold;
+ font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 .buttonG:hover{
-    background-color: rgb(255, 255, 255);
+    background-color: #dcdcdc;
     color: rgb(255, 51, 0);
+    box-shadow: 0px 0px 4px 2px #c49216;
 }
 
 .buttonF{
 background-color: rgb(31, 72, 254);
 border-radius: 20%;
 font: bold;
+font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 .buttonF:hover{
-    background-color: rgb(255, 255, 255);
+    background-color: #dcdcdc;
     color: rgb(31, 72, 254);
+    box-shadow: 0px 0px 4px 2px #c49216;
 }
 
 .buttonGit{
@@ -36,20 +44,33 @@ background-color: #1E1E1E;
 border-radius: 20%;
 color: #dcdcdc;
 font: bold;
+font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 .buttonGit:hover{
-    background-color: rgb(255, 255, 255);
-    color: #1E1E1E
+    background-color: #dcdcdc;
+    color: #1E1E1E;
+    box-shadow: 0px 0px 4px 2px #c49216;
 }
 
 .buttonLogin{
  border-radius: 20%;
  border: 2px solid #1E1E1E;
  height: 30px;
- font: bold;
+ width: 20vh;
+ font-size: larger;
+ font-family: 'Alegreya Sans SC', sans-serif;
+ transition: all .5s;
 }
 
 .buttonLogin:hover{
-    background-color: rgb(85, 84, 84);
+    color: #dcdcdc;
+    background-color: #454545;
+    box-shadow: 0px 0px 4px 2px #c49216;
+}
+
+.buttons{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
 }

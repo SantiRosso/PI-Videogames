@@ -208,33 +208,35 @@ const Modals = () => {
               </button>
             </form>
 
-            <button
-              type="button"
-              id="googleLogin"
-              onClick={handleGoogleLogin}
-              className={s.buttonG}
-            >
-              Google
-            </button>
-            <button
-              type="button"
-              id="facebookLogin"
-              onClick={handleFacebookLogin}
-              className={s.buttonF}
-            >
-              Facebook
-            </button>
-            <button
-              type="button"
-              id="githubLogin"
-              onClick={handleGithubLogin}
-              className={s.buttonGit}
-            >
-              Github
-            </button>
-            <a href="#!" onClick={handleResetPassword}>
-              Forgot your password?
-            </a>
+            <div className={s.buttons}>
+              <button
+                type="button"
+                id="googleLogin"
+                onClick={handleGoogleLogin}
+                className={s.buttonG}
+              >
+                Google
+              </button>
+              <button
+                type="button"
+                id="facebookLogin"
+                onClick={handleFacebookLogin}
+                className={s.buttonF}
+              >
+                Facebook
+              </button>
+              <button
+                type="button"
+                id="githubLogin"
+                onClick={handleGithubLogin}
+                className={s.buttonGit}
+              >
+                Github
+              </button>
+              <a href="#!" onClick={handleResetPassword}>
+                Forgot your password?
+              </a>
+            </div>
           </div>
         </Modal>
         {/* SignUp */}
