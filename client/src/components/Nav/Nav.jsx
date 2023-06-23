@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { resetHome, setError } from "../../redux/actions";
 import Modals from "../Modals/LoginModals.js";
 
-const Nav  = ({genreA, setGenreA, setPage, setInput}) => {
+const Nav  = ({ setGenreA, setPage, setInput}) => {
 
     const dispatch = useDispatch();
 

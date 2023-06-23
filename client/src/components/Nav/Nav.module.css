@@ -15,25 +15,7 @@
     border-bottom-right-radius: 20%;
 }
 
-.boton{
-    background-color: white;
-    font-family: 'Silkscreen', cursive;
-    color: black;
-    height: 4%;
-    width: 100%;
-    font-size: larger;
-    border-radius: 20%;
-    border: none;
-    transition: background-color .5s;
-}
-
-.boton:hover{
-    color:white;
-    background-color: rgb(34, 34, 34) ;
-    cursor: pointer;
-}
-
 .home{
-    border: 2px solid white;
+    border: 2px solid #c49216;
     border-radius: 20%;
 }

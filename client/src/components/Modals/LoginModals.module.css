@@ -1,6 +1,6 @@
 .input{
     height: 25px;
-    border: 2px solid black;
+    border: 2px solid #1E1E1E;
     border-radius: 20%;
     font: bold;
 }
@@ -32,20 +32,20 @@ font: bold;
 }
 
 .buttonGit{
-background-color: black;
+background-color: #1E1E1E;
 border-radius: 20%;
-color: white;
+color: #dcdcdc;
 font: bold;
 }
 
 .buttonGit:hover{
     background-color: rgb(255, 255, 255);
-    color: black
+    color: #1E1E1E
 }
 
 .buttonLogin{
  border-radius: 20%;
- border: 2px solid black;
+ border: 2px solid #1E1E1E;
  height: 30px;
  font: bold;
 }

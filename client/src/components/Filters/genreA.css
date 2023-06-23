@@ -2,7 +2,7 @@
     background-color: black;
     /* font-family: 'Silkscreen', cursive; */
     font-family: 'Alegreya Sans SC', sans-serif;
-    color: white;
+    color: #c49216;
     height: 4vh;
     width: 100%;
     font-size: large;
@@ -19,7 +19,7 @@
 }
 
 .genre{
-    background-color: white;
+    background-color: #dcdcdc;
     /* font-family: 'Silkscreen', cursive; */
     font-family: 'Alegreya Sans SC', sans-serif;
     color: black;
