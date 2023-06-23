@@ -1,5 +1,7 @@
 .container{
-    background-image: linear-gradient(to right bottom, #000000, #161515, #242322, #333230, #42413f, #42413f, #42413f, #42413f, #333230, #242322, #161515, #000000);
+    /* background-image: linear-gradient(to right bottom, #000000, #161515, #242322, #333230, #42413f, #42413f, #42413f, #42413f, #333230, #242322, #161515, #000000); */
+    background-image: radial-gradient(circle, #454545, #3b3b3b, #313131, #272727, #1e1e1e);
+    box-shadow: 2px 0px 4px 2px #c49216;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

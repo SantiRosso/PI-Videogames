@@ -5,10 +5,11 @@
     color: white;
     height: 4vh;
     width: 100%;
-    font-size: smaller;
+    font-size: large;
     border-radius: 20%;
     border: none;
-    transition: background-color .5s;
+    font: bold;
+    /* transition: background-color .5s; */
 }
 
 .genreA:hover{
@@ -24,10 +25,10 @@
     color: black;
     height: 4vh;
     width: 75%;
-    font-size: 10px;
+    font-size: medium;
     border-radius: 20%;
     border: none;
-    transition: background-color .5s;
+    /* transition: background-color .5s; */
 }
 
 .genre:hover{

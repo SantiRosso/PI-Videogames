@@ -43,6 +43,6 @@ a {
 }
 
 body{
-  /* background-image: radial-gradient(circle, #1e1e1e, #222222, #252525, #292929, #2d2d2d); */
-  background-image: url("../public/carrousell_1920x1080_2.jpg");
+  background-image: radial-gradient(circle, #1e1e1e, #222222, #252525, #292929, #2d2d2d);
+  /* background-image: url("../public/carrousell_1920x1080_2.jpg"); */
 }
