@@ -5,13 +5,6 @@
     justify-content: space-evenly;
 }
 
-.title{
-    color: rgba(0, 0, 0, 0.407);
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
 .divLink{
     display: flex;
     flex-direction: column;
@@ -20,10 +13,10 @@
 }
 
 .link{ 
-    background-color: rgba(0, 0, 0, 0.588);
+    background-color: #1E1E1E;
     /* font-family: 'Silkscreen', cursive; */
     font-family: 'Alegreya Sans SC', sans-serif;
-    color: white;
+    color: #dcdcdc;
     height: 4vh;
     width: 100%;
     font-size: smaller;
@@ -34,7 +27,8 @@
 }
 
 .link:hover{ 
-    color:white;
-    background-color: rgb(20, 20, 20) ;
+    color:#1E1E1E;
+    background-color: #dcdcdc;
     cursor: pointer;
+    box-shadow: 0px 0px 4px 2px #c49216;
 }

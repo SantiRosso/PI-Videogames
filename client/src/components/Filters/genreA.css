@@ -1,5 +1,5 @@
 .genreA{
-    background-color: black;
+    background-color: #1E1E1E;
     /* font-family: 'Silkscreen', cursive; */
     font-family: 'Alegreya Sans SC', sans-serif;
     color: #c49216;
@@ -9,30 +9,25 @@
     border-radius: 20%;
     border: none;
     font: bold;
-    /* transition: background-color .5s; */
-}
-
-.genreA:hover{
-    color:black;
-    background-color: rgb(34, 34, 34) ;
-    cursor: pointer;
 }
 
 .genre{
     background-color: #dcdcdc;
     /* font-family: 'Silkscreen', cursive; */
     font-family: 'Alegreya Sans SC', sans-serif;
-    color: black;
+    color: #1E1E1E;
     height: 4vh;
     width: 75%;
     font-size: medium;
     border-radius: 20%;
     border: none;
-    /* transition: background-color .5s; */
+    transition: background-color .5s;
+    transition: box-shadow .5s;
 }
 
 .genre:hover{
-    color:white;
-    background-color: rgb(34, 34, 34) ;
+    color:#dcdcdc;
+    background-color: #1E1E1E;
+    box-shadow: 0px 0px 4px 2px #c49216;
     cursor: pointer;
 }

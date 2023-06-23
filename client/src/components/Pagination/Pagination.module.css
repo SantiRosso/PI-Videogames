@@ -1,7 +1,7 @@
 .button{
-    background-color: rgba(0, 0, 0, 0.588);
+    background-color: #1E1E1E;
     /* font-family: 'Silkscreen', cursive; */
-    color: white;
+    color: #dcdcdc;
     height: 4%;
     width: 15%;
     font-size: larger;
@@ -13,16 +13,17 @@
 }
 
 .button:hover{
-    color:white;
-    background-color: rgb(20, 20, 20) ;
+    color:#dcdcdc;
+    background-color: #1E1E1E;
+    box-shadow: 0px 0px 4px 2px #c49216;
     cursor: pointer;
 }
 
 .input{
     padding: 0;
-    background-color: white;
+    background-color: #dcdcdc;
     /* font-family: 'Silkscreen', cursive; */
-    color: black;
+    color: #1E1E1E;
     height: 4%;
     width: 15%;
     font-size: larger;
@@ -46,9 +47,9 @@
 }
 
 .p{
-    background-color: white;
+    background-color: #dcdcdc;
     /* font-family: 'Silkscreen', cursive; */
-    color: black;
+    color: #1E1E1E;
     height: 3%;
     width: 15%;
     font-size: medium;
@@ -62,6 +63,6 @@
 }
 
 .title{
-    color: rgba(0, 0, 0, 0.407);
+    color: #dcdcdc;
     text-align: center;
 }
