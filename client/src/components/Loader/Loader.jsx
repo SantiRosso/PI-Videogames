@@ -1,18 +1,16 @@
 import React from "react";
-import s from "./Loader.module.css"
+import "./Loader.css"
 
 const Loader = () => {
     return(
-                <div className={s.loader}>
-                    <div>
-                        <img 
-                        className={s.loader} 
-                        src="https://i.pinimg.com/originals/e1/06/64/e1066408f6758f1da75cfde0ad8823f0.gif" 
-                        alt="Loading"
-                        />
-                    </div>
-                </div> 
+        <div class="loading">
+            <svg width="64px" height="48px">
+                <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back"></polyline>
+                <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front"></polyline>
+            </svg>
+        </div>
     )
+    
 }
 
 export default Loader;
