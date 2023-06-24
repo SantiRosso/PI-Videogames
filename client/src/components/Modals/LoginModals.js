@@ -262,6 +262,7 @@ const Modals = () => {
                 id="signUp-email"
                 placeholder="example@email.com"
                 onChange={handleChangeRegister}
+                className={s.input}
                 requided
               />
               <label htmlFor="password">Password:</label>
@@ -271,9 +272,12 @@ const Modals = () => {
                 id="signUp-password"
                 placeholder="******"
                 onChange={handleChangeRegister}
+                className={s.input}
                 requided
               />
-              <button type="submit">Register</button>
+              <button type="submit" className={s.buttonLogin}>
+                Register
+              </button>
             </form>
           </div>
         </Modal>
