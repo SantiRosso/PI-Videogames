@@ -1,3 +1,17 @@
+.container{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #454545;
+    box-shadow: 0px 0px 4px 2px #69b4ff;
+    border-radius: 5px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+}
+
 .carrousel{
     background-color: #2d2d2d;
     height: 25vh;
@@ -39,25 +53,6 @@
     justify-content: center;
     align-items: center;
 }
-
-.tooltipText{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0%;
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.tooltipContainer{
-    position: relative;
-}
-
-.tooltipContainer:hover .tooltipText {
-    display: block;
-} 
 
 .img{
     height: 15vh;

@@ -50,7 +50,7 @@ const Carrousel = ({id}) => {
     }
 
     return(
-        <div>
+        <div className={s.container}>
             <div className={s.divSelectedImage}>
                 <img src={image.image} alt="Imagen seleccionada" className={s.selectedImage}/>
             </div>
@@ -59,10 +59,7 @@ const Carrousel = ({id}) => {
                     {
                         images?.slice(page - 1, (page - 1) + perPage).map((e) => {
                             return(
-                                <div className={s.tooltipContainer}>
-                                    <span className={s.tooltipText}>{e.description}</span>
                                     <img className={e.id == image?.id ? s.imgActive : s.img}  id={e.id} src={e.image} alt="Imagen del juego" onClick={handleClick}/>
-                                </div>
                             )
                         })
                     }
