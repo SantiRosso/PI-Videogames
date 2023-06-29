@@ -4,7 +4,7 @@ import Nav from "../Nav/Nav";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../Loader/Loader";
-import Carrousel from "../carrousel/Carrousel";
+import Carrousel from "../Carrousel/Carrousel";
 
 const Details = () => {
     const {id} = useParams();
