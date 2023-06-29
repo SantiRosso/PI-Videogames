@@ -19,8 +19,7 @@ const getHome = async () => {
         name: e.name,
         genres: e.genres?.map((e) => e.name),
         img: e.background_image,
-        // platforms: e.platforms?.map((e) => e.platform.name),
-        // released: e.released,
+        images: e.short_screenshots,
         rating: e.rating,
         created: false,
       };
