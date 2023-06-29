@@ -1,0 +1,75 @@
+.carrousel{
+    background-color: #2d2d2d;
+    height: 25vh;
+    width: 90%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 2px #69b4ff;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    font-size: larger;
+}
+
+.carrouselContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* box-shadow: 0px 0px 4px 2px #69b4ff; */
+    border-top: 1px solid #69b4ff;
+    padding-top: 5vh;
+}
+
+.selectedImage{
+    box-shadow: 0px 0px 4px 2px #69b4ff;
+    border-radius: 5px;
+    height: 60vh;
+    width: 90%;
+    object-fit: cover;
+}
+
+.divSelectedImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltipText{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.tooltipContainer{
+    position: relative;
+}
+
+.tooltipContainer:hover .tooltipText {
+    display: block;
+} 
+
+.img{
+    height: 15vh;
+    width: 15vw;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.imgActive{
+    box-shadow: 0px 0px 4px 2px #69b4ff;
+    height: 15vh;
+    width: 15vw;
+    cursor: pointer;
+    object-fit: cover;
+}

@@ -4,6 +4,7 @@ import Nav from "../Nav/Nav";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../Loader/Loader";
+import Carrousel from "../carrousel/Carrousel";
 
 const Details = () => {
     const {id} = useParams();
@@ -51,6 +52,7 @@ const Details = () => {
                             {detail.description}
                         </h4> 
                     </div>
+                    <Carrousel id={id}/>
                 </div>
                 : <Loader/>
             } 
