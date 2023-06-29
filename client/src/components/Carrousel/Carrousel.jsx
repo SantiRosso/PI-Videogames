@@ -13,22 +13,18 @@ const Carrousel = ({id}) => {
 
     const dispatch = useDispatch()
     const videogames = useSelector((state) => state.videogames)
-    const videogame = videogames?.filter((e) => e.id == id)
-    const images = videogame[0]?.images
-    console.log("videogames",videogames ? videogames : "nada")
-    console.log("juego", videogame)
-    console.log("images", images)
+    const videogame = videogames?.filter((e) => e.id == id)[0]
     const width = window.innerWidth
 
     useEffect(()=> {
-        if(!videogames.length)
+        if(!videogames?.length)
         dispatch(getAllVideogames());
     },[videogames, dispatch])
 
     const [image, setImage] = useState(
         {
-            image: images[0].image,
-            id: images[0].id
+            image: videogame?.images[0]?.image,
+            id: videogame?.images[0]?.id
         }
     )
 
@@ -39,7 +35,7 @@ const Carrousel = ({id}) => {
     //PAGINATION 
     const [page, setPage] = useState(1);
     const [perPage] = useState(width > 800 ? 3 : 2);
-    let max = Math.ceil(images.length - perPage + 1 / perPage)
+    let max = Math.ceil(videogame?.images?.length - perPage + 1 / perPage)
 
     const nextPage = () => {
         setPage (page +1)
@@ -52,18 +48,18 @@ const Carrousel = ({id}) => {
     return(
         <div className={s.container}>
             <div className={s.divSelectedImage}>
-                <img src={image.image} alt="Imagen seleccionada" className={s.selectedImage}/>
+                <img src={image?.image} alt="Imagen seleccionada" className={s.selectedImage}/>
             </div>
             <div className={s.carrousel}>
-                <Button icon={<TfiAngleLeft/>} click={previousPage} disabled={page === 1}/>
+                <Button icon={<TfiAngleLeft/>} click={previousPage} disabled={page == 1}/>
                     {
-                        images?.slice(page - 1, (page - 1) + perPage).map((e) => {
+                        videogame?.images?.slice(page - 1, (page - 1) + perPage).map((e) => {
                             return(
-                                    <img className={e.id == image?.id ? s.imgActive : s.img}  id={e.id} src={e.image} alt="Imagen del juego" onClick={handleClick}/>
+                                    <img key={e.id} className={e.id == image?.id ? s.imgActive : s.img}  id={e.id} src={e.image} alt="Imagen del juego" onClick={handleClick}/>
                             )
                         })
                     }
-                <Button icon={<TfiAngleRight/>} click={nextPage} disabled={page === max}/>
+                <Button icon={<TfiAngleRight/>} click={nextPage} disabled={page == max}/>
             </div> 
         </div>
         

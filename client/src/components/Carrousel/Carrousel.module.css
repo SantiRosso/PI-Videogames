@@ -1,10 +1,11 @@
 .container{
     margin-top: 10vh;
+    padding-top: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #454545;
-    box-shadow: 0px 0px 4px 2px #69b4ff;
+    box-shadow: 0px 0px 4px 2px #c49216;
     border-radius: 5px;
     color: white;
     margin-left: 10%;
@@ -21,7 +22,7 @@
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
-    box-shadow: 0px 0px 4px 2px #69b4ff;
+    box-shadow: 0px 0px 4px 2px #c49216;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 5vh;
@@ -35,13 +36,12 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* box-shadow: 0px 0px 4px 2px #69b4ff; */
-    border-top: 1px solid #69b4ff;
+    border-top: 1px solid #c49216;
     padding-top: 5vh;
 }
 
 .selectedImage{
-    box-shadow: 0px 0px 4px 2px #69b4ff;
+    box-shadow: 0px 0px 4px 2px #c49216;
     border-radius: 5px;
     height: 60vh;
     width: 90%;
@@ -62,7 +62,7 @@
 }
 
 .imgActive{
-    box-shadow: 0px 0px 4px 2px #69b4ff;
+    box-shadow: 0px 0px 4px 2px #c49216;
     height: 15vh;
     width: 15vw;
     cursor: pointer;
