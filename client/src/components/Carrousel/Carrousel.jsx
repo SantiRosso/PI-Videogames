@@ -8,6 +8,7 @@ import Button from "../Button/Button";
 import s from "./Carrousel.module.css";
 //react-Icons
 import {TfiAngleLeft, TfiAngleRight} from "react-icons/tfi";
+import Loader from "../Loader/Loader";
 
 const Carrousel = ({id}) => {
 
@@ -38,20 +39,25 @@ const Carrousel = ({id}) => {
     let max = Math.ceil(videogame?.images?.length - perPage + 1 / perPage)
 
     const nextPage = () => {
-        setPage (page +1)
+        if(page < max) setPage (page +1)
     }
 
     const previousPage = () => {
-        setPage (page -1)
+        if(page > 1) setPage (page -1)
     }
 
+    if(!videogames?.length){
+        return(
+            <Loader/>
+        )
+    }
     return(
         <div className={s.container}>
             <div className={s.divSelectedImage}>
                 <img src={image?.image} alt="Imagen seleccionada" className={s.selectedImage}/>
             </div>
             <div className={s.carrousel}>
-                <Button icon={<TfiAngleLeft/>} click={previousPage} disabled={page == 1}/>
+                <Button icon={<TfiAngleLeft/>} click={previousPage}/>
                     {
                         videogame?.images?.slice(page - 1, (page - 1) + perPage).map((e) => {
                             return(
@@ -59,7 +65,7 @@ const Carrousel = ({id}) => {
                             )
                         })
                     }
-                <Button icon={<TfiAngleRight/>} click={nextPage} disabled={page == max}/>
+                <Button icon={<TfiAngleRight/>} click={nextPage}/>
             </div> 
         </div>
         
