@@ -46,13 +46,13 @@ const Details = () => {
                             <h2>Released: <span className={s.info}>{detail.released}</span></h2>
                         </div>
                     </div>
+                    <Carrousel id={id}/>
                     <h2>Description: </h2>
                     <div className={s.description}>
                         <h4 className={s.info2}>
                             {detail.description}
                         </h4> 
                     </div>
-                    <Carrousel id={id}/>
                 </div>
                 : <Loader/>
             } 

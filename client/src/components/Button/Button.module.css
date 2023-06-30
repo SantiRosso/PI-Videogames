@@ -11,8 +11,11 @@
     transition: .5s;
     color: #000000;
     cursor: pointer;
+    background-color: #c49216;
 }
 
 .button:hover{
-    box-shadow: 0px 0px 4px 2px #000000;
+    box-shadow: 0px 0px 4px 2px #c49216;
+    background-color: #000000;
+    color: #c49216;
 }
