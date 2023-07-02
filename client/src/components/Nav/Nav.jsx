@@ -5,6 +5,7 @@ import Search from "../Search/Search";
 import { useDispatch } from "react-redux";
 import { resetHome, setError } from "../../redux/actions";
 import Modals from "../Modals/LoginModals.js";
+import Drawer from "../Drawer/Drawer";
 
 const Nav  = ({ setGenreA, setPage, setInput}) => {
 
@@ -23,6 +24,7 @@ const Nav  = ({ setGenreA, setPage, setInput}) => {
             </Link>
             <Search setInput={setInput} setPage={setPage}/>
             <Modals/>
+            {/* <Drawer/> */}
         </nav>
     )
 }
