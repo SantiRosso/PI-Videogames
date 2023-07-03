@@ -1,0 +1,14 @@
+.drawer{
+    position: fixed;
+    top: 5vh;
+    right: 1vh;
+    height: 20vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 2px #c49216;
+}
