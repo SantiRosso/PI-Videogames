@@ -8,7 +8,8 @@ import Modals from "../Modals/LoginModals.js";
 import Drawer from "../Drawer/Drawer";
 
 const Nav  = ({ setGenreA, setPage, setInput}) => {
-
+    
+    const width = window.innerWidth
     const dispatch = useDispatch();
 
     const handleClick = () => {
@@ -18,14 +19,25 @@ const Nav  = ({ setGenreA, setPage, setInput}) => {
     }
 
     return (
-        <nav className={s.container}>
-            <Link to="/videogames">
-                <h1 className={s.home} onClick={handleClick}>Videogames</h1>
-            </Link>
-            <Search setInput={setInput} setPage={setPage}/>
-            <Modals/>
-            {/* <Drawer/> */}
-        </nav>
+        <div>
+            {
+                (width > 800) ? 
+                <nav className={s.container}>
+                    <Link to="/videogames">
+                        <h1 className={s.home} onClick={handleClick}>Videogames</h1>
+                    </Link>
+                    <Search setInput={setInput} setPage={setPage}/>
+                    <Modals/>
+                </nav>
+                :
+                <div className={s.container}>
+                    <Link to="/videogames">
+                        <h1 className={s.home} onClick={handleClick}>Videogames</h1>
+                    </Link>
+                    <Drawer setInput={setInput} setPage={setPage}/>
+                </div>
+            }
+        </div>
     )
 }
 

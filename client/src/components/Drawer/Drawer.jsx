@@ -1,14 +1,29 @@
-import "./Drawer.css";
+import { useState } from "react";
+//components
+import Switch from "../Switch/Switch";
+//styles
+import s from "./Drawer.module.css";
+import Search from "../Search/Search";
+import Modals from "../Modals/LoginModals";
 
-const Drawer = () => {
+const Drawer = ({ setPage, setInput}) => {
+
+    const [drawer, setDrawer] = useState(false)
+
+    const handleClickDrawer = () => {
+        setDrawer(!drawer)
+    }
+
     return(
         <div>
-            <input hidden="" class="check-icon" id="check-icon" name="check-icon" type="checkbox"/>
-            <label class="icon-menu" for="check-icon">
-                <div class="bar bar--1"></div>
-                <div class="bar bar--2"></div>
-                <div class="bar bar--3"></div>
-            </label>
+            <Switch click={handleClickDrawer}/>
+            {
+                drawer && 
+                <div className={s.drawer}>
+                    <Search setInput={setInput} setPage={setPage}/>
+                    <Modals/>
+                </div>
+            }
         </div>
     )
 }
