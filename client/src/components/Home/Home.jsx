@@ -75,9 +75,7 @@ const Home = () => {
                         })
                     }
                     </div>
-                    <div className={s.aside}>
-                        <Aside setPage={setPage} setInput={setInput} genreA={genreA} setGenreA={setGenreA} handleRating={handleRating} handleSort={handleSort} handleReset={handleReset} input={input} page={page} max={max}/>
-                    </div>
+                    <Aside setPage={setPage} setInput={setInput} genreA={genreA} setGenreA={setGenreA} handleRating={handleRating} handleSort={handleSort} handleReset={handleReset} input={input} page={page} max={max}/>
                 </div>
                 
                 : error ? <Error genreA={genreA} setGenreA={setGenreA}/> : <Loader/>
