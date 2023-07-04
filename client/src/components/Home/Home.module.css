@@ -1,3 +1,4 @@
+@media (max-width: 1920px) {
 .home{
     display: flex;
     flex-direction: column;
@@ -10,14 +11,19 @@
     grid-template-columns: 4fr 1fr;
     background-size: cover;
     padding-top: 3%;
+    margin-top: 1%;
     height: 100%;
 }
 
 .grid{
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 1%;
-    margin: 1%;
+    margin: 1%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .aside{
@@ -31,4 +37,8 @@
     right: 0;
     border-radius: 2%;
     margin-right: 10px;
+}
+}
+
+@media (max-width: 800) {
 }

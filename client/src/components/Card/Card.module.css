@@ -1,12 +1,14 @@
+@media (max-width: 1920px) {
 .container{
     position: relative;
     display: flex;
     flex-direction: column;
     background-image: radial-gradient(circle, #1e1e1e, #272727, #313131, #3b3b3b, #454545);
     border-radius: 2%;
-    margin: 4%;
+    margin: 0.1%;
     align-items: center;
     height: 45vh;
+    width: 15vw;
     border: 1px solid #1e1e1e;
 }
 
@@ -72,4 +74,11 @@
     color:#1E1E1E;
     background-color: #dcdcdc;
     cursor: pointer;
+}
+}
+
+@media (max-width: 800px) {
+    .container{
+        width: 60vw; 
+    }
 }
