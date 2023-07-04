@@ -46,15 +46,21 @@
 
 .x{
     position: absolute;
-    top: 0;
-    right: 0; 
+    top: 5px;
+    right: 5px; 
+    border-radius: 5px;
+    border: none;
 }
 
 .button{
     position: absolute;
     top: 9%;
     position: fixed;
-    background-color: #c49216;
+    background-color: #2d2d2d;
+    border: none;
     height: 91%;
     width: 20%;
+    color: #dcdcdc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 2px #c49216;
 }

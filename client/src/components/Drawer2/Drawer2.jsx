@@ -18,7 +18,7 @@ const Drawer2 = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort
         <div>
             {
                 !drawer &&
-                <button className={s.button} onClick={handleClickDrawer}>auasoua</button>
+                <button className={s.button} onClick={handleClickDrawer}>{"<"}</button>
             }
             {
                 drawer && 
