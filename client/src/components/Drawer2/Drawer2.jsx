@@ -1,21 +1,30 @@
-// styles
-import s from "./Aside.module.css"; 
+import { useState } from "react";
+//styles
+import s from "./Drawer2.module.css";
+import { Link } from "react-router-dom";
+import Filters from "../Filters/Filters";
 import Pagination from "../Pagination/Pagination";
 import Footer from "../Footer/Footer";
-import {Link} from "react-router-dom"
-import Filters from "../Filters/Filters";
-import Drawer2 from "../Drawer2/Drawer2";
 
-const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, handleReset, input, page, max}) => {
+const Drawer2 = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, handleReset, input, page, max}) => {
 
-    const width = window.innerWidth
+    const [drawer, setDrawer] = useState(true)
+
+    const handleClickDrawer = () => {
+        setDrawer(!drawer)
+    }
 
     return(
         <div>
             {
-                width > 800 ?
+                !drawer &&
+                <button className={s.button} onClick={handleClickDrawer}>auasoua</button>
+            }
+            {
+                drawer && 
                 <div className={s.containter}>
                     {/* <h1 className={s.title}>DARK/LIGHT</h1> */}
+                    <button className={s.x} onClick={handleClickDrawer}>X</button>
                     <div className={s.divLink}>
                         <Link to="/about">
                             <button className={s.link}>About</button>
@@ -28,12 +37,9 @@ const Aside = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, 
                     <Pagination input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>            
                     <Footer/>          
                 </div>
-                :
-                <Drawer2  setPage={setPage} setInput={setInput} genreA={genreA} setGenreA={setGenreA} handleRating={handleRating} handleSort={handleSort} handleReset={handleReset} input={input} page={page} max={max}/>
             }
         </div>
-        
     )
 }
 
-export default Aside;
+export default Drawer2;

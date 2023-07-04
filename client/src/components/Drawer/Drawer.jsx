@@ -1,10 +1,10 @@
 import { useState } from "react";
 //components
 import Switch from "../Switch/Switch";
-//styles
-import s from "./Drawer.module.css";
 import Search from "../Search/Search";
 import Modals from "../Modals/LoginModals";
+//styles
+import s from "./Drawer.module.css";
 
 const Drawer = ({ setPage, setInput}) => {
 

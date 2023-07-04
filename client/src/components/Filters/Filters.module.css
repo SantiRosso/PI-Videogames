@@ -5,17 +5,17 @@
     margin-bottom: 0;
 }
 
-/* .divGenres{
-    outline: 1px solid red;
+.divGenres{
     display: flex;
-    justify-content: center;
-} */
+    justify-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 .genres{ 
     display: grid;
-    align-content: center;
-    justify-content: center;
     justify-items: center;
+    align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
     padding-left: 0%;
     padding-right: 0%;

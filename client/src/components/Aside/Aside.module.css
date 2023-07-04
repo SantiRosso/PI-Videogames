@@ -44,13 +44,3 @@
         box-shadow: 0px 0px 4px 2px #c49216;
     }
 }
-
-@media (max-width: 800px) {
-    .containter{
-        
-    }
-
-    .container2{
-        display: none;
-    }
-}
