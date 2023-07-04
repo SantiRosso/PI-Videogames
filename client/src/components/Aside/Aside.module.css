@@ -1,44 +1,56 @@
-.containter{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-evenly;
-    /* background-image: linear-gradient(to right bottom, #000000, #161515, #242322, #333230, #42413f, #42413f, #42413f, #42413f, #333230, #242322, #161515, #000000); */
-    background-image: radial-gradient(circle, #454545, #3b3b3b, #313131, #272727, #1e1e1e);
-    box-shadow: 0px 0px 4px 2px #c49216;
-    height: 91%;
-    width: 20%;
-    position: fixed;
-    bottom: 0%;
-    right: 0;
-    border-radius: 2%;
-    margin-right: 10px;
+@media (max-width: 1920px) {
+    .containter{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-evenly;
+        /* background-image: linear-gradient(to right bottom, #000000, #161515, #242322, #333230, #42413f, #42413f, #42413f, #42413f, #333230, #242322, #161515, #000000); */
+        background-image: radial-gradient(circle, #454545, #3b3b3b, #313131, #272727, #1e1e1e);
+        box-shadow: 0px 0px 4px 2px #c49216;
+        height: 91%;
+        width: 20%;
+        position: fixed;
+        bottom: 0%;
+        right: 0;
+        border-radius: 2%;
+        margin-right: 10px;
+    }
+
+    .divLink{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link{ 
+        background-color: #1E1E1E;
+        /* font-family: 'Silkscreen', cursive; */
+        font-family: 'Alegreya Sans SC', sans-serif;
+        color: #dcdcdc;
+        height: 4vh;
+        width: 100%;
+        font-size: smaller;
+        border-radius: 20%;
+        border: none;
+        transition: background-color .5s;
+        margin: 2%;
+    }
+
+    .link:hover{ 
+        color:#1E1E1E;
+        background-color: #dcdcdc;
+        cursor: pointer;
+        box-shadow: 0px 0px 4px 2px #c49216;
+    }
 }
 
-.divLink{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+@media (max-width: 800px) {
+    .containter{
+        
+    }
 
-.link{ 
-    background-color: #1E1E1E;
-    /* font-family: 'Silkscreen', cursive; */
-    font-family: 'Alegreya Sans SC', sans-serif;
-    color: #dcdcdc;
-    height: 4vh;
-    width: 100%;
-    font-size: smaller;
-    border-radius: 20%;
-    border: none;
-    transition: background-color .5s;
-    margin: 2%;
-}
-
-.link:hover{ 
-    color:#1E1E1E;
-    background-color: #dcdcdc;
-    cursor: pointer;
-    box-shadow: 0px 0px 4px 2px #c49216;
+    .container2{
+        display: none;
+    }
 }

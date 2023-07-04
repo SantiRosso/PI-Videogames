@@ -31,3 +31,33 @@
     box-shadow: 0px 0px 4px 2px #c49216;
     cursor: pointer;
 }
+
+@media (max-width: 1760px) {
+    .genre{
+        font-size: small;
+    }
+
+    .genreA{
+        font-size: medium;
+    }
+}
+
+@media (max-width: 1440px) {
+    .genre{
+        font-size: x-small;
+    }
+
+    .genreA{
+        font-size: small;
+    }
+}
+
+@media (max-width: 1024px) {
+    .genre{
+        font-size: xx-small;
+    }
+
+    .genreA{
+        font-size: x-small;
+    }
+}
