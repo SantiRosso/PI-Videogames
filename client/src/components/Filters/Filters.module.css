@@ -73,6 +73,7 @@
 .orderDiv{ 
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .select{ 
@@ -87,7 +88,8 @@
     border-radius: 20%;
     transition: background-color .5s;
     transition: box-shadow .5s;
-    margin-right: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .select:hover{ 
@@ -125,3 +127,12 @@
     cursor: pointer;
 }
 
+@media (max-width: 800px) {
+    .apidb{ 
+        font-size: xx-small;
+    }
+
+    .select{
+        font-size: xx-small;
+    }
+}

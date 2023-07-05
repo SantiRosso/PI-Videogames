@@ -27,6 +27,8 @@
     }
 }
 
-@media (max-width: 800) {
-
+@media (max-width: 1920px) {
+    .containerGrid{
+        margin-top: 6vh;
+    }
 }

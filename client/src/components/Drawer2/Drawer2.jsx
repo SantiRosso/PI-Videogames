@@ -8,7 +8,7 @@ import Footer from "../Footer/Footer";
 
 const Drawer2 = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort, handleReset, input, page, max}) => {
 
-    const [drawer, setDrawer] = useState(true)
+    const [drawer, setDrawer] = useState(false)
 
     const handleClickDrawer = () => {
         setDrawer(!drawer)

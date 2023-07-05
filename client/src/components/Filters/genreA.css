@@ -11,6 +11,10 @@
     font: bold;
 }
 
+.genreA:last-child {
+    grid-column: 2 / span 1; /* Centrar el último elemento en la última fila */
+  }
+
 .genre{
     background-color: #dcdcdc;
     /* font-family: 'Silkscreen', cursive; */
@@ -24,6 +28,10 @@
     transition: background-color .5s;
     transition: box-shadow .5s;
 }
+
+.genre:last-child {
+    grid-column: 2 / span 1; /* Centrar el último elemento en la última fila */
+  }
 
 .genre:hover{
     color:#dcdcdc;

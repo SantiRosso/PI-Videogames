@@ -82,4 +82,8 @@
     .container{
         width: 60vw; 
     }
+
+    .img{
+        width: 95%;
+    }
 }
