@@ -9,15 +9,15 @@ const Filters = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort
     const genres = useSelector((state) => state.genres)
     const dispatch = useDispatch();
     //filtros combinados
-    const [filters, setFilters] = useState({
+    let [filters, setFilters] = useState({
         genre: "",
         apiODb: ""
     })
     
     useEffect(() => {
-        if(!genres.length)
-        dispatch(getGenres())
-        dispatch(getFilters(filters))
+        if(!genres.length){
+            dispatch(getGenres())
+        }
     },[dispatch, genres, filters])
 
 
@@ -31,10 +31,11 @@ const Filters = ({setPage, genreA, setGenreA, setInput, handleRating, handleSort
     }
 
     function handleClick(e) {
-        setFilters({
+        setFilters(filters = {
             ...filters,
             genre: e.target.value
         })
+        dispatch(getFilters(filters))
         setGenreA(e.target.value)
         setInput(1)
         setPage(1)
