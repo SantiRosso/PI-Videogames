@@ -21,7 +21,6 @@ const Details = () => {
             {
                 detail ?
                 <div>
-                    <h1 className={s.title}>Details</h1>
                     <h2>{detail.name}</h2>
                     <div className={s.grid}>
                         <img src={detail.img} alt={detail.name} className={s.img}/>                           
