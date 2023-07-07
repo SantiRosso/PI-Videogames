@@ -23,7 +23,7 @@ const Error = ({setGenreA}) => {
             </Link>
             </div>
             <div className={s.error}>
-                <img src={img} alt="error 404 not found"/>
+                <img className={s.image} src={img} alt="error 404 not found"/>
             </div>
         </div>
     )

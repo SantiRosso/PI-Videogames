@@ -30,8 +30,8 @@ const Card = ({ name, img, genres, id, game }) => {
                 <div> 
                 {   
                     genres.length > 3 ? 
-                    genres?.slice(0,3).map((e) => (<div className={s.genres}><span key={e+id}>{e}</span></div>)) 
-                    : genres?.map((e) => (<div className={s.genres}><span key={e+id}>{e}</span></div>))
+                    genres?.slice(0,3).map((e) => (<div key={e+id} className={s.genres}><span>{e}</span></div>)) 
+                    : genres?.map((e) => (<div key={e+id} className={s.genres}><span>{e}</span></div>))
                 } 
                 </div>    
             </Link>
